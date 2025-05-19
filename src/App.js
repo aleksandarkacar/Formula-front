@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route, NavLink } from 'react-router';
 import Drivers from './components/pages/Drivers';
 import Teams from './components/pages/Teams';
 import Races from './components/pages/Races';
+import TeamDetails from './components/pages/TeamDetails';
 
 export default function App() {
   return (
@@ -27,6 +28,7 @@ export default function App() {
         <Route path='/' element={<Drivers />}/>
         <Route path='/teams' element={<Teams />}/>
         <Route path='/races' element={<Races />}/>
+        <Route path='/teams/:id' element={<TeamDetails />}/>
       </Routes>
       </div>
     </Router>

@@ -8,6 +8,7 @@ export default function Teams() {
     <h1>Teams page</h1>
     const [teams, setTeams] = useState({});
     const [loader, setLoader] = useState(true);
+    use
 
     useEffect(() => {
         getTeams()
@@ -16,6 +17,7 @@ export default function Teams() {
     const getTeams = async () => {
         console.log()
         const url = "http://ergast.com/api/f1/2013/constructorStandings.json"
+        // 'http://ergast.com/api/f1/2013/constructors/' + id + '/constructorStandings.json' 
         const response = await axios.get(url);
         console.log(response.data);
         setTeams(response.data.MRData.StandingsTable.StandingsLists[0].ConstructorStandings);
@@ -40,7 +42,7 @@ export default function Teams() {
 
                             <tr key={i}>
                                 <td>{team.positionText}</td>
-                                <td>{team.Constructor.constructorId}</td>
+                                <td><Link to={team.Constructor.constructorId}>{team.Constructor.constructorId}</Link></td>
                                 <td><Link to={team.Constructor.url}>Details</Link></td>
                                 <td>{team.points}</td>
                             </tr>
