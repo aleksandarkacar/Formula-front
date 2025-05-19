@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route, NavLink } from 'react-router';
 import Drivers from './components/pages/Drivers';
+import DriverDetails from './components/pages/DriverDetails';
 import Teams from './components/pages/Teams';
 import Races from './components/pages/Races';
 
@@ -25,6 +26,7 @@ export default function App() {
       <div style={{backgroundColor: '#ccc'}}>
       <Routes>
         <Route path='/' element={<Drivers />}/>
+        <Route path='/:id' element={<DriverDetails />}/>
         <Route path='/teams' element={<Teams />}/>
         <Route path='/races' element={<Races />}/>
       </Routes>
