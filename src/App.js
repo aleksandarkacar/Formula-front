@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Routes, Route, NavLink } from 'react-router';
+import Drivers from './components/pages/Drivers';
+import Teams from './components/pages/Teams';
+import Races from './components/pages/Races';
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+    <Router>
+      {/* Navigacija */}
+      <nav className='top-navigation'>
+        <ul>
+          <li>
+            <NavLink to='/'>Drivers</NavLink>
+          </li>
+          <li>
+            <NavLink to='/teams'>Teams</NavLink>
+          </li>
+          <li>
+            <NavLink to='/races'>Races</NavLink>
+          </li>
+        </ul>
+      </nav>
 
-export default App;
+      {/* Rute */}
+      <div style={{backgroundColor: '#ccc'}}>
+      <Routes>
+        <Route path='/' element={<Drivers />}/>
+        <Route path='/teams' element={<Teams />}/>
+        <Route path='/races' element={<Races />}/>
+      </Routes>
+      </div>
+    </Router>
+  )
+}
