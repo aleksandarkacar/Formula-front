@@ -8,7 +8,6 @@ export default function Teams() {
     <h1>Teams page</h1>
     const [teams, setTeams] = useState({});
     const [loader, setLoader] = useState(true);
-    use
 
     useEffect(() => {
         getTeams()
