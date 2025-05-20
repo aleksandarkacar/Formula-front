@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Loader from "../Loader"
+import { Link } from "react-router";
 
 export default function Drivers() {
     const [drivers, setDrivers] = useState([]);
@@ -33,7 +34,7 @@ export default function Drivers() {
                         return (
                             <tr key={driver.Driver.driverId}>
                                 <td>{driver.position}</td>
-                                <td>{driver.Driver.givenName} {driver.Driver.familyName}</td>
+                                <td><Link to={driver.Driver.familyName}>{driver.Driver.givenName} {driver.Driver.familyName}</Link></td>
                                 <td>{driver.Constructors[0].name}</td>
                                 <td>{driver.points}</td>
                             </tr>
