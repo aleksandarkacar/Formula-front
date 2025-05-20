@@ -90,11 +90,10 @@ export default function RaceDetails(){
                             <td>
                             <Link to={"/"+qualif.Driver.driverId}>{qualif.Driver.familyName}</Link>
                             </td>
-                            <td>{qualif.Constructor.name}</td>
+                            <td><Link to={"/teams/"+qualif.Constructor.constructorId}>{qualif.Constructor.name}</Link></td>
                             <td>{fastestTime}</td>
                            
                         </tr>
-
 
                         )
 })}
