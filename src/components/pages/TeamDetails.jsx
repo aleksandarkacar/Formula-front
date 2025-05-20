@@ -50,13 +50,17 @@ export default function TeamDetails() {
                 <h3>Formula 1 2013 Results</h3>
             </div>
             <table>
-                <tbody>
-                    <tr>
+                <thead>
+              <tr>
                         <th>Country: </th>
                         <th>Position: </th>
                         <th>Points: </th>
                         <th>History: </th>
-                    </tr>
+              </tr>
+                    
+                </thead>
+                <tbody>
+                   
 
                     <tr>
                         <td>{teamDetails.Constructor.nationality}</td>
@@ -69,37 +73,39 @@ export default function TeamDetails() {
 
             <table>
                 <thead>
-                    <th>Round</th>
-                    <th>Grand Prix</th>
+                    <tr>
+                        <th>Round</th>
+                        <th>Grand Prix</th>
 
-                    {result[0].Results.map((res) => {
-                        return(
-                            <th>
-                                {res.Driver.familyName}
-                            </th>
-                        )
-                    })}
+                        {result[0].Results.map((res, i) => {
+                            return(
+                                <th key={i}>
+                                    {res.Driver.familyName}
+                                </th>
+                            )
+                        })}
 
-                    <th>Points</th>
+                        <th>Points</th>
+                    </tr>
                 </thead>
 
                 <tbody>
-                        {result.map((res) => {
+                        {result.map((res, i) => {
                             let points = 0;
                             console.log("res",res);
 
                             return(
-                                <tr>
+                                <tr key={i}>
                             <td>{res.round}</td>
                             <td>{res.raceName}</td>
 
                             
                             
-                            {res.Results.map((data) => {
+                            {res.Results.map((data, i) => {
                                 console.log("data",data)
                                 points += Number(data.points)
                                 return(
-                                    <td>{data.position}</td>
+                                    <td key={i}>{data.position}</td>
                                 )
                             })}
 
