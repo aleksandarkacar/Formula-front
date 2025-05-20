@@ -36,7 +36,7 @@ export default function DriverDetails() {
             setIsLoading2(false);
     }
 
-    if (isLoading && isLoading2) {
+    if (isLoading || isLoading2) {
         return <Loader />
     }
     
@@ -49,17 +49,39 @@ export default function DriverDetails() {
                                 <p>{driverDetails.Driver.givenName} {driverDetails.Driver.familyName}</p>
                                 <p>Country: {driverDetails.Driver.nationality}</p>
                                 <p>Team: {driverDetails.Constructors[0].name}</p>
-                                <p>Biography: <Link to={driverDetails.Driver.url}></Link></p>
+                                <p>Biography: <Link to={driverDetails.Driver.url}>About Driver</Link></p>
                             </div>
         </div>
 
-        <span>Formula 1 2013 Results</span>
+        <h4>Formula 1 2013 Results</h4>
         <div className="driver-results">
             <table>
                 <tbody className="a">
                 </tbody>
             </table>
         </div>
+
+        <div>
+            <table>
+                <thead>
+                    <th>Round</th>
+                    <th>Grand Prix</th>
+                    <th>Team</th>
+                    <th>Grid</th>
+                    <th>Race</th>
+                </thead>
+
+                <tbody>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tbody> 
+
+            </table>
+        </div>
+
         </div>
         
     )
