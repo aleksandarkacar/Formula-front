@@ -7,24 +7,36 @@ import { Link } from "react-router";
 export default function DriverDetails() {
     const [driverDetails, setDriverDetails] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
+    const [isLoading2, setIsLoading2] = useState(true);
+    const [result, setResult] = useState({});
     const driver = useParams();
     console.log(driver.id);
 
 
     useEffect(() => {
         getDriverDetails();
+        getResults();
     }, []);
 
-    const getDriverDetails = async () => {
-        const url = "http://ergast.com/api/f1/2013/drivers/"+driver.id+"/results.json"
+    const getResults = async () => {
+        const url = 'http://ergast.com/api/f1/2013/drivers/'+ driver.id +'/results.json'
         const response = await axios.get(url);
-        const data = response.data.MRData.RaceTable.Races;
-        console.log(response.data.MRData.RaceTable.Races);
-        setDriverDetails(data);
+        // console.log("results response",response);
+        setResult(response.data.MRData);
         setIsLoading(false);
     }
 
-    if (isLoading) {
+    const getDriverDetails = async () => {
+
+            const url = "http://ergast.com/api/f1/2013/drivers/"+ driver.id +"/driverStandings.json"
+            const response = await axios.get(url);
+            const data = response.data.MRData.StandingsTable.StandingsLists[0].DriverStandings[0];
+            console.log('driverDetails',response.data.MRData.StandingsTable.StandingsLists[0].DriverStandings[0]);
+            setDriverDetails(data);
+            setIsLoading2(false);
+    }
+
+    if (isLoading && isLoading2) {
         return <Loader />
     }
     
@@ -32,31 +44,19 @@ export default function DriverDetails() {
          
         <div className="">
         <div className="driver-card">
-            {/* <img alt="drivers-photo"/>
-            {driverDetails.map((driver, i) => {
-                        return (
-                            <div key={driver.Driver.driverId}>
-                                <p>{driver.Driver.givenName} {driver.Driver.familyName}</p>
-                                <p>Country: {driver.Driver.nationality}</p>
-                                <p>Team: {driver.Constructors[0].name}</p>
-                                <p>Biography: <Link to={driver.Driver.url}></Link></p>
+            <img alt="drivers-photo"/>
+                            <div key={driverDetails.Driver.driverId}>
+                                <p>{driverDetails.Driver.givenName} {driverDetails.Driver.familyName}</p>
+                                <p>Country: {driverDetails.Driver.nationality}</p>
+                                <p>Team: {driverDetails.Constructors[0].name}</p>
+                                <p>Biography: <Link to={driverDetails.Driver.url}></Link></p>
                             </div>
-                        )
-                    })} */}
         </div>
 
         <span>Formula 1 2013 Results</span>
         <div className="driver-results">
             <table>
                 <tbody className="a">
-                    {driverDetails.map((driver, i) => {
-                        return (
-                            <tr key={i}>
-                                <td>{driver.round}</td>
-                                <td>{driver.raceName}</td>
-                            </tr>
-                        )
-                    })}
                 </tbody>
             </table>
         </div>
