@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Loader from "../Loader";
 import axios from "axios";
+import { Link } from "react-router";
 
 
 
@@ -18,6 +19,7 @@ export default function Races() {
         const url = "http://ergast.com/api/f1/2013/results/1.json";
         const response = await axios.get(url);
         console.log(response.data.MRData.RaceTable.Races);
+
         setRaces(response.data.MRData.RaceTable.Races);
         setIsLoading(false);
     };
@@ -48,10 +50,11 @@ export default function Races() {
                     return (
                         <tr key={i}>
                             <td>{race.round}</td>
-                            <td>{race.RaceName}</td>
-                            <td>{race.Circuit.circuitName}</td>
+                            <td><Link to={"/races/"+race.round}>{race.raceName}</Link></td>
+                            <td> {race.Circuit.circuitName}</td>
                             <td>{race.date}</td>
-                            <td>{race.Results[0].Driver.nationality} {race.Results[0].Driver.familyName}</td>
+                            <td>{race.Results[0].Driver.nationality}</td>
+                            <Link to={"/"+race.Results[0].Driver.driverId}>{race.Results[0].Driver.familyName}</Link>
                         </tr>
                     );
                 })}

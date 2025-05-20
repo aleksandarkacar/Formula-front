@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import Loader from "../Loader";
 import axios from "axios";
-import { useParams } from "react-router";
+import { isRouteErrorResponse, useParams } from "react-router";
+import { Link } from "react-router";
 
 export default function RaceDetails(){
     const [qualifs, setQualifs] = useState({});
+    const [raceResults, setRaceResaults] = useState({});
     const [isLoading, setIsLoading] = useState(true);
     const [isLoading2, setIsLoading2] = useState(true);
     const params = useParams();
@@ -17,11 +19,15 @@ export default function RaceDetails(){
         getRaceResults();
     }, []);
 
+    const getGPDetails = async () => {
+        const url = ""
+    }
 
     const getQualifs = async () => {
 
         const url = "http://ergast.com/api/f1/2013/" + params.id + "/qualifying.json"
         const response = await axios.get(url);
+                // console.log(response.data)
 
         console.log(response.data.MRData.RaceTable.Races[0].QualifyingResults);
         setQualifs(response.data.MRData.RaceTable.Races[0].QualifyingResults);
@@ -30,8 +36,11 @@ export default function RaceDetails(){
 
     const getRaceResults = async () => {
        const url = "http://ergast.com/api/f1/2013/" + params.id + "/results.json"
+       const response = await axios.get(url);
 
-        setIsLoading2(false);
+       console.log("getRaceResults",response.data.MRData.RaceTable.Races[0]);
+       setRaceResaults(response.data.MRData.RaceTable.Races[0]);
+       setIsLoading2(false);
     }
 
     if (isLoading || isLoading2) {
@@ -41,7 +50,16 @@ export default function RaceDetails(){
     return (
         <div>
 
-            <h1>Qualifying resaults</h1>
+            <div>
+                <h2>Race Results</h2>
+                <h3>Country: {raceResults.raceName}</h3>
+                <h3>Location: {raceResults.Circuit.Location.country}</h3>
+                <h3>Date: {raceResults.date}</h3>
+                <h3><Link target="_blank" to={raceResults.url}>Full Report</Link>
+                </h3>
+            </div>
+
+            <h1>Qualifying result</h1>
 
             <table >
                 <thead>
@@ -68,7 +86,10 @@ export default function RaceDetails(){
                         return(
                         <tr key={i}>
                             <td>{qualif.position}</td>
-                            <td>{qualif.Driver.nationality} {qualif.Driver.familyName}</td>
+                            <td>{qualif.Driver.nationality} </td>
+                            <td>
+                            <Link to={"/"+qualif.Driver.driverId}>{qualif.Driver.familyName}</Link>
+                            </td>
                             <td>{qualif.Constructor.name}</td>
                             <td>{fastestTime}</td>
                            
