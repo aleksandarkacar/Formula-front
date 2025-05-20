@@ -42,7 +42,7 @@ export default function Teams() {
                             <tr key={i}>
                                 <td>{team.positionText}</td>
                                 <td><Link to={team.Constructor.constructorId}>{team.Constructor.constructorId}</Link></td>
-                                <td><Link to={team.Constructor.url}>Details</Link></td>
+                                <td><Link target="_blank" to={team.Constructor.url}>Details</Link></td>
                                 <td>{team.points}</td>
                             </tr>
 
