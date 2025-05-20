@@ -3,6 +3,7 @@ import axios from "axios";
 import Loader from "../Loader"
 import { data, useParams } from "react-router";
 import { Link } from "react-router";
+import Nat2Flag from "../Nat2Flag"
 
 export default function DriverDetails() {
     const [driverDetails, setDriverDetails] = useState([]);
@@ -28,7 +29,7 @@ export default function DriverDetails() {
     }
 
     const getDriverDetails = async () => {
-        try {       
+        try {
             const url = "http://ergast.com/api/f1/2013/drivers/" + driver.id + "/driverStandings.json"
             const response = await axios.get(url);
             const data = response.data.MRData.StandingsTable.StandingsLists[0].DriverStandings[0];
@@ -36,7 +37,7 @@ export default function DriverDetails() {
             setDriverDetails(data);
             setIsLoading2(false);
         } catch (error) {
-            
+
         }
     }
 
@@ -55,7 +56,7 @@ export default function DriverDetails() {
                 <img alt="drivers-photo" />
                 <div key={driverDetails.Driver.driverId}>
                     <p>{driverDetails.Driver.givenName} {driverDetails.Driver.familyName}</p>
-                    <p>Country: {driverDetails.Driver.nationality}</p>
+                    <p>Country: <Nat2Flag nat={driverDetails.Driver.nationality} /></p>
                     <p>Team: {driverDetails.Constructors[0].name}</p>
                     <p>Biography: <Link target="_blank" to={driverDetails.Driver.url}>About Driver</Link></p>
                 </div>
