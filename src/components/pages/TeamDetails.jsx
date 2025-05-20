@@ -3,6 +3,7 @@ import { useParams } from "react-router";
 import Loader from "../Loader";
 import axios from "axios";
 import { Link } from "react-router";
+import Nat2Flag from "../Nat2Flag";
 
 export default function TeamDetails() {
 
@@ -11,37 +12,33 @@ export default function TeamDetails() {
 
     const [teamDetails, setTeamDetails] = useState({});
     const [loader, setLoader] = useState(true);
-    const [loader2, setLoader2] = useState(true);
     const [result, setResult] = useState({});
     // console.log(params, 'params');
 
     useEffect(() => {
-        getTeamDetails();
+    
         getResult();
     }, []);
 
     const getResult = async () => {
-        const url = "http://ergast.com/api/f1/2013/constructors/" + params.id + " /results.json";
+        const url = 'http://ergast.com/api/f1/2013/constructors/' + params.id + '/constructorStandings.json'
+        const url2 = "http://ergast.com/api/f1/2013/constructors/" + params.id + " /results.json";
+
         const response = await axios.get(url);
-        console.log("getResults",response.data.MRData.RaceTable.Races);
-        setResult(response.data.MRData.RaceTable.Races);
+        const response2 = await axios.get(url2);
+
+        console.log("getTeamDetails", response.data);
+        console.log("getResults", response2.data.MRData.RaceTable.Races);
+
+        setTeamDetails(response.data.MRData.StandingsTable.StandingsLists[0].ConstructorStandings[0]);
+        setResult(response2.data.MRData.RaceTable.Races);
         setLoader(false);
     }
 
-    const getTeamDetails = async () => {
-        const url = 'http://ergast.com/api/f1/2013/constructors/' + params.id + '/constructorStandings.json'
-        const response = await axios.get(url);
-        console.log("getTeamDetails",response.data);
-        setTeamDetails(response.data.MRData.StandingsTable.StandingsLists[0].ConstructorStandings[0]);
-        setLoader2(false);
-    }
-
-
-    if (loader || loader2) {
+    
+    if (loader) {
         return <Loader />
     };
-
-
 
 
     return (
@@ -51,19 +48,19 @@ export default function TeamDetails() {
             </div>
             <table>
                 <thead>
-              <tr>
+                    <tr>
                         <th>Country: </th>
                         <th>Position: </th>
                         <th>Points: </th>
                         <th>History: </th>
-              </tr>
-                    
+                    </tr>
+
                 </thead>
                 <tbody>
-                   
+
 
                     <tr>
-                        <td>{teamDetails.Constructor.nationality}</td>
+                        <td><Nat2Flag nat={teamDetails.Constructor.nationality} /></td>
                         <td>{teamDetails.position}</td>
                         <td>{teamDetails.points}</td>
                         <td><Link to={teamDetails.history}>History: </Link></td>
@@ -78,7 +75,7 @@ export default function TeamDetails() {
                         <th>Grand Prix</th>
 
                         {result[0].Results.map((res, i) => {
-                            return(
+                            return (
                                 <th key={i}>
                                     {res.Driver.familyName}
                                 </th>
@@ -90,29 +87,29 @@ export default function TeamDetails() {
                 </thead>
 
                 <tbody>
-                        {result.map((res, i) => {
-                            let points = 0;
-                            console.log("res",res);
+                    {result.map((res, i) => {
+                        let points = 0;
+                        console.log("res", res);
 
-                            return(
-                                <tr key={i}>
-                            <td>{res.round}</td>
-                            <td>{res.raceName}</td>
+                        return (
+                            <tr key={i}>
+                                <td>{res.round}</td>
+                                <td>{res.raceName}</td>
 
-                            
-                            
-                            {res.Results.map((data, i) => {
-                                console.log("data",data)
-                                points += Number(data.points)
-                                return(
-                                    <td key={i}>{data.position}</td>
-                                )
-                            })}
 
-                            <td>{points}</td>
-                    </tr>
-                            )
-                        })}
+
+                                {res.Results.map((data, i) => {
+                                    console.log("data", data)
+                                    points += Number(data.points)
+                                    return (
+                                        <td key={i}>{data.position}</td>
+                                    )
+                                })}
+
+                                <td>{points}</td>
+                            </tr>
+                        )
+                    })}
                 </tbody>
 
             </table>
