@@ -86,8 +86,8 @@ export default function DriverDetails() {
                             return (
                                 <tr>
                                     <td>{race.round}</td>
-                                    <td>{race.raceName}</td>
-                                    <td><Link to={"/teams/" + race.Results[0].Constructor.constructorId}>{race.Results[0].Constructor.name}</Link></td>
+                                    <td><Link to={"/races/" + race.round}>{race.raceName}</Link></td>
+                                    <td><Link to={"/races/" + race.Results[0].Constructor.constructorId}></Link>{race.Results[0].Constructor.name}</td>
                                     <td>{race.Results[0].grid}</td>
                                     <td>{race.Results[0].position}</td>
                                 </tr>
