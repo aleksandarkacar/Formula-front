@@ -8,7 +8,6 @@ export default function DriverDetails() {
     const [driverDetails, setDriverDetails] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [isLoading2, setIsLoading2] = useState(true);
-    const [result, setResult] = useState({});
     const [dataRaces, setDataRaces] = useState({});
     const driver = useParams();
     console.log(driver.id);
@@ -16,18 +15,9 @@ export default function DriverDetails() {
 
     useEffect(() => {
         getDriverDetails();
-        getResults();
         getDataRaces();
     }, []);
 
-    const getResults = async () => {
-        const url = 'http://ergast.com/api/f1/2013/drivers/' + driver.id + '/results.json'
-        const response = await axios.get(url);
-        // console.log("results response",response);
-        setResult(response.data.MRData);
-        setIsLoading(false);
-
-    }
     const getDataRaces = async () => {
         const url = "http://ergast.com/api/f1/2013/drivers/" + driver.id + "/results.json"
         const response = await axios.get(url);
@@ -38,16 +28,23 @@ export default function DriverDetails() {
     }
 
     const getDriverDetails = async () => {
-
-        const url = "http://ergast.com/api/f1/2013/drivers/" + driver.id + "/driverStandings.json"
-        const response = await axios.get(url);
-        const data = response.data.MRData.StandingsTable.StandingsLists[0].DriverStandings[0];
-        console.log('driverDetails', response.data.MRData.StandingsTable.StandingsLists[0].DriverStandings[0]);
-        setDriverDetails(data);
-        setIsLoading2(false);
+        try {       
+            const url = "http://ergast.com/api/f1/2013/drivers/" + driver.id + "/driverStandings.json"
+            const response = await axios.get(url);
+            const data = response.data.MRData.StandingsTable.StandingsLists[0].DriverStandings[0];
+            console.log('driverDetails', response.data.MRData.StandingsTable.StandingsLists[0].DriverStandings[0]);
+            setDriverDetails(data);
+            setIsLoading2(false);
+        } catch (error) {
+            
+        }
     }
 
-    if (isLoading || isLoading2) {
+    if (isLoading) {
+        return <Loader />
+    }
+
+    if (isLoading2) {
         return <Loader />
     }
 

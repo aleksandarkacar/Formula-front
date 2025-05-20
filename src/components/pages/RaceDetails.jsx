@@ -43,7 +43,7 @@ export default function RaceDetails(){
        setIsLoading2(false);
     }
 
-    if (isLoading || isLoading2) {
+    if (isLoading && isLoading2) {
         return <Loader />
     };
 
