@@ -1,7 +1,8 @@
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import Loader from "../Loader";
 import axios from "axios";
+import { Link } from "react-router";
 
 export default function TeamDetails() {
 
@@ -10,42 +11,106 @@ export default function TeamDetails() {
 
     const [teamDetails, setTeamDetails] = useState({});
     const [loader, setLoader] = useState(true);
-    console.log(params, 'params');
+    const [loader2, setLoader2] = useState(true);
+    const [result, setResult] = useState({});
+    // console.log(params, 'params');
 
     useEffect(() => {
-        getTeamDetails()
+        getTeamDetails();
+        getResult();
     }, []);
 
-    const getTeamDetails = async () => {
-        const url = 'http://ergast.com/api/f1/2013/constructors/id/constructorStandings.json'
+    const getResult = async () => {
+        const url = "http://ergast.com/api/f1/2013/constructors/" + params.id + " /results.json";
         const response = await axios.get(url);
-        console.log(response.data);
-        setTeamDetails(response.data.MRData.StandingsTable.StandingsLists[0].ConstructorStandings);
+        console.log("getResults",response.data.MRData.RaceTable.Races);
+        setResult(response.data.MRData.RaceTable.Races);
         setLoader(false);
     }
 
+    const getTeamDetails = async () => {
+        const url = 'http://ergast.com/api/f1/2013/constructors/' + params.id + '/constructorStandings.json'
+        const response = await axios.get(url);
+        console.log("getTeamDetails",response.data);
+        setTeamDetails(response.data.MRData.StandingsTable.StandingsLists[0].ConstructorStandings[0]);
+        setLoader2(false);
+    }
 
-    if (loader) {
+
+    if (loader || loader2) {
         return <Loader />
     };
 
+
+
+
     return (
         <div>
-        <div>
-            <h3>Formula 1 2013 Results</h3>
-        </div>
-        <table>
-            <tbody>
-                {teamDetails.map((detail, i)=>{
-                    return(
-                        <tr>
-                            <td>{detail.StandingsTable.StandingsLists[0].ConstructorStandings[0].Constructor.nationality}</td>
-                        </tr>
+            <div>
+                <h3>Formula 1 2013 Results</h3>
+            </div>
+            <table>
+                <tbody>
+                    <tr>
+                        <th>Country: </th>
+                        <th>Position: </th>
+                        <th>Points: </th>
+                        <th>History: </th>
+                    </tr>
 
-                    )
-                })}
-            </tbody>
-        </table>
+                    <tr>
+                        <td>{teamDetails.Constructor.nationality}</td>
+                        <td>{teamDetails.position}</td>
+                        <td>{teamDetails.points}</td>
+                        <td><Link to={teamDetails.history}>History: </Link></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <table>
+                <thead>
+                    <th>Round</th>
+                    <th>Grand Prix</th>
+
+                    {result[0].Results.map((res) => {
+                        return(
+                            <th>
+                                {res.Driver.familyName}
+                            </th>
+                        )
+                    })}
+
+                    <th>Points</th>
+                </thead>
+
+                <tbody>
+                        {result.map((res) => {
+                            let points = 0;
+                            console.log("res",res);
+
+                            return(
+                                <tr>
+                            <td>{res.round}</td>
+                            <td>{res.raceName}</td>
+
+                            
+                            
+                            {res.Results.map((data) => {
+                                console.log("data",data)
+                                points += Number(data.points)
+                                return(
+                                    <td>{data.position}</td>
+                                )
+                            })}
+
+                            <td>{points}</td>
+                    </tr>
+                            )
+                        })}
+                </tbody>
+
+            </table>
+
         </div>
     )
 
