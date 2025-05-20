@@ -6,7 +6,7 @@ import { Link } from "react-router";
 
 export default function RaceDetails(){
     const [qualifs, setQualifs] = useState({});
-    const [raceResults, setRaceResaults] = useState({});
+    const [raceResults, setRaceResults] = useState({});
     const [isLoading, setIsLoading] = useState(true);
     const [isLoading2, setIsLoading2] = useState(true);
     const params = useParams();
@@ -19,31 +19,32 @@ export default function RaceDetails(){
         getRaceResults();
     }, []);
 
-    const getGPDetails = async () => {
-        const url = ""
-    }
+    // const getGPDetails = async () => {
+    //     const url = ""
+    // }
 
     const getQualifs = async () => {
 
         const url = "http://ergast.com/api/f1/2013/" + params.id + "/qualifying.json"
+        const url2 = "http://ergast.com/api/f1/2013/" + params.id + "/results.json"
+        
         const response = await axios.get(url);
-                // console.log(response.data)
+        const response2 = await axios.get(url2);
 
         console.log(response.data.MRData.RaceTable.Races[0].QualifyingResults);
         setQualifs(response.data.MRData.RaceTable.Races[0].QualifyingResults);
+
+        
+        console.log("getRaceResults",response2.data.MRData.RaceTable.Races[0]);
+        setRaceResults(response2.data.MRData.RaceTable.Races[0]);
+
         setIsLoading(false);
     };
 
     const getRaceResults = async () => {
-       const url = "http://ergast.com/api/f1/2013/" + params.id + "/results.json"
-       const response = await axios.get(url);
-
-       console.log("getRaceResults",response.data.MRData.RaceTable.Races[0]);
-       setRaceResaults(response.data.MRData.RaceTable.Races[0]);
-       setIsLoading2(false);
     }
 
-    if (isLoading && isLoading2) {
+    if (isLoading) {
         return <Loader />
     };
 
