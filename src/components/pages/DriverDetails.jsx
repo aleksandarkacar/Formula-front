@@ -60,7 +60,7 @@ export default function DriverDetails() {
                     <p>{driverDetails.Driver.givenName} {driverDetails.Driver.familyName}</p>
                     <p>Country: {driverDetails.Driver.nationality}</p>
                     <p>Team: {driverDetails.Constructors[0].name}</p>
-                    <p>Biography: <Link to={driverDetails.Driver.url}>About Driver</Link></p>
+                    <p>Biography: <Link target="_blank" to={driverDetails.Driver.url}>About Driver</Link></p>
                 </div>
             </div>
 
