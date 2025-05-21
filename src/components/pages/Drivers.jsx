@@ -36,9 +36,8 @@ export default function Drivers({}) {
                         return (
                             <tr key={driver.Driver.driverId}>
                                 <td>{driver.position}</td>
-                                <td>{driver.Driver.nationality}</td>
-                                <td><Nat2Flag flags={} nat={driver.Driver.nationality}/><Link to={driver.Driver.driverId}>{driver.Driver.givenName} {driver.Driver.familyName}</Link></td>
-                                <td><Flag country={getAlpha2ByNationality(flags,driver.Driver.nationality )}/><Link to={driver.Driver.driverId}>{driver.Driver.givenName} {driver.Driver.familyName}</Link></td>
+                                {/* <td>{driver.Driver.nationality}</td> */}
+                                <td><Nat2Flag nat={driver.Driver.nationality} /><Link to={driver.Driver.driverId}>{driver.Driver.givenName} {driver.Driver.familyName}</Link></td>
                                 <td>{driver.Constructors[0].name}</td>
                                 <td>{driver.points}</td>
                             </tr>
