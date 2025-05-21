@@ -2,6 +2,8 @@ import Flag from "react-flagkit"
 
 export default function Nat2Flag({ nat, coun }) {
 
+    //https://raw.githubusercontent.com/Imagin-io/country-nationality-list/refs/heads/master/countries.json
+
     const countries = [
         {
             "num_code": "4",
