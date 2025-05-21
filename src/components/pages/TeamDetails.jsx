@@ -37,6 +37,7 @@ export default function TeamDetails({countryList}) {
         setTeamDetails(response.data.MRData.StandingsTable.StandingsLists[0].ConstructorStandings[0]);
         setResult(response2.data.MRData.RaceTable.Races);
         setLoader(false);
+
     }
 
 
@@ -72,7 +73,7 @@ export default function TeamDetails({countryList}) {
                         <td>{teamDetails.Constructor.nationality}</td>
                         <td>{teamDetails.position}</td>
                         <td>{teamDetails.points}</td>
-                        <td><Link to='/teams'>History: </Link></td> 
+                        <td><Link to={teamDetails.Constructor.url} target="_blank">History: </Link></td> 
                     </tr>
                 </tbody>
             </table>
