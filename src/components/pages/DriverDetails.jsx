@@ -3,10 +3,10 @@ import axios from "axios";
 import Loader from "../Loader"
 import { data, useParams } from "react-router";
 import { Link } from "react-router";
-import { getAlpha2ByNationality } from "../getFlagCode";
+import { getAlpha2ByCountryName, getAlpha2ByNationality } from "../getFlagCode";
 import Flag from "react-flagkit";
 
-export default function DriverDetails({countryList}) {
+export default function DriverDetails({ countryList }) {
     const [driverDetails, setDriverDetails] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [dataRaces, setDataRaces] = useState({});
@@ -80,7 +80,7 @@ export default function DriverDetails({countryList}) {
                             return (
                                 <tr>
                                     <td>{race.round}</td>
-                                    <td><Link to={"/races/" + race.round}>{race.raceName}</Link></td>
+                                    <td><Link to={"/races/" + race.round}><Flag country={getAlpha2ByCountryName(countryList, race.Circuit.Location.country)} />{race.raceName}</Link></td>
                                     <td><Link to={"/races/" + race.Results[0].Constructor.constructorId}></Link>{race.Results[0].Constructor.name}</td>
                                     <td>{race.Results[0].grid}</td>
                                     <td>{race.Results[0].position}</td>
