@@ -20,6 +20,7 @@ export function getAlpha2ByNationality(flags, nat){
 }
 
 export function getAlpha2ByCountryName(flags, name){
+            console.log("Get country code",flags,name)
             if(!flags){
                 return null;
             }

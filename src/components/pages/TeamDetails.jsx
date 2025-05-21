@@ -5,7 +5,7 @@ import axios from "axios";
 import { Link } from "react-router";
 // import Nat2Flag from "../getFlagCode";
 import Flag from "react-flagkit";
-import { getAlpha2ByNationality } from "../getFlagCode";
+import { getAlpha2ByCountryName, getAlpha2ByNationality } from "../getFlagCode";
 
 export default function TeamDetails({countryList}) {
 
@@ -104,7 +104,8 @@ export default function TeamDetails({countryList}) {
                         return (
                             <tr key={i}>
                                 <td>{res.round}</td>
-                                <td>{res.raceName}</td>
+                                {console.log("Lets see res",res)}
+                                <td><Flag country={getAlpha2ByCountryName(countryList,res.Circuit.Location.country)} />{res.raceName}</td>
 
 
 
