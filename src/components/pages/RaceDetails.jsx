@@ -122,7 +122,7 @@ export default function RaceDetails() {
                             <tr key={i}>
                                 <td>{raceResult.position}</td>
                                 <td>
-                                    <Link to={"/" + raceResult.Driver.driverId}>{raceResult.Driver.driverId}</Link></td>
+                                    <Link to={"/" + raceResult.Driver.driverId}>{raceResult.Driver.familyName}</Link></td>
                                 <td>
                                     <Link to={"/teams/" + raceResult.Constructor.constructorId}>{raceResult.Constructor.name}</Link>
                                 </td>
