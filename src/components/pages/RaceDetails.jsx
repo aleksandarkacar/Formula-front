@@ -3,12 +3,12 @@ import Loader from "../Loader";
 import axios from "axios";
 import { useParams } from "react-router";
 import { Link } from "react-router";
+import Nat2Flag from "../Nat2Flag";
 
-export default function RaceDetails({}){
+export default function RaceDetails() {
     const [qualifs, setQualifs] = useState({});
     const [raceResults, setRaceResults] = useState({});
     const [isLoading, setIsLoading] = useState(true);
-    // const [isLoading2, setIsLoading2] = useState(true);
     const params = useParams();
     // console.log(params.id);
 
@@ -16,7 +16,6 @@ export default function RaceDetails({}){
 
     useEffect(() => {
         getQualifs();
-        getRaceResults();
     }, []);
 
     // const getGPDetails = async () => {
@@ -27,22 +26,19 @@ export default function RaceDetails({}){
 
         const url = "http://ergast.com/api/f1/2013/" + params.id + "/qualifying.json"
         const url2 = "http://ergast.com/api/f1/2013/" + params.id + "/results.json"
-        
+
         const response = await axios.get(url);
         const response2 = await axios.get(url2);
 
-        console.log(response.data.MRData.RaceTable.Races[0].QualifyingResults);
+        console.log("Qualifs", response.data.MRData.RaceTable.Races[0].QualifyingResults);
         setQualifs(response.data.MRData.RaceTable.Races[0].QualifyingResults);
 
-        
-        console.log("getRaceResults",response2.data.MRData.RaceTable.Races[0]);
+
+        console.log("getRaceResults", response2.data.MRData.RaceTable.Races[0]);
         setRaceResults(response2.data.MRData.RaceTable.Races[0]);
 
         setIsLoading(false);
     };
-
-    const getRaceResults = async () => {
-    }
 
     if (isLoading) {
         return <Loader />
@@ -84,38 +80,74 @@ export default function RaceDetails({}){
                         } else {
                             fastestTime = qualif.Q1
                         }
-                        return(
-                        <tr key={i}>
-                            <td>{qualif.position}</td>
-                            <td>{qualif.Driver.nationality} </td>
-                            <td>
-                            <Link to={"/"+qualif.Driver.driverId}>{qualif.Driver.familyName}</Link>
-                            </td>
-                            <td><Link to={"/teams/"+qualif.Constructor.constructorId}>{qualif.Constructor.name}</Link></td>
-                            <td>{fastestTime}</td>
-                           
-                        </tr>
+                        return (
+                            <tr key={i}>
+                                <td>{qualif.position}</td>
+                                <td><Nat2Flag nat={qualif.Driver.nationality} /></td>
+                                <td>
+                                    <Link to={"/" + qualif.Driver.driverId}>{qualif.Driver.familyName}</Link>
+                                </td>
+                                <td><Link to={"/teams/" + qualif.Constructor.constructorId}>{qualif.Constructor.name}</Link></td>
+                                <td>{fastestTime}</td>
+
+                            </tr>
 
                         )
-})}
+                    })}
                 </tbody>
 
 
 
             </table>
 
+
+            <h1>Race results</h1>
+
             <table>
-                {/* Napisi tabelu za rezultate */}
+
+                <thead>
+                    <tr>
+                        <th>Pos</th>
+                        <th>Driver</th>
+                        <th>Team</th>
+                        <th>Result</th>
+                        <th>Points</th>
+
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {raceResults.Results.map((raceResult, i) => {
+                        return (
+                            <tr key={i}>
+                                <td>{raceResult.position}</td>
+                                <td>
+                                    <Link to={"/" + raceResult.Driver.driverId}>{raceResult.Driver.driverId}</Link></td>
+                                <td>
+                                    <Link to={"/teams/" + raceResult.Constructor.constructorId}>{raceResult.Constructor.name}</Link>
+                                </td>
+                                <td>{raceResult.Time ? raceResult.Time.time : raceResult.status}</td>
+                                <td>{raceResult.points}</td>
+
+                            </tr>
+                        )
+
+                    })}
+
+                </tbody>
+
+
+
 
             </table>
 
         </div>
-        );
-        
-                                
+    );
 
 
-        
+
+
+
 
 
 
