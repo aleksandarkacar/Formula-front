@@ -3,49 +3,40 @@ import axios from "axios";
 import Loader from "../Loader"
 import { data, useParams } from "react-router";
 import { Link } from "react-router";
-import Nat2Flag from "../Nat2Flag"
+import { getAlpha2ByNationality } from "../getFlagCode";
+import Flag from "react-flagkit";
 
-export default function DriverDetails() {
+export default function DriverDetails({countryList}) {
     const [driverDetails, setDriverDetails] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
-    const [isLoading2, setIsLoading2] = useState(true);
     const [dataRaces, setDataRaces] = useState({});
     const driver = useParams();
-    console.log(driver.id);
 
 
     useEffect(() => {
-        getDriverDetails();
         getDataRaces();
     }, []);
 
     const getDataRaces = async () => {
         const url = "http://ergast.com/api/f1/2013/drivers/" + driver.id + "/results.json"
-        const response = await axios.get(url);
-        const dataRaces = response.data.MRData.RaceTable.Races;
+        const url2 = "http://ergast.com/api/f1/2013/drivers/" + driver.id + "/driverStandings.json"
+
+        const response2 = await axios.get(url);
+        const response = await axios.get(url2);
+
+        const dataRaces = response2.data.MRData.RaceTable.Races;
+        const data = response.data.MRData.StandingsTable.StandingsLists[0].DriverStandings[0];
+
         console.log("dataRaces", dataRaces)
+        console.log('driverDetails', response.data.MRData.StandingsTable.StandingsLists[0].DriverStandings[0]);
+
         setDataRaces(dataRaces);
-        setIsLoading(false)
+        setDriverDetails(data);
+        setIsLoading(false);
     }
 
-    const getDriverDetails = async () => {
-        try {
-            const url = "http://ergast.com/api/f1/2013/drivers/" + driver.id + "/driverStandings.json"
-            const response = await axios.get(url);
-            const data = response.data.MRData.StandingsTable.StandingsLists[0].DriverStandings[0];
-            console.log('driverDetails', response.data.MRData.StandingsTable.StandingsLists[0].DriverStandings[0]);
-            setDriverDetails(data);
-            setIsLoading2(false);
-        } catch (error) {
-
-        }
-    }
 
     if (isLoading) {
-        return <Loader />
-    }
-
-    if (isLoading2) {
         return <Loader />
     }
 
@@ -56,7 +47,9 @@ export default function DriverDetails() {
                 <img src={`/img/drivers/${driver.id}.jpg`} style={{ height: "200px" }} alt="drivers-photo" />
                 <div key={driverDetails.Driver.driverId}>
                     <p>{driverDetails.Driver.givenName} {driverDetails.Driver.familyName}</p>
-                    <p>Country: <Nat2Flag nat={driverDetails.Driver.nationality} /></p>
+                    {/* <p>Country: <Nat2Flag nat={driverDetails.Driver.nationality} /></p> */}
+                    <p>Country: <Flag country={getAlpha2ByNationality(countryList, driverDetails.Driver.nationality)} /></p>
+
                     <p>Team: {driverDetails.Constructors[0].name}</p>
                     <p>Biography: <Link target="_blank" to={driverDetails.Driver.url}>About Driver</Link></p>
                 </div>

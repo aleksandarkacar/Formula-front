@@ -1,12 +1,29 @@
-import { BrowserRouter as Router, Routes, Route, NavLink } from 'react-router';
+import { BrowserRouter as Router, Routes, Route, NavLink, isRouteErrorResponse } from 'react-router';
 import Drivers from './components/pages/Drivers';
 import DriverDetails from './components/pages/DriverDetails';
 import Teams from './components/pages/Teams';
 import Races from './components/pages/Races';
 import TeamDetails from './components/pages/TeamDetails';
 import RaceDetails from './components/pages/RaceDetails';
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 
 export default function App() {
+
+  const [countryList, setCountryList] = useState([]);
+
+  useEffect(() => {
+    getCountryList();
+  },[])
+
+  const getCountryList = async () => {
+    const url = "https://raw.githubusercontent.com/Imagin-io/country-nationality-list/refs/heads/master/countries.json";
+    const response = await axios.get(url);
+
+    console.log("GetCountryList", response.data);
+    setCountryList(response.data);
+  }
+
   return (
     <Router>
       {/* Navigacija */}
@@ -27,12 +44,12 @@ export default function App() {
       {/* Rute */}
       <div style={{backgroundColor: '#ccc'}}>
       <Routes>
-        <Route path='/' element={<Drivers />}/>
-        <Route path='/:id' element={<DriverDetails />}/>
-        <Route path='/teams' element={<Teams />}/>
-        <Route path='/races' element={<Races />}/>
-        <Route path='/races/:id' element={<RaceDetails />}/>
-        <Route path='/teams/:id' element={<TeamDetails />}/>
+        <Route path='/' element={<Drivers countryList={countryList} />}/>
+        <Route path='/:id' element={<DriverDetails countryList={countryList} />}/>
+        <Route path='/teams' element={<Teams countryList={countryList} />}/>
+        <Route path='/races' element={<Races countryList={countryList} />}/>
+        <Route path='/races/:id' element={<RaceDetails countryList={countryList} />}/>
+        <Route path='/teams/:id' element={<TeamDetails countryList={countryList} />}/>
       </Routes>
       </div>
     </Router>

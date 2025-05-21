@@ -2,8 +2,10 @@ import { useEffect, useState } from "react";
 import Loader from "../Loader";
 import axios from "axios";
 import {Link} from "react-router";
+import Flag from "react-flagkit";
+import { getAlpha2ByCountryName, getAlpha2ByNationality } from "../getFlagCode";
 
-export default function Teams() {
+export default function Teams({countryList}) {
 
     <h1>Teams page</h1>
     const [teams, setTeams] = useState({});
@@ -41,7 +43,7 @@ export default function Teams() {
 
                             <tr key={i}>
                                 <td>{team.positionText}</td>
-                                <td><Link to={team.Constructor.constructorId}>{team.Constructor.constructorId}</Link></td>
+                                <td><Flag country={getAlpha2ByNationality(countryList, team.Constructor.nationality)} /><Link to={team.Constructor.constructorId}>{team.Constructor.name}</Link></td>
                                 <td><Link target="_blank" to={team.Constructor.url}>Details</Link></td>
                                 <td>{team.points}</td>
                             </tr>

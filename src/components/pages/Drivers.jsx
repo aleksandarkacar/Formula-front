@@ -2,9 +2,10 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Loader from "../Loader"
 import { Link } from "react-router";
-import Nat2Flag from "../Nat2Flag";
+import Flag from "react-flagkit";
+import { getAlpha2ByNationality } from "../getFlagCode";
 
-export default function Drivers() {
+export default function Drivers({countryList}) {
     const [drivers, setDrivers] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
@@ -36,8 +37,9 @@ export default function Drivers() {
                         return (
                             <tr key={driver.Driver.driverId}>
                                 <td>{driver.position}</td>
-                                <td>{driver.Driver.nationality}</td>
-                                <td><Nat2Flag nat={driver.Driver.nationality}/><Link to={driver.Driver.driverId}>{driver.Driver.givenName} {driver.Driver.familyName}</Link></td>
+                                {/* <td>{driver.Driver.nationality}</td> */}
+                                
+                                <td><Flag country={getAlpha2ByNationality(countryList, driver.Driver.nationality)} /><Link to={driver.Driver.driverId}>{driver.Driver.givenName} {driver.Driver.familyName}</Link></td>
                                 <td>{driver.Constructors[0].name}</td>
                                 <td>{driver.points}</td>
                             </tr>

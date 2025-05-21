@@ -2,11 +2,13 @@ import { useEffect, useState } from "react";
 import Loader from "../Loader";
 import axios from "axios";
 import { Link } from "react-router";
-import Nat2Flag from "../Nat2Flag";
+// import Nat2Flag from "../getFlagCode";
+import Flag from "react-flagkit";
+import { getAlpha2ByCountryName, getAlpha2ByNationality } from "../getFlagCode";
 
 
 
-export default function Races() {
+export default function Races({countryList}) {
     const [races,setRaces] = useState({});
     const [isLoading, setIsLoading] = useState(true);
 
@@ -53,11 +55,11 @@ export default function Races() {
                         <tr key={i}>
                             <td>{race.round}</td>
                             <td>
-                                <Nat2Flag coun={race.Circuit.Location.country} /><Link to={"/races/"+race.round}>{race.raceName}</Link>
+                                <Flag country={getAlpha2ByCountryName(countryList, race.Circuit.Location.country)} /><Link to={"/races/"+race.round}>{race.raceName}</Link>
                             </td>
                             <td>{race.Circuit.circuitName}</td>
                             <td>{race.date}</td>
-                            <td><Nat2Flag nat={race.Results[0].Driver.nationality} /> <Link to={"/"+race.Results[0].Driver.driverId}>{race.Results[0].Driver.familyName}</Link></td>
+                            <td><Flag country={getAlpha2ByNationality(countryList, race.Results[0].Driver.nationality)} /> <Link to={"/"+race.Results[0].Driver.driverId}>{race.Results[0].Driver.familyName}</Link></td>
                             
                         </tr>
                     );
