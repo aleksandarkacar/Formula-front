@@ -6,11 +6,11 @@ import Races from './components/pages/Races';
 import TeamDetails from './components/pages/TeamDetails';
 import RaceDetails from './components/pages/RaceDetails';
 import axios from 'axios';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function App() {
 
-  const [countryList, setCountryList] = useState({});
+  const [countryList, setCountryList] = useState([]);
 
   useEffect(() => {
     getCountryList();

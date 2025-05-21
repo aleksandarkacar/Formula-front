@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
 import Loader from "../Loader";
 import axios from "axios";
-import { isRouteErrorResponse, useParams } from "react-router";
+import { useParams } from "react-router";
 import { Link } from "react-router";
 
-export default function RaceDetails(){
+export default function RaceDetails({}){
     const [qualifs, setQualifs] = useState({});
     const [raceResults, setRaceResults] = useState({});
     const [isLoading, setIsLoading] = useState(true);
-    const [isLoading2, setIsLoading2] = useState(true);
+    // const [isLoading2, setIsLoading2] = useState(true);
     const params = useParams();
     // console.log(params.id);
 

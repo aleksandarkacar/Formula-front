@@ -9,39 +9,34 @@ import Flag from "react-flagkit";
 export default function DriverDetails({countryList}) {
     const [driverDetails, setDriverDetails] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
-    const [isLoading2, setIsLoading2] = useState(true);
     const [dataRaces, setDataRaces] = useState({});
     const driver = useParams();
 
 
     useEffect(() => {
-        getDriverDetails();
         getDataRaces();
     }, []);
 
     const getDataRaces = async () => {
         const url = "http://ergast.com/api/f1/2013/drivers/" + driver.id + "/results.json"
-        const response = await axios.get(url);
-        const dataRaces = response.data.MRData.RaceTable.Races;
+        const url2 = "http://ergast.com/api/f1/2013/drivers/" + driver.id + "/driverStandings.json"
+
+        const response2 = await axios.get(url);
+        const response = await axios.get(url2);
+
+        const dataRaces = response2.data.MRData.RaceTable.Races;
+        const data = response.data.MRData.StandingsTable.StandingsLists[0].DriverStandings[0];
+
         console.log("dataRaces", dataRaces)
+        console.log('driverDetails', response.data.MRData.StandingsTable.StandingsLists[0].DriverStandings[0]);
+
         setDataRaces(dataRaces);
-        setIsLoading(false)
+        setDriverDetails(data);
+        setIsLoading(false);
     }
 
-    const getDriverDetails = async () => {
-            const url = "http://ergast.com/api/f1/2013/drivers/" + driver.id + "/driverStandings.json"
-            const response = await axios.get(url);
-            const data = response.data.MRData.StandingsTable.StandingsLists[0].DriverStandings[0];
-            console.log('driverDetails', response.data.MRData.StandingsTable.StandingsLists[0].DriverStandings[0]);
-            setDriverDetails(data);
-            setIsLoading2(false);
-    }
 
     if (isLoading) {
-        return <Loader />
-    }
-
-    if (isLoading2) {
         return <Loader />
     }
 

@@ -3,9 +3,11 @@ import { useParams } from "react-router";
 import Loader from "../Loader";
 import axios from "axios";
 import { Link } from "react-router";
-import Nat2Flag from "../getFlagCode";
+// import Nat2Flag from "../getFlagCode";
+import Flag from "react-flagkit";
+import { getAlpha2ByNationality } from "../getFlagCode";
 
-export default function TeamDetails() {
+export default function TeamDetails({countryList}) {
 
     <h1>Teams details</h1>
     const params = useParams();
@@ -47,7 +49,7 @@ export default function TeamDetails() {
                 <h3>Formula 1 2013 Results</h3>
                 <td>
                     <img src={`/img/teams/${params.id}.png`} style={{ height: "25px"}} />
-                    {<td><Nat2Flag nat={teamDetails.Constructor.nationality} />{teamDetails.Constructor.name}</td>}
+                    {<td><Flag country={getAlpha2ByNationality (countryList,teamDetails.Constructor.nationality) } />{teamDetails.Constructor.name}</td>}
                 </td>
             </div>
             <table>
