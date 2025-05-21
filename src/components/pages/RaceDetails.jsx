@@ -3,9 +3,10 @@ import Loader from "../Loader";
 import axios from "axios";
 import { useParams } from "react-router";
 import { Link } from "react-router";
-import Nat2Flag from "../Nat2Flag";
+import Flag from "react-flagkit";
+import { getAlpha2ByCountryName, getAlpha2ByNationality } from "../getFlagCode";
 
-export default function RaceDetails() {
+export default function RaceDetails({countryList}) {
     const [qualifs, setQualifs] = useState({});
     const [raceResults, setRaceResults] = useState({});
     const [isLoading, setIsLoading] = useState(true);
@@ -50,7 +51,9 @@ export default function RaceDetails() {
             <div>
                 <h2>Race Results</h2>
                 <h3>Country: {raceResults.raceName}</h3>
+                <Flag size={"100px"} country={getAlpha2ByCountryName(countryList, raceResults.Circuit.Location.country)} />
                 <h3>Location: {raceResults.Circuit.Location.country}</h3>
+
                 <h3>Date: {raceResults.date}</h3>
                 <h3><Link target="_blank" to={raceResults.url}>Full Report</Link>
                 </h3>
@@ -83,8 +86,8 @@ export default function RaceDetails() {
                         return (
                             <tr key={i}>
                                 <td>{qualif.position}</td>
-                                <td><Nat2Flag nat={qualif.Driver.nationality} /></td>
                                 <td>
+                                    <Flag country={getAlpha2ByNationality(countryList, qualif.Driver.nationality)} />
                                     <Link to={"/" + qualif.Driver.driverId}>{qualif.Driver.familyName}</Link>
                                 </td>
                                 <td><Link to={"/teams/" + qualif.Constructor.constructorId}>{qualif.Constructor.name}</Link></td>
@@ -122,7 +125,8 @@ export default function RaceDetails() {
                             <tr key={i}>
                                 <td>{raceResult.position}</td>
                                 <td>
-                                    <Link to={"/" + raceResult.Driver.driverId}>{raceResult.Driver.familyName}</Link></td>
+                                    <Flag country={getAlpha2ByNationality(countryList, raceResult.Driver.nationality)} />
+                                    <Link to={"/" + raceResult.Driver.driverId}>{raceResult.Driver.driverId}</Link></td>
                                 <td>
                                     <Link to={"/teams/" + raceResult.Constructor.constructorId}>{raceResult.Constructor.name}</Link>
                                 </td>
