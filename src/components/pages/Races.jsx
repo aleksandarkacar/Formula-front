@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Loader from "../Loader";
 import axios from "axios";
 import { Link } from "react-router";
+import Nat2Flag from "../Nat2Flag";
 
 
 
@@ -42,6 +43,7 @@ export default function Races() {
                     <th>Circuit</th>
                     <th>Date</th>
                     <th>Winner</th>
+
                 </tr>
             </thead>
             <tbody>
@@ -50,11 +52,13 @@ export default function Races() {
                     return (
                         <tr key={i}>
                             <td>{race.round}</td>
-                            <td><Link to={"/races/"+race.round}>{race.raceName}</Link></td>
-                            <td> {race.Circuit.circuitName}</td>
+                            <td>
+                                <Nat2Flag coun={race.Circuit.Location.country} /><Link to={"/races/"+race.round}>{race.raceName}</Link>
+                            </td>
+                            <td>{race.Circuit.circuitName}</td>
                             <td>{race.date}</td>
-                            <td>{race.Results[0].Driver.nationality}</td>
-                            <Link to={"/"+race.Results[0].Driver.driverId}>{race.Results[0].Driver.familyName}</Link>
+                            <td><Nat2Flag nat={race.Results[0].Driver.nationality} /> <Link to={"/"+race.Results[0].Driver.driverId}>{race.Results[0].Driver.familyName}</Link></td>
+                            
                         </tr>
                     );
                 })}

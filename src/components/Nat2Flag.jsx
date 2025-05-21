@@ -1,6 +1,6 @@
 import Flag from "react-flagkit"
 
-export default function Nat2Flag({ nat }) {
+export default function Nat2Flag({ nat, coun }) {
 
     const countries = [
         {
@@ -1751,11 +1751,43 @@ export default function Nat2Flag({ nat }) {
     //console.log("Nat2Flag")
 
     const getAlpha2ByNationality = () => {
-        const country =  countries.find((country)=> country.nationality === nat);
-        if(!country) {
-            return "ZM";
+        if (nat) {
+            if (nat === "Dutch") {
+                return "NL"
+            }
+            if (nat === "Korean") {
+                return "KR"
+            }
+            if (nat === "British") {
+                return "GB"
+            }
+            const country =  countries.find((country)=> country.nationality === nat);
+            if(!country) {
+                return null;
+            }
+            return country.alpha_2_code;
         }
-        return country.alpha_2_code;
+        if (coun) {
+            if (coun === "Korea"){
+                return "KR"
+            }
+            if (coun === "UK"){
+                return "GB"
+            }
+            if (coun === "USA"){
+                return "US"
+            }
+                        if (coun === "UAE"){
+                return "AE"
+            }
+            const country =  countries.find((country)=> country.en_short_name === coun);
+            console.log("if coun", coun, country );
+
+            if(!country) {
+                return null;
+            }
+            return country.alpha_2_code;
+        }
         // for (let i = 0; i < countries.length; i++) {
         //     console.log("Nat2Flag", nat, countries[i].nationality)
         //     if (countries[i].nationality === nat) {
@@ -1766,7 +1798,7 @@ export default function Nat2Flag({ nat }) {
         // }
     }
 
-    console.log("test ", getAlpha2ByNationality())
+    // console.log("test ", getAlpha2ByNationality())
 
     return (
         <div>
