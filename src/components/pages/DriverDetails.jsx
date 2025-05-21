@@ -53,7 +53,7 @@ export default function DriverDetails() {
 
         <div className="">
             <div className="driver-card">
-                <img alt="drivers-photo" />
+                <img src={`/img/drivers/${driver.id}.jpg`} style={{ height: "200px" }} alt="drivers-photo" />
                 <div key={driverDetails.Driver.driverId}>
                     <p>{driverDetails.Driver.givenName} {driverDetails.Driver.familyName}</p>
                     <p>Country: <Nat2Flag nat={driverDetails.Driver.nationality} /></p>
