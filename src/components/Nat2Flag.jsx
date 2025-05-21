@@ -1801,8 +1801,6 @@ export default function Nat2Flag({ nat, coun }) {
     // console.log("test ", getAlpha2ByNationality())
 
     return (
-        <div>
             <Flag country={getAlpha2ByNationality()}></Flag>
-        </div>
     )
 }
