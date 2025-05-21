@@ -126,7 +126,7 @@ export default function RaceDetails({countryList}) {
                                 <td>{raceResult.position}</td>
                                 <td>
                                     <Flag country={getAlpha2ByNationality(countryList, raceResult.Driver.nationality)} />
-                                    <Link to={"/" + raceResult.Driver.driverId}>{raceResult.Driver.driverId}</Link></td>
+                                    <Link to={"/" + raceResult.Driver.driverId}>{raceResult.Driver.familyName}</Link></td>
                                 <td>
                                     <Link to={"/teams/" + raceResult.Constructor.constructorId}>{raceResult.Constructor.name}</Link>
                                 </td>
