@@ -16,7 +16,7 @@ export default function TeamDetails() {
     // console.log(params, 'params');
 
     useEffect(() => {
-    
+
         getResult();
     }, []);
 
@@ -35,7 +35,7 @@ export default function TeamDetails() {
         setLoader(false);
     }
 
-    
+
     if (loader) {
         return <Loader />
     };
@@ -45,6 +45,10 @@ export default function TeamDetails() {
         <div>
             <div>
                 <h3>Formula 1 2013 Results</h3>
+                <td>
+                    <img src={`/img/teams/${params.id}.png`} style={{ height: "25px"}} />
+                    {<td><Nat2Flag nat={teamDetails.Constructor.nationality} />{teamDetails.Constructor.name}</td>}
+                </td>
             </div>
             <table>
                 <thead>
@@ -55,12 +59,13 @@ export default function TeamDetails() {
                         <th>History: </th>
                     </tr>
 
+
                 </thead>
                 <tbody>
 
 
                     <tr>
-                        <td><Nat2Flag nat={teamDetails.Constructor.nationality} /></td>
+                        <td>{teamDetails.Constructor.nationality}</td>
                         <td>{teamDetails.position}</td>
                         <td>{teamDetails.points}</td>
                         <td><Link to={teamDetails.history}>History: </Link></td>
