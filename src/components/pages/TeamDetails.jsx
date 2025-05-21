@@ -23,9 +23,11 @@ export default function TeamDetails() {
     const getResult = async () => {
         const url = 'http://ergast.com/api/f1/2013/constructors/' + params.id + '/constructorStandings.json'
         const url2 = "http://ergast.com/api/f1/2013/constructors/" + params.id + " /results.json";
+      
 
         const response = await axios.get(url);
         const response2 = await axios.get(url2);
+        
 
         console.log("getTeamDetails", response.data);
         console.log("getResults", response2.data.MRData.RaceTable.Races);
@@ -68,7 +70,7 @@ export default function TeamDetails() {
                         <td>{teamDetails.Constructor.nationality}</td>
                         <td>{teamDetails.position}</td>
                         <td>{teamDetails.points}</td>
-                        <td><Link to={teamDetails.history}>History: </Link></td>
+                        <td><Link to='/teams'>History: </Link></td> 
                     </tr>
                 </tbody>
             </table>
