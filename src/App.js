@@ -10,7 +10,8 @@ import { useEffect, useState } from 'react';
 import "./styles/reset.css";
 import "./styles/App.scss";
 import "./styles/components/nav.scss";
-import "./styles/cards.scss";
+import "./styles/components/cards.scss";
+
 
 export default function App() {
 

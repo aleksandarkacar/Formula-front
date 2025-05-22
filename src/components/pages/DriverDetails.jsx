@@ -42,16 +42,18 @@ export default function DriverDetails({ countryList }) {
 
     return (
 
-        <div className="">
-            <div className="driver-card">
+        <div className="driver-card">
+            <div className="card">
+                <h1 className="title">Driver Profile</h1>
+                <h2 className="subtitle">Driver information and statistics</h2>
                 <img className="photo" src={`/img/drivers/${driver.id}.jpg`} alt="drivers-photo" />
                 <div key={driverDetails.Driver.driverId}>
                     <p>{driverDetails.Driver.givenName} {driverDetails.Driver.familyName}</p>
                     {/* <p>Country: <Nat2Flag nat={driverDetails.Driver.nationality} /></p> */}
-                    <p>Country: <Flag country={getAlpha2ByNationality(countryList, driverDetails.Driver.nationality)} /></p>
-
+                    {/* Country: */} <p><Flag country={getAlpha2ByNationality(countryList, driverDetails.Driver.nationality)} /></p>
                     <p>Team: {driverDetails.Constructors[0].name}</p>
                     <p>Biography: <Link target="_blank" to={driverDetails.Driver.url}>About Driver</Link></p>
+                    
                 </div>
             </div>
 
