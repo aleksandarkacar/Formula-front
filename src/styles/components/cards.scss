@@ -10,9 +10,17 @@
         margin:15px;
         background-color: vars.$card;
         text-align:center;
-        max-width:200px; //smanjuje karticu videti sa Alexom da li da ide preko celog ekrana ili sa strane
+        max-width:200px; //smanjuje karticu 
         border-radius: 10px;
-        box-shadow:0 0 20px vars.$primary;
+        box-shadow:0 0 10px vars.$primary;
+      }
+
+      .card2{
+       background-color: vars.$card;; 
+       border: solid 1px vars.$border-color;
+       border-radius:10px;
+       padding:30px;
+       margin:5px;
       }
 }
 
@@ -28,12 +36,17 @@
 .title{
     font-size: 25px;
     padding:0 0 10px 0;
+    display:flex;
+    justify-content:left;   
 }
 
 .subtitle{
-    font-size:15px;
-    padding:0 0 20px 0;
+  font-size:11px;
+  padding:0 0 20px 0;
+ 
 }
+
+
 
 
 
