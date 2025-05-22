@@ -44,7 +44,7 @@ export default function DriverDetails({ countryList }) {
 
         <div className="">
             <div className="driver-card">
-                <img src={`/img/drivers/${driver.id}.jpg`} style={{ height: "200px" }} alt="drivers-photo" />
+                <img className="photo" src={`/img/drivers/${driver.id}.jpg`} alt="drivers-photo" />
                 <div key={driverDetails.Driver.driverId}>
                     <p>{driverDetails.Driver.givenName} {driverDetails.Driver.familyName}</p>
                     {/* <p>Country: <Nat2Flag nat={driverDetails.Driver.nationality} /></p> */}
@@ -58,7 +58,7 @@ export default function DriverDetails({ countryList }) {
             <h4>Formula 1 2013 Results</h4>
             <div className="driver-results">
                 <table>
-                    <tbody className="a">
+                    <tbody>
                     </tbody>
                 </table>
             </div>
@@ -75,7 +75,7 @@ export default function DriverDetails({ countryList }) {
                         </tr>
                     </thead>
 
-                    <tbody>
+                    <tbody className="driver-card">
                         {dataRaces.map((race) => {
                             return (
                                 <tr>

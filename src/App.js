@@ -8,6 +8,7 @@ import RaceDetails from './components/pages/RaceDetails';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import "./styles/App.scss" 
+import "./styles/cards.scss"
 
 export default function App() {
 
