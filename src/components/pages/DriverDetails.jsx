@@ -5,6 +5,9 @@ import { data, useParams } from "react-router";
 import { Link } from "react-router";
 import { getAlpha2ByCountryName, getAlpha2ByNationality } from "../getFlagCode";
 import Flag from "react-flagkit";
+import { TeamOutlined } from "@ant-design/icons";
+import {ReadOutlined } from "@ant-design/icons";
+import {IdcardOutlined }from "@ant-design/icons";
 
 export default function DriverDetails({ countryList }) {
     const [driverDetails, setDriverDetails] = useState([]);
@@ -44,16 +47,26 @@ export default function DriverDetails({ countryList }) {
 
         <div className="driver-card">
             <div className="card">
-                <h1 className="title">Driver Profile</h1>
+                <div className="title">
+                    <IdcardOutlined className="idCard"/>
+                    <h1>Driver Profile</h1>
+                </div>
                 <h2 className="subtitle">Driver information and statistics</h2>
                 <img className="photo" src={`/img/drivers/${driver.id}.jpg`} alt="drivers-photo" />
                 <div key={driverDetails.Driver.driverId}>
                     <p>{driverDetails.Driver.givenName} {driverDetails.Driver.familyName}</p>
                     {/* <p>Country: <Nat2Flag nat={driverDetails.Driver.nationality} /></p> */}
                     {/* Country: */} <p><Flag country={getAlpha2ByNationality(countryList, driverDetails.Driver.nationality)} /></p>
-                    <p className="card2">Team: <Link to={"/teams/" + driverDetails.Constructors[0].name}>{driverDetails.Constructors[0].name}</Link></p>
-                    <p className="card2">Biography: <Link target="_blank" to={driverDetails.Driver.url}>About Driver</Link></p>
-
+                    <div className="card2"> <div className="team"><div className="mini-title">Team </div> <TeamOutlined style={{color:"#e11d48" }} /></div><div className="mini-text-below"> <Link to={"/teams/" + driverDetails.Constructors[0].constructorId}>{driverDetails.Constructors[0].name}</Link></div></div>
+                    <div className="card2">
+                        <div className="team">
+                            Biography <ReadOutlined style={{color:"#e11d48" }}/>
+                        </div>  
+                        <Link target="_blank" to={driverDetails.Driver.url}>
+                            <div className="mini-text-below">About Driver</div>
+                        </Link>
+                    </div>
+                    
                 </div>
             </div>
 
