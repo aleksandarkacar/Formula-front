@@ -20,7 +20,7 @@ export function getAlpha2ByNationality(flags, nat){
 }
 
 export function getAlpha2ByCountryName(flags, name){
-            console.log("Get country code",flags,name)
+            // console.log("Get country code",flags,name)
             if(!flags){
                 return null;
             }
@@ -37,7 +37,7 @@ export function getAlpha2ByCountryName(flags, name){
                 return "AE"
             }
             const country =  flags.find((flag)=> flag.en_short_name === name);
-            console.log("if coun", name, country );
+            // console.log("if coun", name, country );
 
             if(!country) {
                 return null;
