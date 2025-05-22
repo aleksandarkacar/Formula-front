@@ -7,7 +7,10 @@ import TeamDetails from './components/pages/TeamDetails';
 import RaceDetails from './components/pages/RaceDetails';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import "./styles/App.scss" 
+import "./styles/reset.css";
+import "./styles/App.scss";
+import "./styles/components/nav.scss";
+import "./styles/cards.scss";
 
 export default function App() {
 
@@ -15,7 +18,7 @@ export default function App() {
 
   useEffect(() => {
     getCountryList();
-  },[])
+  }, [])
 
   const getCountryList = async () => {
     const url = "https://raw.githubusercontent.com/Imagin-io/country-nationality-list/refs/heads/master/countries.json";
@@ -44,15 +47,15 @@ export default function App() {
 
       {/* Rute */}
       <div>
-      {/* <div style={{backgroundColor: '#ccc'}}> */}
-      <Routes>
-        <Route path='/' element={<Drivers countryList={countryList} />}/>
-        <Route path='/:id' element={<DriverDetails countryList={countryList} />}/>
-        <Route path='/teams' element={<Teams countryList={countryList} />}/>
-        <Route path='/races' element={<Races countryList={countryList} />}/>
-        <Route path='/races/:id' element={<RaceDetails countryList={countryList} />}/>
-        <Route path='/teams/:id' element={<TeamDetails countryList={countryList} />}/>
-      </Routes>
+        {/* <div style={{backgroundColor: '#ccc'}}> */}
+        <Routes>
+          <Route path='/' element={<Drivers countryList={countryList} />} />
+          <Route path='/:id' element={<DriverDetails countryList={countryList} />} />
+          <Route path='/teams' element={<Teams countryList={countryList} />} />
+          <Route path='/races' element={<Races countryList={countryList} />} />
+          <Route path='/races/:id' element={<RaceDetails countryList={countryList} />} />
+          <Route path='/teams/:id' element={<TeamDetails countryList={countryList} />} />
+        </Routes>
       </div>
     </Router>
   )
