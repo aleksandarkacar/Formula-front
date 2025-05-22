@@ -7,6 +7,7 @@ import TeamDetails from './components/pages/TeamDetails';
 import RaceDetails from './components/pages/RaceDetails';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import "./App.scss" 
 
 export default function App() {
 
@@ -42,7 +43,8 @@ export default function App() {
       </nav>
 
       {/* Rute */}
-      <div style={{backgroundColor: '#ccc'}}>
+      <div>
+      {/* <div style={{backgroundColor: '#ccc'}}> */}
       <Routes>
         <Route path='/' element={<Drivers countryList={countryList} />}/>
         <Route path='/:id' element={<DriverDetails countryList={countryList} />}/>
