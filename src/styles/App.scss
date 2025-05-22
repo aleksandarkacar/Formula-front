@@ -8,6 +8,9 @@ body {
 
 a {
   color: vars.$foreground;
+  &:hover{
+    color: vars.$primary;
+  }
 }
 
 td {
