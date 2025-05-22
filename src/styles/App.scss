@@ -1,3 +1,13 @@
+@use "./variables.scss" as colors;
+
 body {
-  background-color: red;
+  background-color: colors.$background;
+}
+
+a {
+  color: colors.$foreground
+}
+
+td {
+    color: colors.$foreground
 }
