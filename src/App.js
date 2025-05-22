@@ -7,7 +7,7 @@ import TeamDetails from './components/pages/TeamDetails';
 import RaceDetails from './components/pages/RaceDetails';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import "./App.scss" 
+import "./styles/App.scss" 
 
 export default function App() {
 
