@@ -7,6 +7,7 @@ import { getAlpha2ByCountryName, getAlpha2ByNationality } from "../getFlagCode";
 import Flag from "react-flagkit";
 import { TeamOutlined } from "@ant-design/icons";
 import {ReadOutlined } from "@ant-design/icons";
+import {IdcardOutlined }from "@ant-design/icons";
 
 export default function DriverDetails({ countryList }) {
     const [driverDetails, setDriverDetails] = useState([]);
@@ -46,7 +47,10 @@ export default function DriverDetails({ countryList }) {
 
         <div className="driver-card">
             <div className="card">
-                <h1 className="title">Driver Profile</h1>
+                <div className="title">
+                    <IdcardOutlined className="idCard"/>
+                    <h1>Driver Profile</h1>
+                </div>
                 <h2 className="subtitle">Driver information and statistics</h2>
                 <img className="photo" src={`/img/drivers/${driver.id}.jpg`} alt="drivers-photo" />
                 <div key={driverDetails.Driver.driverId}>
