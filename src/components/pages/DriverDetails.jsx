@@ -51,9 +51,9 @@ export default function DriverDetails({ countryList }) {
                     <p>{driverDetails.Driver.givenName} {driverDetails.Driver.familyName}</p>
                     {/* <p>Country: <Nat2Flag nat={driverDetails.Driver.nationality} /></p> */}
                     {/* Country: */} <p><Flag country={getAlpha2ByNationality(countryList, driverDetails.Driver.nationality)} /></p>
-                    <p className="card2">Team: <Link to={"/teams/"+driverDetails.Constructors[0].name}>{driverDetails.Constructors[0].name}</Link></p>
+                    <p className="card2">Team: <Link to={"/teams/" + driverDetails.Constructors[0].name}>{driverDetails.Constructors[0].name}</Link></p>
                     <p className="card2">Biography: <Link target="_blank" to={driverDetails.Driver.url}>About Driver</Link></p>
-                    
+
                 </div>
             </div>
 
@@ -66,7 +66,7 @@ export default function DriverDetails({ countryList }) {
             </div>
 
             <div>
-                <table>
+                <table className="tabelus">
                     <thead>
                         <tr>
                             <th>Round</th>

@@ -1,0 +1,19 @@
+@use "../variables.scss" as vars;
+
+.tabelus {
+    color: vars.$primary;
+    background-color: vars.$background;
+    text-align: center;
+    width: 100%;
+    border-collapse: collapse;
+
+    th,
+    td {
+        padding: 5px 15px;
+        border-bottom: 1px solid vars.$border;
+    }
+
+    tr:hover {
+        background-color: vars.$secondary;
+    }
+}

@@ -11,7 +11,7 @@ import "./styles/reset.css";
 import "./styles/App.scss";
 import "./styles/components/nav.scss";
 import "./styles/components/cards.scss";
-
+import "./styles/components/tables.scss";
 
 export default function App() {
 
