@@ -13,6 +13,9 @@ import "./styles/components/nav.scss";
 import "./styles/components/cards.scss";
 import { FlagOutlined } from '@ant-design/icons';
 import "./styles/components/tables.scss";
+import { TeamOutlined } from '@ant-design/icons';
+import { CalendarOutlined } from '@ant-design/icons';
+import { FontSizeOutlined } from '@ant-design/icons';
 
 
 export default function App() {
@@ -40,13 +43,13 @@ export default function App() {
             <FlagOutlined className='flag' /> F1Dashboard
           </li>
           <li>
-            <NavLink to='/'>Drivers</NavLink>
+            <NavLink to='/'><TeamOutlined /> Drivers</NavLink>
           </li>
           <li>
-            <NavLink to='/teams'>Teams</NavLink>
+            <NavLink to='/teams'><FontSizeOutlined /> Teams</NavLink>
           </li>
           <li>
-            <NavLink to='/races'>Races</NavLink>
+            <NavLink to='/races'><CalendarOutlined /> Races</NavLink>
           </li>
 
         </ul>

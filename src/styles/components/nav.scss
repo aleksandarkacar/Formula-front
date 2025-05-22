@@ -15,18 +15,30 @@ nav {
     padding: 15px;
     list-style: none;
   }
-
-  li { display: inline-block;
-     
-  
-  
-  }
-
   a {
     display: block;
     padding: 6px 12px;
     text-decoration: none;
+    border-radius: 6px;
+    &:hover{
+      // background-color: vars.$primary;
+      box-shadow: 0 0 10px vars.$primary;
+      background-color: vars.$secondary;
+      color: #fff;
+    }
+    &.active{
+      background-color: vars.$primary;
+    }
+
   }
+
+  li { display: inline-block;
+    padding: 0 15px;
+     
+ 
+  }
+
+
 .F1{
   font-size: larger;
   font-weight: bold;
