@@ -53,7 +53,7 @@ export default function DriverDetails({ countryList }) {
                     <p>{driverDetails.Driver.givenName} {driverDetails.Driver.familyName}</p>
                     {/* <p>Country: <Nat2Flag nat={driverDetails.Driver.nationality} /></p> */}
                     {/* Country: */} <p><Flag country={getAlpha2ByNationality(countryList, driverDetails.Driver.nationality)} /></p>
-                    <div className="card2"> <div className="team"><div className="mini-title">Team </div> <TeamOutlined style={{color:"#e11d48" }} /></div><div className="mini-text-below">{driverDetails.Constructors[0].name}</div></div>
+                    <div className="card2"> <div className="team"><div className="mini-title">Team </div> <TeamOutlined style={{color:"#e11d48" }} /></div><div className="mini-text-below"> <Link to={"/teams/" + driverDetails.Constructors[0].name}>{driverDetails.Constructors[0].name}</Link></div></div>
                     <div className="card2">
                         <div className="team">
                             Biography <ReadOutlined style={{color:"#e11d48" }}/>
@@ -75,7 +75,7 @@ export default function DriverDetails({ countryList }) {
             </div>
 
             <div>
-                <table>
+                <table className="tabelus">
                     <thead>
                         <tr>
                             <th>Round</th>
@@ -92,7 +92,7 @@ export default function DriverDetails({ countryList }) {
                                 <tr>
                                     <td>{race.round}</td>
                                     <td><Link to={"/races/" + race.round}><Flag country={getAlpha2ByCountryName(countryList, race.Circuit.Location.country)} />{race.raceName}</Link></td>
-                                    <td><Link to={"/races/" + race.Results[0].Constructor.constructorId}></Link>{race.Results[0].Constructor.name}</td>
+                                    <td>{race.Results[0].Constructor.name}</td>
                                     <td>{race.Results[0].grid}</td>
                                     <td>{race.Results[0].position}</td>
                                 </tr>

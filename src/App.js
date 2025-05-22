@@ -11,6 +11,8 @@ import "./styles/reset.css";
 import "./styles/App.scss";
 import "./styles/components/nav.scss";
 import "./styles/components/cards.scss";
+import { FlagOutlined } from '@ant-design/icons';
+import "./styles/components/tables.scss";
 
 
 export default function App() {
@@ -34,6 +36,9 @@ export default function App() {
       {/* Navigacija */}
       <nav className='top-navigation'>
         <ul>
+          <li className='F1'>
+            <FlagOutlined className='flag' /> F1Dashboard
+          </li>
           <li>
             <NavLink to='/'>Drivers</NavLink>
           </li>
@@ -43,13 +48,14 @@ export default function App() {
           <li>
             <NavLink to='/races'>Races</NavLink>
           </li>
+
         </ul>
       </nav>
 
       {/* Rute */}
-      <div>
+      <div className='page'>
         {/* <div style={{backgroundColor: '#ccc'}}> */}
-        <Routes>
+        <Routes className='page'>
           <Route path='/' element={<Drivers countryList={countryList} />} />
           <Route path='/:id' element={<DriverDetails countryList={countryList} />} />
           <Route path='/teams' element={<Teams countryList={countryList} />} />
