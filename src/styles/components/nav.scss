@@ -7,8 +7,9 @@ nav {
   top: 0;
   position: fixed;
   border-bottom: solid vars.$border;
-  border-bottom: solid vars.$border;
-  backdrop-filter: blur(6px);
+  border-top: solid vars.$border;
+  backdrop-filter: blur(10px);
+  background-color: vars.$nav-background;
   ul {
     margin: 5px;
     padding: 15px;
