@@ -4,8 +4,7 @@
     color: white; 
     font-size: 15px;
 
-
-      .card{
+      .card{ 
         padding: 20px;
         margin:15px;
         background-color: vars.$card;
@@ -44,16 +43,16 @@
 .title{
     font-size: 25px;
     padding:0 0 10px 0;
+    display:flex;
     justify-content:left; 
-    
-   
 }
 
 .subtitle{
   font-size:11px;
   padding:0 0 20px 0;
   color: vars.$muted-foreground;
- 
+  display:flex;
+  justify-content:left; 
 }
 
 .team{
@@ -63,22 +62,15 @@
   // padding-right:100px;
   width: 100%;
   // padding:0 10px;
-  color: vars.$muted-foreground; 
-  
+  color: vars.$muted-foreground;   
 }
 
 .mini-text-below{
   display:flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 100%;
-  padding:0 10px;
+  width: 100%; 
   font-size:22px;
- 
 }
-
-
-
-
 
 //ovo sve iznad je kartica DriverDetails.jsx
