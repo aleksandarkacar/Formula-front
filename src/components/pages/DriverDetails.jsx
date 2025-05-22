@@ -5,6 +5,8 @@ import { data, useParams } from "react-router";
 import { Link } from "react-router";
 import { getAlpha2ByCountryName, getAlpha2ByNationality } from "../getFlagCode";
 import Flag from "react-flagkit";
+import { TeamOutlined } from "@ant-design/icons";
+import {ReadOutlined } from "@ant-design/icons";
 
 export default function DriverDetails({ countryList }) {
     const [driverDetails, setDriverDetails] = useState([]);
@@ -51,8 +53,15 @@ export default function DriverDetails({ countryList }) {
                     <p>{driverDetails.Driver.givenName} {driverDetails.Driver.familyName}</p>
                     {/* <p>Country: <Nat2Flag nat={driverDetails.Driver.nationality} /></p> */}
                     {/* Country: */} <p><Flag country={getAlpha2ByNationality(countryList, driverDetails.Driver.nationality)} /></p>
-                    <p className="card2">Team: {driverDetails.Constructors[0].name}</p>
-                    <p className="card2">Biography: <Link target="_blank" to={driverDetails.Driver.url}>About Driver</Link></p>
+                    <div className="card2"> <div className="team"><div className="mini-title">Team </div> <TeamOutlined style={{color:"#e11d48" }} /></div><div className="mini-text-below">{driverDetails.Constructors[0].name}</div></div>
+                    <div className="card2">
+                        <div className="team">
+                            Biography <ReadOutlined style={{color:"#e11d48" }}/>
+                        </div>  
+                        <Link target="_blank" to={driverDetails.Driver.url}>
+                            <div className="mini-text-below">About Driver</div>
+                        </Link>
+                    </div>
                     
                 </div>
             </div>
