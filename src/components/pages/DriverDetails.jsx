@@ -47,41 +47,37 @@ export default function DriverDetails({ countryList }) {
     }
 
     return (
+        <div className="page-wrapper">
 
-        <div className="driver-card">
-            <div className="card">
-                <div className="title">
-                    <IdCard className="idCard, largeIcon" />
-                    <h1>Driver Profile</h1>
-                </div>
-                <h2 className="subtitle">Driver information and statistics</h2>
-                <img className="photo" src={`/img/drivers/${driver.id}.jpg`} alt="drivers-photo" />
-                <div key={driverDetails.Driver.driverId}>
-                    <p>{driverDetails.Driver.givenName} {driverDetails.Driver.familyName}</p>
-                    {/* <p>Country: <Nat2Flag nat={driverDetails.Driver.nationality} /></p> */}
-                    {/* Country: */} <p><Flag country={getAlpha2ByNationality(countryList, driverDetails.Driver.nationality)} /></p>
-                    <div className="card2"> <div className="team"><div className="mini-title">Team </div> <UsersRound className="iconUsersRound, colorPrimary, smallIcon" /></div><div className="mini-text-below"> <Link to={"/teams/" + driverDetails.Constructors[0].constructorId}>{driverDetails.Constructors[0].name}</Link></div></div>
-                    <div className="card2">
-                        <div className="team">
-                            Biography <BookOpenText className="smallIcon" />
-                        </div>
-                        <Link target="_blank" to={driverDetails.Driver.url}>
-                            <div className="mini-text-below">About Driver</div>
-                        </Link>
+
+            <div className="driver-card">
+                <div className="card">
+                    <div className="title">
+                        <IdCard className="idCard, largeIcon" />
+                        <h1>Driver Profile</h1>
                     </div>
+                    <h2 className="subtitle">Driver information and statistics</h2>
+                    <img className="photo" src={`/img/drivers/${driver.id}.jpg`} alt="drivers-photo" />
+                    <div key={driverDetails.Driver.driverId}>
+                        <p>{driverDetails.Driver.givenName} {driverDetails.Driver.familyName}</p>
+                        {/* <p>Country: <Nat2Flag nat={driverDetails.Driver.nationality} /></p> */}
+                        {/* Country: */} <p><Flag country={getAlpha2ByNationality(countryList, driverDetails.Driver.nationality)} /></p>
+                        <div className="card2"> <div className="team"><div className="mini-title">Team </div> <UsersRound className="iconUsersRound, colorPrimary, smallIcon" /></div><div className="mini-text-below"> <Link to={"/teams/" + driverDetails.Constructors[0].constructorId}>{driverDetails.Constructors[0].name}</Link></div></div>
+                        <div className="card2">
+                            <div className="team">
+                                Biography <BookOpenText className="smallIcon" />
+                            </div>
+                            <Link target="_blank" to={driverDetails.Driver.url}>
+                                <div className="mini-text-below">About Driver</div>
+                            </Link>
+                        </div>
 
+                    </div>
                 </div>
-            </div>
-
-            <h4>Formula 1 2013 Results</h4>
-            <div className="driver-results">
-                <table>
-                    <tbody>
-                    </tbody>
-                </table>
             </div>
 
             <div className="table-wrapper">
+                <h4>Formula 1 2013 Results</h4>
                 <table className="tabelus">
                     <thead>
                         <tr>
@@ -118,7 +114,6 @@ export default function DriverDetails({ countryList }) {
                 </table>
             </div>
 
-        </div >
-
+        </div>
     )
 }

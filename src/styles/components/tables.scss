@@ -2,6 +2,9 @@
 
 .table-wrapper {
     display: flex;
+    flex-direction: column;
+    min-width: min-content;
+
 }
 
 .tabelus {
@@ -19,17 +22,17 @@
         align-content: center;
         align-items: center;
     }
-    
+
     tr {
         border-bottom: 1px solid vars.$border;
     }
-    
-    
-    
+
+
+
     tr:hover {
         background-color: vars.$secondary;
     }
-    
+
     .flag-name {
         display: flex;
         align-items: center;
@@ -42,4 +45,9 @@
 h4 {
     text-align: center;
     font-size: large;
+}
+
+.page-wrapper {
+    display: flex;
+    flex-wrap: wrap;
 }
