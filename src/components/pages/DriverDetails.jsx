@@ -47,6 +47,8 @@ export default function DriverDetails({ countryList }) {
     }
 
     return (
+        <div className="page-wrapper">
+
 
         <div className="card-wrapper">
             <div className="card">
@@ -81,7 +83,8 @@ export default function DriverDetails({ countryList }) {
                 </table>
             </div>
 
-            <div>
+            <div className="table-wrapper">
+                <h4>Formula 1 2013 Results</h4>
                 <table className="tabelus">
                     <thead>
                         <tr>
@@ -96,9 +99,17 @@ export default function DriverDetails({ countryList }) {
                     <tbody className="driver-card">
                         {dataRaces.map((race) => {
                             return (
-                                <tr>
+                                <tr key={race.round}>
                                     <td>{race.round}</td>
-                                    <td><Link to={"/races/" + race.round}><Flag country={getAlpha2ByCountryName(countryList, race.Circuit.Location.country)} />{race.raceName}</Link></td>
+
+                                    <td>
+                                        <Link to={"/races/" + race.round}>
+                                            <div className="flag-name">
+                                                <div><Flag country={getAlpha2ByCountryName(countryList, race.Circuit.Location.country)} /></div>
+                                                <div>{race.raceName}</div>
+                                            </div>
+                                        </Link>
+                                    </td>
                                     <td>{race.Results[0].Constructor.name}</td>
                                     <td>{race.Results[0].grid}</td>
                                     <td>{race.Results[0].position}</td>
@@ -110,7 +121,6 @@ export default function DriverDetails({ countryList }) {
                 </table>
             </div>
 
-        </div >
-
+        </div>
     )
 }

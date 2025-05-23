@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, NavLink, isRouteErrorResponse } from 'react-router';
+import { BrowserRouter as Router, Routes, Route, NavLink, Navigate } from 'react-router';
 import Drivers from './components/pages/Drivers';
 import DriverDetails from './components/pages/DriverDetails';
 import Teams from './components/pages/Teams';
@@ -46,14 +46,14 @@ export default function App() {
           <li className='F1'>
             <Flag className='flag' /> F1Dashboard
           </li>
-          <li>
-            <NavLink to='/'><UsersRound /> Drivers</NavLink>
+          <li className='liel'>
+            <NavLink to='/drivers'><UsersRound className='icons'/> Drivers</NavLink>
           </li>
-          <li>
-            <NavLink to='/teams'><Building2 /> Teams</NavLink>
+          <li className='liel'>
+            <NavLink to='/teams'><Building2 className='icons'/> Teams</NavLink>
           </li>
-          <li>
-            <NavLink to='/races'><Calendar /> Races</NavLink>
+          <li className='liel'>
+            <NavLink to='/races'><Calendar className='icons' /> Races</NavLink>
           </li>
 
         </ul>
@@ -63,8 +63,10 @@ export default function App() {
       <div className='page'>
         {/* <div style={{backgroundColor: '#ccc'}}> */}
         <Routes className='page'>
-          <Route path='/' element={<Drivers countryList={countryList} />} />
-          <Route path='/:id' element={<DriverDetails countryList={countryList} />} />
+          {/* <Route path='/' element={<Drivers countryList={countryList} />} /> */}
+          <Route path='/' element={<Navigate to="/drivers"></Navigate>} />
+          <Route path='/drivers' element={<Drivers countryList={countryList} />} />
+          <Route path='/drivers/:id' element={<DriverDetails countryList={countryList} />} />
           <Route path='/teams' element={<Teams countryList={countryList} />} />
           <Route path='/races' element={<Races countryList={countryList} />} />
           <Route path='/races/:id' element={<RaceDetails countryList={countryList} />} />

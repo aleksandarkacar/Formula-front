@@ -16,6 +16,7 @@ nav {
     list-style: none;
   }
   a {
+    color: vars.$muted-foreground;
     display: block;
     padding: 6px 12px;
     text-decoration: none;
@@ -24,19 +25,35 @@ nav {
       // background-color: vars.$primary;
       box-shadow: 0 0 10px vars.$primary;
       background-color: vars.$secondary;
-      color: #fff;
+      color: vars.$foreground;
     }
     &.active{
       background-color: vars.$primary;
+      color: vars.$foreground;
     }
-
   }
+   }
 
   li { display: inline-block;
     padding: 0 15px;
-     
  
-  }
+    
+  }.liel{
+    
+    font-size: vars.$font-small ;
+    color: vars.$muted-foreground;
+
+  }.icons {
+    padding: 0 10px 0 ;
+    
+        &.active{
+      color: vars.$foreground;
+    }}
+  
+  
+ 
+
+  
 
 
 .F1{
@@ -47,4 +64,4 @@ nav {
 .flag{
   color: vars.$primary;
 }
-}
+
