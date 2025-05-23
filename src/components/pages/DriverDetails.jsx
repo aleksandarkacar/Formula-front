@@ -51,7 +51,7 @@ export default function DriverDetails({ countryList }) {
         <div className="driver-card">
             <div className="card">
                 <div className="title">
-                    <IdCard className="idCard"/>
+                    <IdCard className="idCard" />
                     <h1>Driver Profile</h1>
                 </div>
                 <h2 className="subtitle">Driver information and statistics</h2>
@@ -60,16 +60,16 @@ export default function DriverDetails({ countryList }) {
                     <p>{driverDetails.Driver.givenName} {driverDetails.Driver.familyName}</p>
                     {/* <p>Country: <Nat2Flag nat={driverDetails.Driver.nationality} /></p> */}
                     {/* Country: */} <p><Flag country={getAlpha2ByNationality(countryList, driverDetails.Driver.nationality)} /></p>
-                    <div className="card2"> <div className="team"><div className="mini-title">Team </div> <UsersRound style={{color:"#e11d48" }} /></div><div className="mini-text-below"> <Link to={"/teams/" + driverDetails.Constructors[0].constructorId}>{driverDetails.Constructors[0].name}</Link></div></div>
+                    <div className="card2"> <div className="team"><div className="mini-title">Team </div> <UsersRound style={{ color: "#e11d48" }} /></div><div className="mini-text-below"> <Link to={"/teams/" + driverDetails.Constructors[0].constructorId}>{driverDetails.Constructors[0].name}</Link></div></div>
                     <div className="card2">
                         <div className="team">
-                            Biography <BookOpenText style={{color:"#e11d48" }}/>
-                        </div>  
+                            Biography <BookOpenText style={{ color: "#e11d48" }} />
+                        </div>
                         <Link target="_blank" to={driverDetails.Driver.url}>
                             <div className="mini-text-below">About Driver</div>
                         </Link>
                     </div>
-                    
+
                 </div>
             </div>
 
@@ -81,7 +81,7 @@ export default function DriverDetails({ countryList }) {
                 </table>
             </div>
 
-            <div>
+            <div className="table-wrapper">
                 <table className="tabelus">
                     <thead>
                         <tr>
@@ -98,7 +98,14 @@ export default function DriverDetails({ countryList }) {
                             return (
                                 <tr>
                                     <td>{race.round}</td>
-                                    <td><Link to={"/races/" + race.round}><Flag country={getAlpha2ByCountryName(countryList, race.Circuit.Location.country)} />{race.raceName}</Link></td>
+                                    <Link to={"/races/" + race.round}>
+                                        <td>
+                                            <div className="flag-name">
+                                                <div><Flag country={getAlpha2ByCountryName(countryList, race.Circuit.Location.country)} /></div>
+                                                <div>{race.raceName}</div>
+                                            </div>
+                                        </td>
+                                    </Link>
                                     <td>{race.Results[0].Constructor.name}</td>
                                     <td>{race.Results[0].grid}</td>
                                     <td>{race.Results[0].position}</td>
