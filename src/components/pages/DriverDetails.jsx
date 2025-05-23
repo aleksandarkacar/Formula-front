@@ -51,7 +51,7 @@ export default function DriverDetails({ countryList }) {
         <div className="driver-card">
             <div className="card">
                 <div className="title">
-                    <IdCard className="idCard"/>
+                    <IdCard className="idCard, largeIcon"/>
                     <h1>Driver Profile</h1>
                 </div>
                 <h2 className="subtitle">Driver information and statistics</h2>
@@ -60,10 +60,10 @@ export default function DriverDetails({ countryList }) {
                     <p>{driverDetails.Driver.givenName} {driverDetails.Driver.familyName}</p>
                     {/* <p>Country: <Nat2Flag nat={driverDetails.Driver.nationality} /></p> */}
                     {/* Country: */} <p><Flag country={getAlpha2ByNationality(countryList, driverDetails.Driver.nationality)} /></p>
-                    <div className="card2"> <div className="team"><div className="mini-title">Team </div> <UsersRound style={{color:"#e11d48" }} /></div><div className="mini-text-below"> <Link to={"/teams/" + driverDetails.Constructors[0].constructorId}>{driverDetails.Constructors[0].name}</Link></div></div>
+                    <div className="card2"> <div className="team"><div className="mini-title">Team </div> <UsersRound className="iconUsersRound, colorPrimary, smallIcon"/></div><div className="mini-text-below"> <Link to={"/teams/" + driverDetails.Constructors[0].constructorId}>{driverDetails.Constructors[0].name}</Link></div></div>
                     <div className="card2">
                         <div className="team">
-                            Biography <BookOpenText style={{color:"#e11d48" }}/>
+                            Biography <BookOpenText className="smallIcon"/>
                         </div>  
                         <Link target="_blank" to={driverDetails.Driver.url}>
                             <div className="mini-text-below">About Driver</div>
