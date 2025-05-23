@@ -33,9 +33,10 @@ export default function Teams({countryList}) {
     return (
         <div>
 
+             <div className="table-wrapper">
             <h1>Constructions Championship</h1>
             <span>Constructors Championship Standings-2013</span>
-            <table>
+            <table className="tabelus">
                 <tbody>
                     {teams.map((team, i) => {
 
@@ -54,6 +55,7 @@ export default function Teams({countryList}) {
                     })}
                 </tbody>
             </table>
+            </div>
 
 
 

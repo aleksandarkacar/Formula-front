@@ -32,12 +32,10 @@ export default function Races({countryList}) {
     };
 
     return (
-        <div>
-            
-        
-        <h1>Race calendar</h1>
+       
+         <div className="table-wrapper">
         <h4>Race Calendar - 2013</h4>
-        <table > 
+        <table className="tabelus"> 
             <thead>
                 <tr>
                     <th>Round</th>
@@ -66,8 +64,9 @@ export default function Races({countryList}) {
                 })}
             </tbody>
         </table>
-
         </div>
+
+        
 
     );
 }
