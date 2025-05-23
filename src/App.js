@@ -10,12 +10,16 @@ import { useEffect, useState } from 'react';
 import "./styles/reset.css";
 import "./styles/App.scss";
 import "./styles/components/nav.scss";
-import "./styles/components/cards.scss";
-import { FlagOutlined } from '@ant-design/icons';
+import "./styles/components/driverDetailsCard.scss";
 import "./styles/components/tables.scss";
-import { TeamOutlined } from '@ant-design/icons';
-import { CalendarOutlined } from '@ant-design/icons';
-import { FontSizeOutlined } from '@ant-design/icons';
+// import { FlagOutlined } from '@ant-design/icons';
+import { Flag } from 'lucide-react';
+// import { TeamOutlined } from '@ant-design/icons';
+import { UsersRound } from 'lucide-react';
+// import { CalendarOutlined } from '@ant-design/icons';
+import { Calendar } from 'lucide-react';
+// import { FontSizeOutlined } from '@ant-design/icons';
+import { Building2 } from 'lucide-react';
 
 
 export default function App() {
@@ -40,16 +44,16 @@ export default function App() {
       <nav className='top-navigation'>
         <ul>
           <li className='F1'>
-            <FlagOutlined className='flag' /> F1Dashboard
+            <Flag className='flag' /> F1Dashboard
           </li>
           <li>
-            <NavLink to='/'><TeamOutlined /> Drivers</NavLink>
+            <NavLink to='/'><UsersRound /> Drivers</NavLink>
           </li>
           <li>
-            <NavLink to='/teams'><FontSizeOutlined /> Teams</NavLink>
+            <NavLink to='/teams'><Building2 /> Teams</NavLink>
           </li>
           <li>
-            <NavLink to='/races'><CalendarOutlined /> Races</NavLink>
+            <NavLink to='/races'><Calendar /> Races</NavLink>
           </li>
 
         </ul>

@@ -5,9 +5,12 @@ import { data, useParams } from "react-router";
 import { Link } from "react-router";
 import { getAlpha2ByCountryName, getAlpha2ByNationality } from "../getFlagCode";
 import Flag from "react-flagkit";
-import { TeamOutlined } from "@ant-design/icons";
-import {ReadOutlined } from "@ant-design/icons";
-import {IdcardOutlined }from "@ant-design/icons";
+// import { TeamOutlined } from "@ant-design/icons";
+import { UsersRound } from 'lucide-react';
+// import {ReadOutlined } from "@ant-design/icons";
+import { BookOpenText } from 'lucide-react';
+// import {IdcardOutlined }from "@ant-design/icons";
+import { IdCard } from 'lucide-react';
 
 export default function DriverDetails({ countryList }) {
     const [driverDetails, setDriverDetails] = useState([]);
@@ -48,7 +51,7 @@ export default function DriverDetails({ countryList }) {
         <div className="driver-card">
             <div className="card">
                 <div className="title">
-                    <IdcardOutlined className="idCard"/>
+                    <IdCard className="idCard"/>
                     <h1>Driver Profile</h1>
                 </div>
                 <h2 className="subtitle">Driver information and statistics</h2>
@@ -57,10 +60,10 @@ export default function DriverDetails({ countryList }) {
                     <p>{driverDetails.Driver.givenName} {driverDetails.Driver.familyName}</p>
                     {/* <p>Country: <Nat2Flag nat={driverDetails.Driver.nationality} /></p> */}
                     {/* Country: */} <p><Flag country={getAlpha2ByNationality(countryList, driverDetails.Driver.nationality)} /></p>
-                    <div className="card2"> <div className="team"><div className="mini-title">Team </div> <TeamOutlined style={{color:"#e11d48" }} /></div><div className="mini-text-below"> <Link to={"/teams/" + driverDetails.Constructors[0].constructorId}>{driverDetails.Constructors[0].name}</Link></div></div>
+                    <div className="card2"> <div className="team"><div className="mini-title">Team </div> <UsersRound style={{color:"#e11d48" }} /></div><div className="mini-text-below"> <Link to={"/teams/" + driverDetails.Constructors[0].constructorId}>{driverDetails.Constructors[0].name}</Link></div></div>
                     <div className="card2">
                         <div className="team">
-                            Biography <ReadOutlined style={{color:"#e11d48" }}/>
+                            Biography <BookOpenText style={{color:"#e11d48" }}/>
                         </div>  
                         <Link target="_blank" to={driverDetails.Driver.url}>
                             <div className="mini-text-below">About Driver</div>
