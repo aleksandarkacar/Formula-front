@@ -71,7 +71,7 @@ export default function TeamDetails({ countryList }) {
                                                 Country
                                             </div>
                                             <div className="smallIcon">
-                                                <Earth className="icon"  />
+                                                <Earth className="icon" />
                                                 {/* size={17} */}
                                             </div>
                                         </div>
@@ -85,7 +85,7 @@ export default function TeamDetails({ countryList }) {
                                             <div>
                                                 Position
                                             </div>
-                                            <div><TrendingUp className="icon" /></div> 
+                                            <div><TrendingUp className="icon" /></div>
                                             {/* size={17} */}
                                         </div>
                                         <div>{teamDetails.position}</div> </div>
@@ -106,53 +106,54 @@ export default function TeamDetails({ countryList }) {
                 </div>
             </div>
 
-            <table>
-                <thead>
-                    <tr>
-                        <th>Round</th>
-                        <th>Grand Prix</th>
+            <div className="table-wrapper">
+                <table className="tabelus">
+                    <thead>
+                        <tr>
+                            <th>Round</th>
+                            <th>Grand Prix</th>
 
-                        {result[0].Results.map((res, i) => {
+                            {result[0].Results.map((res, i) => {
+                                return (
+                                    <th key={i}>
+                                        {res.Driver.familyName}
+                                    </th>
+                                )
+                            })}
+
+                            <th>Points</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        {result.map((res, i) => {
+                            let points = 0;
+                            // console.log("res", res);
+
                             return (
-                                <th key={i}>
-                                    {res.Driver.familyName}
-                                </th>
+                                <tr key={i}>
+                                    <td>{res.round}</td>
+                                    {/* {console.log("Lets see res", res)} */}
+                                    <td><Flag country={getAlpha2ByCountryName(countryList, res.Circuit.Location.country)} />{res.raceName}</td>
+
+
+
+                                    {res.Results.map((data, i) => {
+                                        console.log("data", data)
+                                        points += Number(data.points)
+                                        return (
+                                            <td key={i}>{data.position}</td>
+                                        )
+                                    })}
+
+                                    <td>{points}</td>
+                                </tr>
                             )
                         })}
+                    </tbody>
 
-                        <th>Points</th>
-                    </tr>
-                </thead>
-
-                <tbody>
-                    {result.map((res, i) => {
-                        let points = 0;
-                        console.log("res", res);
-
-                        return (
-                            <tr key={i}>
-                                <td>{res.round}</td>
-                                {console.log("Lets see res", res)}
-                                <td><Flag country={getAlpha2ByCountryName(countryList, res.Circuit.Location.country)} />{res.raceName}</td>
-
-
-
-                                {res.Results.map((data, i) => {
-                                    console.log("data", data)
-                                    points += Number(data.points)
-                                    return (
-                                        <td key={i}>{data.position}</td>
-                                    )
-                                })}
-
-                                <td>{points}</td>
-                            </tr>
-                        )
-                    })}
-                </tbody>
-
-            </table>
-
+                </table>
+            </div>
         </div>
     )
 
