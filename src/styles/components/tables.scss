@@ -4,6 +4,7 @@
     display: flex;
     flex-direction: column;
     min-width: min-content;
+    flex-grow: 2;
 
 }
 
@@ -11,9 +12,8 @@
     color: vars.$primary;
     background-color: vars.$background;
     text-align: center;
-    width: 100%;
     border-collapse: collapse;
-
+    width: 100%;
 
     th,
     tr,
