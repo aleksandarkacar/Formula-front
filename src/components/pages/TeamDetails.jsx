@@ -8,7 +8,7 @@ import Flag from "react-flagkit";
 import { getAlpha2ByCountryName, getAlpha2ByNationality } from "../getFlagCode";
 import { TrendingUp } from 'lucide-react';
 import { Trophy } from 'lucide-react';
-import { History } from 'lucide-react';
+import { ExternalLink } from 'lucide-react';
 import { Earth } from 'lucide-react';
 import "../../styles/components/detailsCard.scss";
 import { Building2 } from 'lucide-react';
@@ -53,7 +53,7 @@ export default function TeamDetails({ countryList }) {
 
 
     return (
-        <div>
+        <div className="page-wrapper">
             <div className="card-wrapper" >
                 <div className="card">
                     <h1  className="title"> < Building2 className="idCard, largeIcon, color-primary"/> Team Profile</h1>
@@ -107,7 +107,7 @@ export default function TeamDetails({ countryList }) {
                                     <Link className="menu-title" to={teamDetails.Constructor.url} target="_blank">
                                     <div className="subMenu">
 
-                                                 <div>History</div> <div><History className="icon" /></div>
+                                                 <div>History</div> <div><ExternalLink className="icon" /></div>
 
                                     </div>
                                     </Link>
