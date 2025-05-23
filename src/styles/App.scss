@@ -24,6 +24,10 @@ td {
   width: 0.9em;
 }
 
+.color-primary {
+  color: vars.$primary
+}
+
 .primary {
   color: vars.$primary
 }

@@ -10,7 +10,8 @@ import { TrendingUp } from 'lucide-react';
 import { Trophy } from 'lucide-react';
 import { History } from 'lucide-react';
 import { Earth } from 'lucide-react';
-import "../../styles/components/teamDetailsCard.scss";
+import "../../styles/components/detailsCard.scss";
+import { Building2 } from 'lucide-react';
 
 export default function TeamDetails({ countryList }) {
 
@@ -55,7 +56,7 @@ export default function TeamDetails({ countryList }) {
         <div>
             <div className="card-wrapper" >
                 <div className="card">
-                    <h1 className="title" >Team Profile</h1>
+                    <h1  className="title"> < Building2 className="idCard, largeIcon, color-primary"/> Team Profile</h1>
                     <h2 className="subtitle">Team information and statistics</h2>
                     <div>
                         <img className="logo" src={`/img/teams/${params.id}.png`} />
@@ -68,16 +69,15 @@ export default function TeamDetails({ countryList }) {
                                     <div className="subMenu">
                                         <div className="menu-title">
                                             <div>
-                                                Country
+                                                Nationality
                                             </div>
-                                            <div className="smallIcon">
-                                                <Earth className="icon"  />
-                                                {/* size={17} */}
+                                            <div className="color-primary">
+                                                <Earth className="icon" />
                                             </div>
                                         </div>
-                                        <div>
-                                            {teamDetails.Constructor.nationality}
-                                            <Flag country={getAlpha2ByNationality(countryList, teamDetails.Constructor.nationality)} />
+                                        <div className="menu-title" >
+                                            <div>{teamDetails.Constructor.nationality}</div>
+                                            <Flag country={getAlpha2ByNationality(countryList, teamDetails.Constructor.nationality)} size={18}className="flag" />
                                         </div>
                                     </div>
                                     <div className="subMenu">
@@ -85,20 +85,32 @@ export default function TeamDetails({ countryList }) {
                                             <div>
                                                 Position
                                             </div>
-                                            <div><TrendingUp className="icon" /></div> 
+                                            <div className="color-primary">
+                                                <TrendingUp className="icon" /></div>
                                             {/* size={17} */}
                                         </div>
-                                        <div>{teamDetails.position}</div> </div>
+                                        <div>{teamDetails.position}</div>
+                                    </div>
                                 </div>
                                 <div className="menu-row">
                                     <div className="subMenu">
-                                        <div></div>
-                                        Points
-                                        <div className="smallIcon" >
-                                            <Trophy className="icon" /></div><div>{teamDetails.points}
+                                        <div className="menu-title">
+                                            <div>
+                                                Points
+                                            </div>
+                                            <div className="color-primary">
+                                                <Trophy className="icon" />
+                                            </div>
                                         </div>
+                                        <div>{teamDetails.points}</div>
                                     </div>
-                                    <Link to={teamDetails.Constructor.url} target="_blank"><div className="subMenu"> History <div><History className="icon" /></div></div></Link>
+                                    <Link className="menu-title" to={teamDetails.Constructor.url} target="_blank">
+                                    <div className="subMenu">
+
+                                                 <div>History</div> <div><History className="icon" /></div>
+
+                                    </div>
+                                    </Link>
                                 </div>
                             </div>
                         </div>

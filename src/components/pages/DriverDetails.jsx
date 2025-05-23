@@ -11,6 +11,7 @@ import { UsersRound } from 'lucide-react';
 import { BookOpenText } from 'lucide-react';
 // import {IdcardOutlined }from "@ant-design/icons";
 import { IdCard } from 'lucide-react';
+import "../../styles/components/detailsCard.scss";
 
 export default function DriverDetails({ countryList }) {
     const [driverDetails, setDriverDetails] = useState([]);
