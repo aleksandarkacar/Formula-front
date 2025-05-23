@@ -42,21 +42,20 @@ export default function App() {
     <Router>
       {/* Navigacija */}
       <nav className='top-navigation'>
-        <ul>
-          <li className='F1'>
-            <Flag className='flag' /> F1Dashboard
-          </li>
-          <li className='liel'>
-            <NavLink to='/drivers'><UsersRound className='icons'/> Drivers</NavLink>
-          </li>
-          <li className='liel'>
-            <NavLink to='/teams'><Building2 className='icons'/> Teams</NavLink>
-          </li>
-          <li className='liel'>
-            <NavLink to='/races'><Calendar className='icons' /> Races</NavLink>
-          </li>
-
-        </ul>
+          <div className='F1'>
+            <NavLink to='/drivers'><Flag className='flag' /> F1Dashboard</NavLink>
+          </div>
+          <div className='nav-links'>
+            <div className='li-el'>
+              <NavLink to='/drivers'><UsersRound className='icons, icon'/> <div className='navlink-text'>Drivers</div></NavLink>
+            </div>
+            <div className='li-el'>
+              <NavLink to='/teams'><Building2 className='icons, icon'/> <div className='navlink-text'>Teams</div></NavLink>
+            </div>
+            <div className='li-el'>
+              <NavLink to='/races'><Calendar className='icons, icon' /> <div className='navlink-text'>Races</div></NavLink>
+            </div>
+          </div>
       </nav>
 
       {/* Rute */}

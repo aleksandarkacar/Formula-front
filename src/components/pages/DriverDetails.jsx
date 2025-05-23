@@ -47,7 +47,7 @@ export default function DriverDetails({ countryList }) {
     }
 
     return (
-        <div className="page-wrapper">
+    <div className="page-wrapper">
 
 
         <div className="card-wrapper">
@@ -122,5 +122,6 @@ export default function DriverDetails({ countryList }) {
             </div>
 
         </div>
+    </div>
     )
 }
