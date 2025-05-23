@@ -46,14 +46,14 @@ export default function App() {
           <li className='F1'>
             <Flag className='flag' /> F1Dashboard
           </li>
-          <li>
-            <NavLink to='/drivers'><UsersRound /> Drivers</NavLink>
+          <li className='liel'>
+            <NavLink to='/drivers'><UsersRound className='icons'/> Drivers</NavLink>
           </li>
-          <li>
-            <NavLink to='/teams'><Building2 /> Teams</NavLink>
+          <li className='liel'>
+            <NavLink to='/teams'><Building2 className='icons'/> Teams</NavLink>
           </li>
-          <li>
-            <NavLink to='/races'><Calendar /> Races</NavLink>
+          <li className='liel'>
+            <NavLink to='/races'><Calendar className='icons' /> Races</NavLink>
           </li>
 
         </ul>
