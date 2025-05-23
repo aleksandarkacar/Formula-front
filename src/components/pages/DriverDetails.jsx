@@ -98,14 +98,15 @@ export default function DriverDetails({ countryList }) {
                             return (
                                 <tr>
                                     <td>{race.round}</td>
-                                    <Link to={"/races/" + race.round}>
-                                        <td>
+
+                                    <td>
+                                        <Link to={"/races/" + race.round}>
                                             <div className="flag-name">
                                                 <div><Flag country={getAlpha2ByCountryName(countryList, race.Circuit.Location.country)} /></div>
                                                 <div>{race.raceName}</div>
                                             </div>
-                                        </td>
-                                    </Link>
+                                        </Link>
+                                    </td>
                                     <td>{race.Results[0].Constructor.name}</td>
                                     <td>{race.Results[0].grid}</td>
                                     <td>{race.Results[0].position}</td>

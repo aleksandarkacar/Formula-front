@@ -19,22 +19,22 @@
         align-content: center;
         align-items: center;
     }
-
+    
     tr {
         border-bottom: 1px solid vars.$border;
     }
-
-
-
+    
+    
+    
     tr:hover {
         background-color: vars.$secondary;
     }
-
+    
     .flag-name {
         display: flex;
         align-items: center;
         justify-content: left;
-        width: max-content;
+        width: 100%;
     }
 }
 
