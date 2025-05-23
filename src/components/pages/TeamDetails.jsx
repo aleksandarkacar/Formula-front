@@ -6,8 +6,13 @@ import { Link } from "react-router";
 // import Nat2Flag from "../getFlagCode";
 import Flag from "react-flagkit";
 import { getAlpha2ByCountryName, getAlpha2ByNationality } from "../getFlagCode";
+import { TrendingUp } from 'lucide-react';
+import { Trophy } from 'lucide-react';
+import { History } from 'lucide-react';
+import { Earth } from 'lucide-react';
+import "../../styles/components/teamDetailsCard.scss";
 
-export default function TeamDetails({countryList}) {
+export default function TeamDetails({ countryList }) {
 
     <h1>Teams details</h1>
     const params = useParams();
@@ -25,11 +30,11 @@ export default function TeamDetails({countryList}) {
     const getResult = async () => {
         const url = 'http://ergast.com/api/f1/2013/constructors/' + params.id + '/constructorStandings.json'
         const url2 = "http://ergast.com/api/f1/2013/constructors/" + params.id + " /results.json";
-      
+
 
         const response = await axios.get(url);
         const response2 = await axios.get(url2);
-        
+
 
         console.log("getTeamDetails", response.data);
         console.log("getResults", response2.data.MRData.RaceTable.Races);
@@ -48,35 +53,58 @@ export default function TeamDetails({countryList}) {
 
     return (
         <div>
-            <div>
-                <h3>Formula 1 2013 Results</h3>
-                <td>
-                    <img src={`/img/teams/${params.id}.png`} style={{ height: "25px"}} />
-                    {<td><Flag country={getAlpha2ByNationality (countryList,teamDetails.Constructor.nationality) } />{teamDetails.Constructor.name}</td>}
-                </td>
+            <div className="card-wrapper" >
+                <div className="card">
+                    <h1 className="title" >Team Profile</h1>
+                    <h2 className="subtitle">Team information and statistics</h2>
+                    <div>
+                        <img className="logo" src={`/img/teams/${params.id}.png`} />
+                        <div className="name">{teamDetails.Constructor.name}</div>
+                    </div>
+                    <div className="menu-row">
+                        <div>
+                            <div>
+                                <div className="menu-row">
+                                    <div className="subMenu">
+                                        <div className="menu-title">
+                                            <div>
+                                                Country
+                                            </div>
+                                            <div className="smallIcon">
+                                                <Earth className="icon"  />
+                                                {/* size={17} */}
+                                            </div>
+                                        </div>
+                                        <div>
+                                            {teamDetails.Constructor.nationality}
+                                            <Flag country={getAlpha2ByNationality(countryList, teamDetails.Constructor.nationality)} />
+                                        </div>
+                                    </div>
+                                    <div className="subMenu">
+                                        <div className="menu-title">
+                                            <div>
+                                                Position
+                                            </div>
+                                            <div><TrendingUp className="icon" /></div> 
+                                            {/* size={17} */}
+                                        </div>
+                                        <div>{teamDetails.position}</div> </div>
+                                </div>
+                                <div className="menu-row">
+                                    <div className="subMenu">
+                                        <div></div>
+                                        Points
+                                        <div className="smallIcon" >
+                                            <Trophy className="icon" /></div><div>{teamDetails.points}
+                                        </div>
+                                    </div>
+                                    <Link to={teamDetails.Constructor.url} target="_blank"><div className="subMenu"> History <div><History className="icon" /></div></div></Link>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Country: </th>
-                        <th>Position: </th>
-                        <th>Points: </th>
-                        <th>History: </th>
-                    </tr>
-
-
-                </thead>
-                <tbody>
-
-
-                    <tr>
-                        <td>{teamDetails.Constructor.nationality}</td>
-                        <td>{teamDetails.position}</td>
-                        <td>{teamDetails.points}</td>
-                        <td><Link to={teamDetails.Constructor.url} target="_blank">History: </Link></td> 
-                    </tr>
-                </tbody>
-            </table>
 
             <table>
                 <thead>
@@ -104,8 +132,8 @@ export default function TeamDetails({countryList}) {
                         return (
                             <tr key={i}>
                                 <td>{res.round}</td>
-                                {console.log("Lets see res",res)}
-                                <td><Flag country={getAlpha2ByCountryName(countryList,res.Circuit.Location.country)} />{res.raceName}</td>
+                                {console.log("Lets see res", res)}
+                                <td><Flag country={getAlpha2ByCountryName(countryList, res.Circuit.Location.country)} />{res.raceName}</td>
 
 
 

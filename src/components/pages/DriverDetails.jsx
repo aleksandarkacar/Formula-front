@@ -48,7 +48,7 @@ export default function DriverDetails({ countryList }) {
 
     return (
 
-        <div className="driver-card">
+        <div className="card-wrapper">
             <div className="card">
                 <div className="title">
                     <IdCard className="idCard, largeIcon"/>
@@ -60,8 +60,8 @@ export default function DriverDetails({ countryList }) {
                     <p>{driverDetails.Driver.givenName} {driverDetails.Driver.familyName}</p>
                     {/* <p>Country: <Nat2Flag nat={driverDetails.Driver.nationality} /></p> */}
                     {/* Country: */} <p><Flag country={getAlpha2ByNationality(countryList, driverDetails.Driver.nationality)} /></p>
-                    <div className="card2"> <div className="team"><div className="mini-title">Team </div> <UsersRound className="iconUsersRound, colorPrimary, smallIcon"/></div><div className="mini-text-below"> <Link to={"/teams/" + driverDetails.Constructors[0].constructorId}>{driverDetails.Constructors[0].name}</Link></div></div>
-                    <div className="card2">
+                    <div className="subMenu"> <div className="team"><div className="mini-title">Team </div> <UsersRound className="iconUsersRound, colorPrimary, smallIcon"/></div><div className="mini-text-below"> <Link to={"/teams/" + driverDetails.Constructors[0].constructorId}>{driverDetails.Constructors[0].name}</Link></div></div>
+                    <div className="subMenu">
                         <div className="team">
                             Biography <BookOpenText className="smallIcon"/>
                         </div>  

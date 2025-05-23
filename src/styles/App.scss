@@ -18,3 +18,12 @@ a {
 td {
     color: vars.$foreground;
 }
+
+.icon {
+  height: 1em;
+  width: 1em;
+}
+
+.primary {
+  color: vars.$primary
+}
