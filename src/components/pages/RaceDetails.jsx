@@ -6,7 +6,7 @@ import { Link } from "react-router";
 import Flag from "react-flagkit";
 import { getAlpha2ByCountryName, getAlpha2ByNationality } from "../getFlagCode";
 
-export default function RaceDetails({countryList}) {
+export default function RaceDetails({ countryList }) {
     const [qualifs, setQualifs] = useState({});
     const [raceResults, setRaceResults] = useState({});
     const [isLoading, setIsLoading] = useState(true);
@@ -49,7 +49,7 @@ export default function RaceDetails({countryList}) {
         <div>
 
             <div>
-                <h2>Race Results</h2>
+                
                 <h3>Country: {raceResults.raceName}</h3>
                 <Flag size={"100px"} country={getAlpha2ByCountryName(countryList, raceResults.Circuit.Location.country)} />
                 <h3>Location: {raceResults.Circuit.Location.country}</h3>
@@ -58,55 +58,56 @@ export default function RaceDetails({countryList}) {
                 <h3><Link target="_blank" to={raceResults.url}>Full Report</Link>
                 </h3>
             </div>
+            <div className="table-wrapper">
+                <h1>Qualifying results</h1>
 
-            <h1>Qualifying result</h1>
+                <table className="tabelus">
+                    <thead>
+                        <tr>
+                            <th>Pos</th>
+                            <th>Driver</th>
+                            <th>Team</th>
+                            <th>Best time</th>
 
-            <table >
-                <thead>
-                    <tr>
-                        <th>Pos</th>
-                        <th>Driver</th>
-                        <th>Team</th>
-                        <th>Best time</th>
+                        </tr>
+                    </thead>
+                    <tbody>
 
-                    </tr>
-                </thead>
-                <tbody>
+                        {qualifs.map((qualif, i) => {
+                            let fastestTime = ""
+                            if (qualif.Q3) {
+                                fastestTime = qualif.Q3;
 
-                    {qualifs.map((qualif, i) => {
-                        let fastestTime = ""
-                        if (qualif.Q3) {
-                            fastestTime = qualif.Q3;
+                            } else if (qualif.Q2) {
+                                fastestTime = qualif.Q2
+                            } else {
+                                fastestTime = qualif.Q1
+                            }
+                            return (
+                                <tr key={i}>
+                                    <td>{qualif.position}</td>
+                                    <td>
+                                        <Flag country={getAlpha2ByNationality(countryList, qualif.Driver.nationality)} />
+                                        <Link to={"/" + qualif.Driver.driverId}>{qualif.Driver.familyName}</Link>
+                                    </td>
+                                    <td><Link to={"/teams/" + qualif.Constructor.constructorId}>{qualif.Constructor.name}</Link></td>
+                                    <td>{fastestTime}</td>
 
-                        } else if (qualif.Q2) {
-                            fastestTime = qualif.Q2
-                        } else {
-                            fastestTime = qualif.Q1
-                        }
-                        return (
-                            <tr key={i}>
-                                <td>{qualif.position}</td>
-                                <td>
-                                    <Flag country={getAlpha2ByNationality(countryList, qualif.Driver.nationality)} />
-                                    <Link to={"/" + qualif.Driver.driverId}>{qualif.Driver.familyName}</Link>
-                                </td>
-                                <td><Link to={"/teams/" + qualif.Constructor.constructorId}>{qualif.Constructor.name}</Link></td>
-                                <td>{fastestTime}</td>
+                                </tr>
 
-                            </tr>
-
-                        )
-                    })}
-                </tbody>
-
-
-
-            </table>
+                            )
+                        })}
+                    </tbody>
 
 
+
+                </table>
+            </div>
+
+            <div className="table-wrapper">
             <h1>Race results</h1>
 
-            <table>
+            <table className="tabelus">
 
                 <thead>
                     <tr>
@@ -144,6 +145,7 @@ export default function RaceDetails({countryList}) {
 
 
             </table>
+            </div>
 
         </div>
     );
