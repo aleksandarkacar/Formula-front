@@ -96,7 +96,7 @@ export default function DriverDetails({ countryList }) {
                     <tbody className="driver-card">
                         {dataRaces.map((race) => {
                             return (
-                                <tr>
+                                <tr key={race.round}>
                                     <td>{race.round}</td>
 
                                     <td>
