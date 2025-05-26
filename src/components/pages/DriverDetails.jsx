@@ -1,15 +1,12 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import Loader from "../Loader"
-import { data, useParams } from "react-router";
+import { useParams } from "react-router";
 import { Link } from "react-router";
 import { getAlpha2ByCountryName, getAlpha2ByNationality } from "../getFlagCode";
 import Flag from "react-flagkit";
-// import { TeamOutlined } from "@ant-design/icons";
 import { UsersRound } from 'lucide-react';
-// import {ReadOutlined } from "@ant-design/icons";
 import { BookOpenText } from 'lucide-react';
-// import {IdcardOutlined }from "@ant-design/icons";
 import { IdCard } from 'lucide-react';
 import "../../styles/components/detailsCard.scss";
 

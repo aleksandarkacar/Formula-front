@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import Loader from "../Loader";
 import axios from "axios";
 import { Link } from "react-router";
-// import Nat2Flag from "../getFlagCode";
 import Flag from "react-flagkit";
 import { getAlpha2ByCountryName, getAlpha2ByNationality } from "../getFlagCode";
 

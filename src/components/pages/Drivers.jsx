@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import Loader from "../Loader"
 import { Link } from "react-router";
 import Flag from "react-flagkit";
 import { getAlpha2ByNationality } from "../getFlagCode";
-import { RadioReceiver } from "lucide-react";
 
 export default function Drivers({ countryList }) {
     const [drivers, setDrivers] = useState([]);
