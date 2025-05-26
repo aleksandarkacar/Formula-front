@@ -5,7 +5,7 @@ import styles from '../../../../Formula-front/src/styles/components/landingPage.
 export default function Landing() {
   return (
     <div>
-        <video autoPlay muted loop width="100%" height="100%" controls>
+        <video autoPlay muted loop width="100%" height="100%">
           <source src={'/video/landing-page-video.mp4'}/>
         </video>
     </div>
