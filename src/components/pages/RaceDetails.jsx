@@ -97,8 +97,9 @@ export default function RaceDetails({ countryList }) {
         </div>
 
         <div className="table-wrapper">
+          <br/>
           <h1>Qualifying results</h1>
-
+          <br/><br/>
           <table className="table">
             <thead>
               <tr>
@@ -146,8 +147,9 @@ export default function RaceDetails({ countryList }) {
         </div>
 
         <div className="table-wrapper">
+          <br/>
           <h1>Race results</h1>
-
+          <br/><br/>
           <table className="table">
             <thead>
               <tr>
