@@ -4,6 +4,7 @@ import Loader from "../Loader"
 import { Link } from "react-router";
 import Flag from "react-flagkit";
 import { getAlpha2ByNationality } from "../getFlagCode";
+import { RadioReceiver } from "lucide-react";
 
 export default function Drivers({countryList}) {
     const [drivers, setDrivers] = useState([]);
@@ -39,7 +40,10 @@ export default function Drivers({countryList}) {
                                 {/* <td>{driver.Driver.nationality}</td> */}
                                 
                                 <td><Flag country={getAlpha2ByNationality(countryList, driver.Driver.nationality)} /><Link to={driver.Driver.driverId}>{driver.Driver.givenName} {driver.Driver.familyName}</Link></td>
-                                <td>{driver.Constructors[0].name}</td>
+                                <td>
+                                    <Link to={'/teams/' + driver.round}>
+                                    {driver.Constructors[0].name}</Link>
+                                </td>
                                 <td>{driver.points}</td>
                             </tr>
                         )
