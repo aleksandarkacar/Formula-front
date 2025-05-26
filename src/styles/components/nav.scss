@@ -1,103 +1,94 @@
-  @use "../variables.scss" as vars;
+@use "../variables.scss" as vars;
+
+a {
+  text-decoration: none;
+}
+
+.top-navigation {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  top: 0;
+  position: fixed;
+  border-bottom: solid vars.$border;
+  border-top: solid vars.$border;
+  backdrop-filter: blur(10px);
+  background-color: vars.$nav-background;
+
+  ul {
+    margin: 5px;
+    padding: 15px;
+    list-style: none;
+  }
+}
+
+// li { display: inline-block;
+//   padding: 0 15px;
+// }
+
+.nav-links {
+  display: flex;
+  // flex-wrap: wrap;
+  // justify-content: left;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: center;
+  font-size: vars.$font-medium;
+  color: vars.$muted-foreground;
 
   a {
-    text-decoration: none;
-  }
-
-  .top-navigation {
     display: flex;
     align-items: center;
-    width: 100%;
-    top: 0;
-    position: fixed;
-    border-bottom: solid vars.$border;
-    border-top: solid vars.$border;
-    backdrop-filter: blur(10px);
-    background-color: vars.$nav-background;
-
-    ul {
-      margin: 5px;
-      padding: 15px;
-      list-style: none;
-    }
-  }
-
-  // li { display: inline-block;
-  //   padding: 0 15px;
-  // }
-
-
-  .nav-links {
-    display: flex;
-    // flex-wrap: wrap;
-    // justify-content: left;
-    flex-direction: row;
     justify-content: space-between;
-    align-content: center;
-    font-size: vars.$font-medium ;
     color: vars.$muted-foreground;
+    // display: block;
+    // width: 100px;
+    // height: 40px;
+    padding: 6px 12px;
+    text-decoration: none;
+    border-radius: 6px;
 
-    a {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      color: vars.$muted-foreground;
-      // display: block;
-      // width: 100px;
-      // height: 40px;
-      padding: 6px 12px;
-      text-decoration: none;
-      border-radius: 6px;
-
-      &:hover {
-        // background-color: vars.$primary;
-        box-shadow: 0 0 10px vars.$primary;
-        background-color: vars.$secondary;
-        color: vars.$foreground;
-      }
-
-      &.active {
-        background-color: vars.$primary;
-        color: vars.$foreground;
-      }
+    &:hover {
+      // background-color: vars.$primary;
+      box-shadow: 0 0 10px vars.$primary;
+      background-color: vars.$secondary;
+      color: vars.$foreground;
     }
 
-  }
-
-  .navlink-text {
-    margin-left: 10px;
-  }
-
-
-
-  .li-el {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin: 5px;
-  }
-
-
-
-
-
-  .F1 {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    margin: 15px;
-    font-size: larger;
-    font-weight: bold;
-
-  }
-
-  .flag {
-    color: vars.$primary;
-  }
-
-  .icons {
     &.active {
+      background-color: vars.$primary;
       color: vars.$foreground;
     }
   }
+}
+
+.navlink-text {
+  margin-left: 10px;
+}
+
+.li-el {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 5px;
+}
+
+.F1 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin: 15px;
+  font-size: larger;
+  font-weight: bold;
+}
+
+.flag {
+  color: vars.$primary;
+}
+
+.icons {
+  &.active {
+    color: vars.$foreground;
+  }
+}

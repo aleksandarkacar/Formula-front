@@ -24,39 +24,50 @@ import { Building2 } from 'lucide-react';
 
 
 export default function App() {
-
   const [countryList, setCountryList] = useState([]);
 
   useEffect(() => {
     getCountryList();
-  }, [])
+  }, []);
 
   const getCountryList = async () => {
-    const url = "https://raw.githubusercontent.com/Imagin-io/country-nationality-list/refs/heads/master/countries.json";
+    const url =
+      "https://raw.githubusercontent.com/Imagin-io/country-nationality-list/refs/heads/master/countries.json";
     const response = await axios.get(url);
 
     console.log("GetCountryList", response.data);
     setCountryList(response.data);
-  }
+  };
 
   return (
     <Router>
       {/* Navigacija */}
-      <nav className='top-navigation'>
-          <div className='F1'>
-            <NavLink to='/drivers'><Flag className='flag' /> F1Dashboard</NavLink>
+      <nav className="top-navigation">
+        <div className="F1">
+          <NavLink to="/">
+            <Flag className="flag" /> F1Dashboard
+          </NavLink>
+        </div>
+        <div className="nav-links">
+          <div className="li-el">
+            <NavLink to="/">
+              <UsersRound className="icons icon" />{" "}
+              <div className="navlink-text">Drivers</div>
+            </NavLink>
           </div>
-          <div className='nav-links'>
-            <div className='li-el'>
-              <NavLink to='/drivers'><UsersRound className='icons, icon'/> <div className='navlink-text'>Drivers</div></NavLink>
-            </div>
-            <div className='li-el'>
-              <NavLink to='/teams'><Building2 className='icons, icon'/> <div className='navlink-text'>Teams</div></NavLink>
-            </div>
-            <div className='li-el'>
-              <NavLink to='/races'><Calendar className='icons, icon' /> <div className='navlink-text'>Races</div></NavLink>
-            </div>
+          <div className="li-el">
+            <NavLink to="/teams">
+              <Building2 className="icons icon" />{" "}
+              <div className="navlink-text">Teams</div>
+            </NavLink>
           </div>
+          <div className="li-el">
+            <NavLink to="/races">
+              <Calendar className="icons icon" />{" "}
+              <div className="navlink-text">Races</div>
+            </NavLink>
+          </div>
+        </div>
       </nav>
 
       {/* Rute */}
@@ -75,5 +86,5 @@ export default function App() {
         </Routes>
       </div>
     </Router>
-  )
+  );
 }
