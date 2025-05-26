@@ -62,9 +62,8 @@ export default function App() {
         {/* <div style={{backgroundColor: '#ccc'}}> */}
         <Routes className='page'>
           {/* <Route path='/' element={<Drivers countryList={countryList} />} /> */}
-          <Route path='/' element={<Navigate to="/drivers"></Navigate>} />
-          <Route path='/drivers' element={<Drivers countryList={countryList} />} />
-          <Route path='/drivers/:id' element={<DriverDetails countryList={countryList} />} />
+          <Route path='/' element={<Drivers countryList={countryList} />} />
+          <Route path='/:id' element={<DriverDetails countryList={countryList} />} />
           <Route path='/teams' element={<Teams countryList={countryList} />} />
           <Route path='/races' element={<Races countryList={countryList} />} />
           <Route path='/races/:id' element={<RaceDetails countryList={countryList} />} />
