@@ -48,10 +48,12 @@ a {
     padding: 6px 12px;
     text-decoration: none;
     border-radius: 6px;
+    border-top: solid vars.$background;
 
     &:hover {
       // background-color: vars.$primary;
-      box-shadow: 0 0 10px vars.$primary;
+      // box-shadow: 0 0 10px vars.$primary;
+      border-top: solid vars.$primary;
       background-color: vars.$secondary;
       color: vars.$foreground;
     }
@@ -59,6 +61,7 @@ a {
     &.active {
       background-color: vars.$primary;
       color: vars.$foreground;
+      border-top: solid vars.$primary;
     }
   }
 }
