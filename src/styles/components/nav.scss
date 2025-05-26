@@ -41,6 +41,7 @@ a {
     align-items: center;
     justify-content: space-between;
     color: vars.$muted-foreground;
+    gap: 7px;
     // display: block;
     // width: 100px;
     // height: 40px;
@@ -60,10 +61,6 @@ a {
       color: vars.$foreground;
     }
   }
-}
-
-.navlink-text {
-  margin-left: 10px;
 }
 
 .li-el {

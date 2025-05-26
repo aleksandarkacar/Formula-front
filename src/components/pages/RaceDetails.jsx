@@ -10,8 +10,8 @@ import { CalendarDays } from "lucide-react";
 import { FileSpreadsheet } from "lucide-react";
 
 export default function RaceDetails({ countryList }) {
-  const [qualifs, setQualifs] = useState({});
-  const [raceResults, setRaceResults] = useState({});
+  const [qualifs, setQualifs] = useState([]);
+  const [raceResults, setRaceResults] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const params = useParams();
   // console.log(params.id);
@@ -19,10 +19,6 @@ export default function RaceDetails({ countryList }) {
   useEffect(() => {
     getQualifs();
   }, []);
-
-  // const getGPDetails = async () => {
-  //     const url = ""
-  // }
 
   const getQualifs = async () => {
     const url =
