@@ -45,10 +45,11 @@ export default function Races({ countryList }) {
               <tr key={i}>
                 <td>{race.round}</td>
                 <td>
-                  <Flag
+                  <Flag className="flagg"
                     country={getAlpha2ByCountryName(
                       countryList,
                       race.Circuit.Location.country
+                      
                     )}
                   />
                   <Link to={"/races/" + race.round}>{race.raceName}</Link>
