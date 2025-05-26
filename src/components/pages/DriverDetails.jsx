@@ -136,7 +136,7 @@ export default function DriverDetails({ countryList }) {
                     <Link to={"/races/" + race.round}>
                       <div className="flag-name">
                         <div>
-                          <Flag
+                          <Flag className="flagg"
                             country={getAlpha2ByCountryName(
                               countryList,
                               race.Circuit.Location.country
