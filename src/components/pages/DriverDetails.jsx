@@ -34,8 +34,8 @@ export default function DriverDetails({ countryList }) {
         const dataRaces = response2.data.MRData.RaceTable.Races;
         const data = response.data.MRData.StandingsTable.StandingsLists[0].DriverStandings[0];
 
-        console.log("dataRaces", dataRaces)
-        console.log('driverDetails', response.data.MRData.StandingsTable.StandingsLists[0].DriverStandings[0]);
+        // console.log("dataRaces", dataRaces)
+        // console.log('driverDetails', response.data.MRData.StandingsTable.StandingsLists[0].DriverStandings[0]);
 
         setDataRaces(dataRaces);
         setDriverDetails(data);
@@ -49,72 +49,89 @@ export default function DriverDetails({ countryList }) {
 
     return (
         <div className="page-wrapper">
-
-
             <div className="card-wrapper">
                 <div className="card">
                     <div className="title">
-                        <IdCard className="idCard, largeIcon" />
-                        <h1>Driver Profile</h1>
+                        <h1 className="title"><IdCard className="idCard, color-primary" />Driver Profile</h1>
                     </div>
                     <h2 className="subtitle">Driver information and statistics</h2>
-                    <img className="photo" src={`/img/drivers/${driver.id}.jpg`} alt="drivers-photo" />
-                    <div key={driverDetails.Driver.driverId}>
+                    <div className="card-content">
+                        <img className="photo" src={`/img/drivers/${driver.id}.jpg`} alt="driver-photo" />
                         <p>{driverDetails.Driver.givenName} {driverDetails.Driver.familyName}</p>
                         {/* <p>Country: <Nat2Flag nat={driverDetails.Driver.nationality} /></p> */}
                         {/* Country: */} <p><Flag country={getAlpha2ByNationality(countryList, driverDetails.Driver.nationality)} /></p>
-                        <div className="subMenu"> <div className="team"><div className="mini-title">Team </div> <UsersRound className="iconUsersRound, colorPrimary, smallIcon" /></div><div className="mini-text-below"> <Link to={"/teams/" + driverDetails.Constructors[0].constructorId}>{driverDetails.Constructors[0].name}</Link></div></div>
-                        <div className="subMenu">
-                            <div className="team">
-                                Biography <BookOpenText className="smallIcon" />
+                        <div className="menu-wrapper">
+                            <div className="subMenu">
+                                <div className="menu-title">
+                                    <div>Team</div>
+                                    <div className="color-primary">
+                                        <UsersRound className="icon" />
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <Link to={"/teams/" + driverDetails.Constructors[0].constructorId}>
+                                        {driverDetails.Constructors[0].name}</Link>
+                                </div>
                             </div>
-                            <Link target="_blank" to={driverDetails.Driver.url}>
-                                <div className="mini-text-below">About Driver</div>
-                            </Link>
+                            <div className="subMenu">
+                                <div className="menu-title">
+                                    <div>
+                                        Biography
+                                    </div>
+                                    <div className="color-primary">
+                                        <BookOpenText className="icon" />
+                                    </div>
+                                </div>
+                                <Link target="_blank" to={driverDetails.Driver.url}>
+                                    <div className="mini-text-below">About Driver</div>
+                                </Link>
+                            </div>
                         </div>
 
                     </div>
                 </div>
-
-                <div className="table-wrapper">
-                    <h4>Formula 1 2013 Results</h4>
-                    <table className="tabelus">
-                        <thead>
-                            <tr>
-                                <th>Round</th>
-                                <th>Grand Prix</th>
-                                <th>Team</th>
-                                <th>Grid</th>
-                                <th>Race</th>
-                            </tr>
-                        </thead>
-
-                        <tbody className="driver-card">
-                            {dataRaces.map((race) => {
-                                return (
-                                    <tr key={race.round}>
-                                        <td>{race.round}</td>
-
-                                        <td>
-                                            <Link to={"/races/" + race.round}>
-                                                <div className="flag-name">
-                                                    <div><Flag country={getAlpha2ByCountryName(countryList, race.Circuit.Location.country)} /></div>
-                                                    <div>{race.raceName}</div>
-                                                </div>
-                                            </Link>
-                                        </td>
-                                        <td>{race.Results[0].Constructor.name}</td>
-                                        <td>{race.Results[0].grid}</td>
-                                        <td>{race.Results[0].position}</td>
-                                    </tr>
-                                )
-                            })}
-                        </tbody>
-
-                    </table>
-                </div>
-
             </div>
+
+            <div className="table-wrapper">
+                <h4>Formula 1 2013 Results</h4>
+                <table className="tabelus">
+                    <thead>
+                        <tr>
+                            <th>Round</th>
+                            <th>Grand Prix</th>
+                            <th>Team</th>
+                            <th>Grid</th>
+                            <th>Race</th>
+                        </tr>
+                    </thead>
+
+                    <tbody className="driver-card">
+                        {dataRaces.map((race) => {
+                            return (
+                                <tr key={race.round}>
+                                    <td>{race.round}</td>
+
+                                    <td>
+                                        <Link to={"/races/" + race.round}>
+                                            <div className="flag-name">
+                                                <div><Flag country={getAlpha2ByCountryName(countryList, race.Circuit.Location.country)} /></div>
+                                                <div>{race.raceName}</div>
+                                            </div>
+                                        </Link>
+                                    </td>
+                                    <td>{race.Results[0].Constructor.name}</td>
+                                    <td>{race.Results[0].grid}</td>
+                                    <td>{race.Results[0].position}</td>
+                                </tr>
+                            )
+                        })}
+                    </tbody>
+
+                </table>
+            </div>
+
+
         </div>
     )
 }

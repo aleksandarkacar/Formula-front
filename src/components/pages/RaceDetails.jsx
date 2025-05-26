@@ -31,11 +31,11 @@ export default function RaceDetails({ countryList }) {
         const response = await axios.get(url);
         const response2 = await axios.get(url2);
 
-        console.log("Qualifs", response.data.MRData.RaceTable.Races[0].QualifyingResults);
+        // console.log("Qualifs", response.data.MRData.RaceTable.Races[0].QualifyingResults);
         setQualifs(response.data.MRData.RaceTable.Races[0].QualifyingResults);
 
 
-        console.log("getRaceResults", response2.data.MRData.RaceTable.Races[0]);
+        // console.log("getRaceResults", response2.data.MRData.RaceTable.Races[0]);
         setRaceResults(response2.data.MRData.RaceTable.Races[0]);
 
         setIsLoading(false);
@@ -49,7 +49,6 @@ export default function RaceDetails({ countryList }) {
         <div>
 
             <div>
-                
                 <h3>Country: {raceResults.raceName}</h3>
                 <Flag size={"100px"} country={getAlpha2ByCountryName(countryList, raceResults.Circuit.Location.country)} />
                 <h3>Location: {raceResults.Circuit.Location.country}</h3>
@@ -105,46 +104,46 @@ export default function RaceDetails({ countryList }) {
             </div>
 
             <div className="table-wrapper">
-            <h1>Race results</h1>
+                <h1>Race results</h1>
 
-            <table className="tabelus">
+                <table className="tabelus">
 
-                <thead>
-                    <tr>
-                        <th>Pos</th>
-                        <th>Driver</th>
-                        <th>Team</th>
-                        <th>Result</th>
-                        <th>Points</th>
+                    <thead>
+                        <tr>
+                            <th>Pos</th>
+                            <th>Driver</th>
+                            <th>Team</th>
+                            <th>Result</th>
+                            <th>Points</th>
 
-                    </tr>
-                </thead>
+                        </tr>
+                    </thead>
 
-                <tbody>
-                    {raceResults.Results.map((raceResult, i) => {
-                        return (
-                            <tr key={i}>
-                                <td>{raceResult.position}</td>
-                                <td>
-                                    <Flag country={getAlpha2ByNationality(countryList, raceResult.Driver.nationality)} />
-                                    <Link to={"/" + raceResult.Driver.driverId}>{raceResult.Driver.familyName}</Link></td>
-                                <td>
-                                    <Link to={"/teams/" + raceResult.Constructor.constructorId}>{raceResult.Constructor.name}</Link>
-                                </td>
-                                <td>{raceResult.Time ? raceResult.Time.time : raceResult.status}</td>
-                                <td>{raceResult.points}</td>
+                    <tbody>
+                        {raceResults.Results.map((raceResult, i) => {
+                            return (
+                                <tr key={i}>
+                                    <td>{raceResult.position}</td>
+                                    <td>
+                                        <Flag country={getAlpha2ByNationality(countryList, raceResult.Driver.nationality)} />
+                                        <Link to={"/" + raceResult.Driver.driverId}>{raceResult.Driver.familyName}</Link></td>
+                                    <td>
+                                        <Link to={"/teams/" + raceResult.Constructor.constructorId}>{raceResult.Constructor.name}</Link>
+                                    </td>
+                                    <td>{raceResult.Time ? raceResult.Time.time : raceResult.status}</td>
+                                    <td>{raceResult.points}</td>
 
-                            </tr>
-                        )
+                                </tr>
+                            )
 
-                    })}
+                        })}
 
-                </tbody>
-
-
+                    </tbody>
 
 
-            </table>
+
+
+                </table>
             </div>
 
         </div>
