@@ -24,9 +24,25 @@
     text-align: center;
     min-width: max-content;
     // max-width: max-content;
+    // border-radius: 10px;
+    // // box-shadow: 0 0 10px vars.$primary;
+    // border-top: solid vars.$primary;
+
+    position: relative; // required for pseudo-element positioning
     border-radius: 10px;
-    // box-shadow: 0 0 10px vars.$primary;
-    border-top: solid vars.$primary;
+    overflow: hidden; // ensures gradient respects border-radius
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 5px; // adjust thickness
+      width: 100%;
+      background: linear-gradient(to right, vars.$primary, vars.$card);
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+    }
 
     .photo {
       border-radius: 50%;

@@ -1,6 +1,8 @@
 @use "../variables.scss" as vars;
+@use "../mixins.scss" as mixins;
 
 .table-wrapper {
+  @include mixins.gradient-top-border;
   display: flex;
   flex-direction: column;
   min-width: min-content;
@@ -10,7 +12,7 @@
   border-radius: 10px;
   color: vars.$primary;
   padding: 10px;
-  border-top: solid vars.$primary;
+  // border-top: solid vars.$primary;
   background-color: vars.$table;
 }
 
