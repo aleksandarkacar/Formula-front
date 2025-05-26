@@ -11,9 +11,9 @@ import { IdCard } from "lucide-react";
 import "../../styles/components/detailsCard.scss";
 
 export default function DriverDetails({ countryList }) {
-  const [driverDetails, setDriverDetails] = useState([]);
+  const [driverDetails, setDriverDetails] = useState({});
   const [isLoading, setIsLoading] = useState(true);
-  const [dataRaces, setDataRaces] = useState({});
+  const [dataRaces, setDataRaces] = useState([]);
   const driver = useParams();
 
   useEffect(() => {
