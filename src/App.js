@@ -1,27 +1,33 @@
-import { BrowserRouter as Router, Routes, Route, NavLink, Navigate } from 'react-router';
-import Drivers from './components/pages/Drivers';
-import DriverDetails from './components/pages/DriverDetails';
-import Teams from './components/pages/Teams';
-import Races from './components/pages/Races';
-import TeamDetails from './components/pages/TeamDetails';
-import RaceDetails from './components/pages/RaceDetails';
-import Landing from './components/pages/Landing';
-import axios from 'axios';
-import { useEffect, useState } from 'react';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  NavLink,
+  Navigate,
+} from "react-router";
+import Drivers from "./components/pages/Drivers";
+import DriverDetails from "./components/pages/DriverDetails";
+import Teams from "./components/pages/Teams";
+import Races from "./components/pages/Races";
+import TeamDetails from "./components/pages/TeamDetails";
+import RaceDetails from "./components/pages/RaceDetails";
+import Landing from "./components/pages/Landing";
+import axios from "axios";
+import Footer from "./components/Footer";
+import { useEffect, useState } from "react";
 import "./styles/reset.css";
 import "./styles/App.scss";
 import "./styles/components/nav.scss";
 import "./styles/components/tables.scss";
 
 // import { FlagOutlined } from '@ant-design/icons';
-import { Flag } from 'lucide-react';
+import { Flag } from "lucide-react";
 // import { TeamOutlined } from '@ant-design/icons';
-import { UsersRound } from 'lucide-react';
+import { UsersRound } from "lucide-react";
 // import { CalendarOutlined } from '@ant-design/icons';
-import { Calendar } from 'lucide-react';
+import { Calendar } from "lucide-react";
 // import { FontSizeOutlined } from '@ant-design/icons';
-import { Building2 } from 'lucide-react';
-
+import { Building2 } from "lucide-react";
 
 export default function App() {
   const [countryList, setCountryList] = useState([]);
@@ -68,20 +74,33 @@ export default function App() {
       </nav>
 
       {/* Rute */}
-      <div className='page'>
+      <div className="page">
         {/* <div style={{backgroundColor: '#ccc'}}> */}
-        <Routes className='page'>
+        <Routes className="page">
           {/* <Route path='/' element={<Drivers countryList={countryList} />} /> */}
-          <Route path='/' element={<Navigate to="/drivers"></Navigate>} />
-          <Route path='/landing' element={<Landing to='/landing'></Landing>} />
-          <Route path='/drivers' element={<Drivers countryList={countryList} />} />
-          <Route path='/drivers/:id' element={<DriverDetails countryList={countryList} />} />
-          <Route path='/teams' element={<Teams countryList={countryList} />} />
-          <Route path='/races' element={<Races countryList={countryList} />} />
-          <Route path='/races/:id' element={<RaceDetails countryList={countryList} />} />
-          <Route path='/teams/:id' element={<TeamDetails countryList={countryList} />} />
+          <Route path="/" element={<Navigate to="/drivers"></Navigate>} />
+          <Route path="/landing" element={<Landing to="/landing"></Landing>} />
+          <Route
+            path="/drivers"
+            element={<Drivers countryList={countryList} />}
+          />
+          <Route
+            path="/drivers/:id"
+            element={<DriverDetails countryList={countryList} />}
+          />
+          <Route path="/teams" element={<Teams countryList={countryList} />} />
+          <Route path="/races" element={<Races countryList={countryList} />} />
+          <Route
+            path="/races/:id"
+            element={<RaceDetails countryList={countryList} />}
+          />
+          <Route
+            path="/teams/:id"
+            element={<TeamDetails countryList={countryList} />}
+          />
         </Routes>
       </div>
+      <Footer />
     </Router>
   );
 }
