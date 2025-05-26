@@ -1,5 +1,5 @@
 @use "./variables.scss" as vars;
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap");
 
 body {
   padding-top: 60px;
@@ -10,13 +10,13 @@ body {
 
 a {
   color: vars.$foreground;
-  &:hover{
+  &:hover {
     color: vars.$primary;
   }
 }
 
 td {
-    color: vars.$foreground;
+  color: vars.$foreground;
 }
 
 .icon {
@@ -25,11 +25,11 @@ td {
 }
 
 .color-primary {
-  color: vars.$primary
+  color: vars.$primary;
 }
 
 .primary {
-  color: vars.$primary
+  color: vars.$primary;
 }
 .loader-container {
   display: flex;
