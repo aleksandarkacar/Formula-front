@@ -38,3 +38,20 @@ td {
   height: 80vh;
   color: vars.$primary;
 }
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 15px;
+  padding: 5px;
+  border-top: vars.$border;
+  font-size: vars.$font-small;
+  color: vars.$muted-foreground;
+}
+.footdiv {
+  min-width: px;
+}
+.footdiv1 {
+  min-width: px;
+}

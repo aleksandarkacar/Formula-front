@@ -112,9 +112,10 @@ export default function DriverDetails({ countryList }) {
 
       <div className="table-wrapper">
         <h4>Formula 1 2013 Results</h4>
+        <br />
         <table className="table">
           <thead>
-            <tr>
+            <tr className="top-row">
               <th>Round</th>
               <th>Grand Prix</th>
               <th>Team</th>
@@ -123,7 +124,7 @@ export default function DriverDetails({ countryList }) {
             </tr>
           </thead>
 
-          <tbody className="driver-card">
+          <tbody>
             {dataRaces.map((race) => {
               return (
                 <tr key={race.round}>
@@ -140,6 +141,7 @@ export default function DriverDetails({ countryList }) {
                             )}
                           />
                         </div>
+
                         <div>{race.raceName}</div>
                       </div>
                     </Link>
