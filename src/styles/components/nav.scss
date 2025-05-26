@@ -11,7 +11,7 @@ a {
   top: 0;
   position: fixed;
   border-bottom: solid vars.$border;
-  border-top: solid vars.$border;
+  border-top: solid vars.$primary;
   backdrop-filter: blur(10px);
   background-color: vars.$nav-background;
 

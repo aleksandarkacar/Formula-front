@@ -45,9 +45,9 @@ export default function RaceDetails({ countryList }) {
     <div className="page-wrapper">
       <div className="card-wrapper">
         <div className="card">
-          <h3 className="title"> {raceResults.raceName}</h3>
-
-          <div classNmae="card-content">
+          <h3 className="title">Race Calendar</h3>
+          <div className="subtitle">{raceResults.raceName}</div>
+          <div className="card-content">
             <Flag
               size={"100px"}
               country={getAlpha2ByCountryName(
@@ -58,37 +58,39 @@ export default function RaceDetails({ countryList }) {
               alt="country-flag"
             />
             <div className="menu-wrapper">
-              <div className="subMenu">
-                <div className="menu-title">
-                  <h3>Location: {raceResults.Circuit.Location.country}</h3>
-                  <div className="color-primary">
-                    <MapPin className="icon" />
-                  </div>
-                </div>
-              </div>
-
-              <div className="menu-wrapper">
+              <div className="menu-row">
                 <div className="subMenu">
                   <div className="menu-title">
-                    <h3>Date: {raceResults.date}</h3>
+                    <h3>Location:</h3>
+                    <div className="color-primary">
+                      <MapPin className="icon" />
+                    </div>
+                  </div>
+                  <div className="mini-text-below">
+                    {raceResults.Circuit.Location.country}
+                  </div>
+                </div>
+                <div className="subMenu">
+                  <div className="menu-title">
+                    <h3>Date:</h3>
                     <div className="color-primary">
                       <CalendarDays className="icon" />
                     </div>
                   </div>
+                  <div className="mini-text-below">{raceResults.date}</div>
                 </div>
               </div>
-
-              <div className="menu-wrapper">
-                <div className="subMenu">
-                  <h3 className="menu-title">
-                    <Link target="_blank" to={raceResults.url}>
-                      Full Report
-                    </Link>
-                    <div className="color-primary">
-                      <FileSpreadsheet className="icon" />
-                    </div>
-                  </h3>
-                </div>
+            </div>
+            <div className="menu-wrapper">
+              <div className="subMenu">
+                <h3 className="menu-title">
+                  <Link target="_blank" to={raceResults.url}>
+                    Full Report
+                  </Link>
+                  <div className="color-primary">
+                    <FileSpreadsheet className="icon" />
+                  </div>
+                </h3>
               </div>
             </div>
           </div>
