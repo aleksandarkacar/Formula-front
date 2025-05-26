@@ -6,7 +6,7 @@ import Flag from "react-flagkit";
 import { getAlpha2ByCountryName, getAlpha2ByNationality } from "../getFlagCode";
 
 export default function Races({ countryList }) {
-  const [races, setRaces] = useState({});
+  const [races, setRaces] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {

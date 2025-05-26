@@ -18,8 +18,7 @@ export default function TeamDetails({ countryList }) {
 
   const [teamDetails, setTeamDetails] = useState({});
   const [loader, setLoader] = useState(true);
-  const [result, setResult] = useState({});
-  // console.log(params, 'params');
+  const [result, setResult] = useState([]);
 
   useEffect(() => {
     getResult();
@@ -58,7 +57,7 @@ export default function TeamDetails({ countryList }) {
       <div className="card-wrapper">
         <div className="card">
           <h1 className="title">
-            <Building2 className="idCard, largeIcon, color-primary" /> Team
+            <Building2 className="idCard largeIcon color-primary" /> Team
             Profile
           </h1>
           <h2 className="subtitle">Team information and statistics</h2>

@@ -7,8 +7,8 @@ import Flag from "react-flagkit";
 import { getAlpha2ByCountryName, getAlpha2ByNationality } from "../getFlagCode";
 
 export default function RaceDetails({ countryList }) {
-  const [qualifs, setQualifs] = useState({});
-  const [raceResults, setRaceResults] = useState({});
+  const [qualifs, setQualifs] = useState([]);
+  const [raceResults, setRaceResults] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const params = useParams();
   // console.log(params.id);
@@ -16,10 +16,6 @@ export default function RaceDetails({ countryList }) {
   useEffect(() => {
     getQualifs();
   }, []);
-
-  // const getGPDetails = async () => {
-  //     const url = ""
-  // }
 
   const getQualifs = async () => {
     const url =
