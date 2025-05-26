@@ -28,9 +28,9 @@ export default function Races({ countryList }) {
 
   return (
     <div className="table-wrapper">
-      <br></br>
-      <h1>Race Calendar - 2013</h1>
-      <br></br><br></br>
+      <br/>
+      <h1>Race Calendar - 2013.</h1>
+      <br/><br/>
       <table className="table">
         <thead>
           <tr>

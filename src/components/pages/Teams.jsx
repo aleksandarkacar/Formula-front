@@ -33,7 +33,10 @@ export default function Teams({ countryList }) {
   return (
     <div>
       <div className="table-wrapper">
-        <h1>Constructors Championship Standings-2013</h1>
+        <br />
+        <h1>Constructors Championship Standings - 2013.</h1>
+        <br />
+        <br />
         <br />
         <table className="table">
           <tbody>
