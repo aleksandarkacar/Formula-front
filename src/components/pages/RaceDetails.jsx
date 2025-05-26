@@ -49,7 +49,6 @@ export default function RaceDetails({ countryList }) {
         <div>
 
             <div>
-                
                 <h3>Country: {raceResults.raceName}</h3>
                 <Flag size={"100px"} country={getAlpha2ByCountryName(countryList, raceResults.Circuit.Location.country)} />
                 <h3>Location: {raceResults.Circuit.Location.country}</h3>

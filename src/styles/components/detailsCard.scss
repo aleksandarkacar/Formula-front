@@ -40,6 +40,13 @@
             font-size: 20px;
             margin-right: 7px;
         }
+
+        .card-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
     }
 
     // table {
@@ -49,7 +56,9 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        align-items: stretch;
         text-align: left;
+        flex-grow: 1;
         // align-items: left;
         background-color: vars.$card;
         border: solid 1px vars.$border;
@@ -64,14 +73,25 @@
             flex-wrap: wrap;
             align-items: center;
             justify-content: space-between;
+            flex-grow: 1;
 
         }
     }
 
+    .menu-wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: stretch;
+        align-items: stretch;
+        flex-grow: 1;
+        width: 100%;
+    }
+
     .menu-row {
         display: flex;
-        align-items: center;
+        align-items: stretch;
         justify-content: center;
+        flex-grow: 1;
 
         // .mini-text-below {
         //     display: flex;

@@ -56,13 +56,14 @@ export default function TeamDetails({ countryList }) {
         <div className="page-wrapper">
             <div className="card-wrapper" >
                 <div className="card">
-                    <h1  className="title"> < Building2 className="idCard, largeIcon, color-primary"/> Team Profile</h1>
+                    <h1  className="title">
+                        < Building2 className="idCard, largeIcon, color-primary"/> Team Profile</h1>
                     <h2 className="subtitle">Team information and statistics</h2>
                     <div>
-                        <img className="logo" src={`/img/teams/${params.id}.png`} />
+                        <img className="logo" src={`/img/teams/${params.id}.png`} alt="logo" />
                         <div className="name">{teamDetails.Constructor.name}</div>
                     </div>
-                    <div className="menu-row">
+                    <div className="menu-wrapper">
                         <div>
                             <div>
                                 <div className="menu-row">
