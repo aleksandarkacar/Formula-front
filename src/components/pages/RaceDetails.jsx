@@ -5,6 +5,9 @@ import { useParams } from "react-router";
 import { Link } from "react-router";
 import Flag from "react-flagkit";
 import { getAlpha2ByCountryName, getAlpha2ByNationality } from "../getFlagCode";
+import { MapPin } from "lucide-react";
+import { CalendarDays } from "lucide-react";
+import { FileSpreadsheet } from "lucide-react";
 
 export default function RaceDetails({ countryList }) {
   const [qualifs, setQualifs] = useState({});
@@ -62,21 +65,32 @@ export default function RaceDetails({ countryList }) {
               <div className="subMenu">
                 <div className="menu-title">
                   <h3>Location: {raceResults.Circuit.Location.country}</h3>
+                  <div className="color-primary">
+                    <MapPin className="icon" />
+                  </div>
                 </div>
               </div>
 
               <div className="menu-wrapper">
                 <div className="subMenu">
-                  <h3>Date: {raceResults.date}</h3>
+                  <div className="menu-title">
+                    <h3>Date: {raceResults.date}</h3>
+                    <div className="color-primary">
+                      <CalendarDays className="icon" />
+                    </div>
+                  </div>
                 </div>
               </div>
 
               <div className="menu-wrapper">
                 <div className="subMenu">
-                  <h3>
+                  <h3 className="menu-title">
                     <Link target="_blank" to={raceResults.url}>
                       Full Report
                     </Link>
+                    <div className="color-primary">
+                      <FileSpreadsheet className="icon" />
+                    </div>
                   </h3>
                 </div>
               </div>

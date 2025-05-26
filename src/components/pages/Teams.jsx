@@ -6,7 +6,6 @@ import Flag from "react-flagkit";
 import { getAlpha2ByNationality } from "../getFlagCode";
 
 export default function Teams({ countryList }) {
-  <h1>Teams page</h1>;
   const [teams, setTeams] = useState({});
   const [loader, setLoader] = useState(true);
 

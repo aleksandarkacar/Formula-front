@@ -13,7 +13,6 @@ import "../../styles/components/detailsCard.scss";
 import { Building2 } from "lucide-react";
 
 export default function TeamDetails({ countryList }) {
-  <h1>Teams details</h1>;
   const params = useParams();
 
   const [teamDetails, setTeamDetails] = useState({});
