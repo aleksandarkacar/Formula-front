@@ -30,6 +30,7 @@ export default function Drivers({ countryList }) {
   return (
     <div className="table-wrapper">
       <h4>Drivers Championship Standings 2013</h4>
+      <br />
       <table className="table">
         <tbody className="table-head">
           {drivers.map((driver, i) => {

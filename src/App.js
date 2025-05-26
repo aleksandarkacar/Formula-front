@@ -13,8 +13,8 @@ import TeamDetails from "./components/pages/TeamDetails";
 import RaceDetails from "./components/pages/RaceDetails";
 import Landing from "./components/pages/Landing";
 import axios from "axios";
-import Footer from "./components/Footer";
 import { useEffect, useState } from "react";
+import Footer from "./components/Footer";
 import "./styles/reset.css";
 import "./styles/App.scss";
 import "./styles/components/nav.scss";
@@ -50,7 +50,7 @@ export default function App() {
       {/* Navigacija */}
       <nav className="top-navigation">
         <div className="F1">
-          <NavLink to="/">
+          <NavLink to="/landing">
             <Flag className="flag" /> F1Dashboard
           </NavLink>
         </div>
@@ -86,6 +86,22 @@ export default function App() {
           />
           <Route
             path="/drivers/:id"
+            element={<DriverDetails countryList={countryList} />}
+          />
+          <Route path="/teams" element={<Teams countryList={countryList} />} />
+          <Route path="/races" element={<Races countryList={countryList} />} />
+          <Route
+            path="/races/:id"
+            element={<RaceDetails countryList={countryList} />}
+          />
+          <Route
+            path="/teams/:id"
+            element={<TeamDetails countryList={countryList} />}
+          />
+          <Route path="/landing" element={<Landing to="/landing" />} />
+          <Route path="/" element={<Drivers countryList={countryList} />} />
+          <Route
+            path="/:id"
             element={<DriverDetails countryList={countryList} />}
           />
           <Route path="/teams" element={<Teams countryList={countryList} />} />

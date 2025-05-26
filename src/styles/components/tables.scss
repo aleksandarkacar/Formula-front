@@ -5,13 +5,27 @@
   flex-direction: column;
   min-width: min-content;
   flex-grow: 2;
+  margin-top: 10px;
+  // border: 1px solid;
+  border-radius: 10px;
+  color: vars.$primary;
+  padding: 10px;
+  border-top: solid vars.$primary;
+}
+
+h4,
+h3,
+h2,
+h1 {
+  color: vars.$muted-foreground;
+  text-align: center;
 }
 
 .table {
   color: vars.$primary;
   background-color: vars.$background;
   text-align: center;
-  border-collapse: collapse;
+  // border-collapse: separate;
   width: 100%;
 
   th,
@@ -28,6 +42,11 @@
 
   tr:hover {
     background-color: vars.$secondary;
+  }
+
+  .table-row {
+    border-radius: 10px;
+    border-top: 10px;
   }
 
   .flag-name {
