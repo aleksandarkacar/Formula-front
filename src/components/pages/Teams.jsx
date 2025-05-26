@@ -33,8 +33,8 @@ export default function Teams({ countryList }) {
   return (
     <div>
       <div className="table-wrapper">
-        <h1>Constructions Championship</h1>
-        <span>Constructors Championship Standings-2013</span>
+        <h1>Constructors Championship Standings-2013</h1>
+        <br />
         <table className="table">
           <tbody>
             {teams.map((team, i) => {
