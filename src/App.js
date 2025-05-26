@@ -50,20 +50,17 @@ export default function App() {
         <div className="nav-links">
           <div className="li-el">
             <NavLink to="/">
-              <UsersRound className="icons icon" />{" "}
-              <div className="navlink-text">Drivers</div>
+              <UsersRound className="icons icon" /> Drivers
             </NavLink>
           </div>
           <div className="li-el">
             <NavLink to="/teams">
-              <Building2 className="icons icon" />{" "}
-              <div className="navlink-text">Teams</div>
+              <Building2 className="icons icon" /> Teams
             </NavLink>
           </div>
           <div className="li-el">
             <NavLink to="/races">
-              <Calendar className="icons icon" />{" "}
-              <div className="navlink-text">Races</div>
+              <Calendar className="icons icon" /> Races
             </NavLink>
           </div>
         </div>
