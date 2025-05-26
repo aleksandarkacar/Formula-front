@@ -10,7 +10,6 @@ import { useEffect, useState } from 'react';
 import "./styles/reset.css";
 import "./styles/App.scss";
 import "./styles/components/nav.scss";
-import "./styles/components/driverDetailsCard.scss";
 import "./styles/components/tables.scss";
 // import { FlagOutlined } from '@ant-design/icons';
 import { Flag } from 'lucide-react';
