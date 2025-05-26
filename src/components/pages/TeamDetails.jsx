@@ -3,7 +3,6 @@ import { useParams } from "react-router";
 import Loader from "../Loader";
 import axios from "axios";
 import { Link } from "react-router";
-// import Nat2Flag from "../getFlagCode";
 import Flag from "react-flagkit";
 import { getAlpha2ByCountryName, getAlpha2ByNationality } from "../getFlagCode";
 import { TrendingUp } from 'lucide-react';
@@ -120,7 +119,7 @@ export default function TeamDetails({ countryList }) {
             </div>
 
             <div className="table-wrapper">
-                <table className="tabelus">
+                <table className="table">
                     <thead>
                         <tr>
                             <th>Round</th>

@@ -36,7 +36,7 @@ export default function Teams({ countryList }) {
             <div className="table-wrapper">
                 <h1>Constructions Championship</h1>
                 <span>Constructors Championship Standings-2013</span>
-                <table className="tabelus">
+                <table className="table">
                     <tbody>
                         {teams.map((team, i) => {
 

@@ -11,13 +11,9 @@ import "./styles/reset.css";
 import "./styles/App.scss";
 import "./styles/components/nav.scss";
 import "./styles/components/tables.scss";
-// import { FlagOutlined } from '@ant-design/icons';
 import { Flag } from 'lucide-react';
-// import { TeamOutlined } from '@ant-design/icons';
 import { UsersRound } from 'lucide-react';
-// import { CalendarOutlined } from '@ant-design/icons';
 import { Calendar } from 'lucide-react';
-// import { FontSizeOutlined } from '@ant-design/icons';
 import { Building2 } from 'lucide-react';
 
 
@@ -41,20 +37,20 @@ export default function App() {
     <Router>
       {/* Navigacija */}
       <nav className='top-navigation'>
-          <div className='F1'>
-            <NavLink to='/drivers'><Flag className='flag' /> F1Dashboard</NavLink>
+        <div className='F1'>
+          <NavLink to='/drivers'><Flag className='flag' /> F1Dashboard</NavLink>
+        </div>
+        <div className='nav-links'>
+          <div className='li-el'>
+            <NavLink to='/drivers'><UsersRound className='icons, icon' /> <div className='navlink-text'>Drivers</div></NavLink>
           </div>
-          <div className='nav-links'>
-            <div className='li-el'>
-              <NavLink to='/drivers'><UsersRound className='icons, icon'/> <div className='navlink-text'>Drivers</div></NavLink>
-            </div>
-            <div className='li-el'>
-              <NavLink to='/teams'><Building2 className='icons, icon'/> <div className='navlink-text'>Teams</div></NavLink>
-            </div>
-            <div className='li-el'>
-              <NavLink to='/races'><Calendar className='icons, icon' /> <div className='navlink-text'>Races</div></NavLink>
-            </div>
+          <div className='li-el'>
+            <NavLink to='/teams'><Building2 className='icons, icon' /> <div className='navlink-text'>Teams</div></NavLink>
           </div>
+          <div className='li-el'>
+            <NavLink to='/races'><Calendar className='icons, icon' /> <div className='navlink-text'>Races</div></NavLink>
+          </div>
+        </div>
       </nav>
 
       {/* Rute */}

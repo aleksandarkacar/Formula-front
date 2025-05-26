@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import Loader from "../Loader"
 import { Link } from "react-router";
 import Flag from "react-flagkit";
 import { getAlpha2ByNationality } from "../getFlagCode";
-import { RadioReceiver } from "lucide-react";
 
 export default function Drivers({ countryList }) {
     const [drivers, setDrivers] = useState([]);
@@ -31,8 +30,8 @@ export default function Drivers({ countryList }) {
     return (
         <div className="table-wrapper">
             {/* <h4>Drivers Championship Standings 2013</h4> */}
-            <table className="tabelus">
-                <tbody className="a">
+            <table className="table">
+                <tbody className="table-head">
                     {drivers.map((driver, i) => {
                         return (
                             <tr key={driver.Driver.driverId}>
@@ -42,7 +41,7 @@ export default function Drivers({ countryList }) {
                                 <td><Flag country={getAlpha2ByNationality(countryList, driver.Driver.nationality)} /><Link to={driver.Driver.driverId}>{driver.Driver.givenName} {driver.Driver.familyName}</Link></td>
                                 <td>
                                     <Link to={'/teams/' + driver.Constructors[0].constructorId}>
-                                    {driver.Constructors[0].name}</Link>
+                                        {driver.Constructors[0].name}</Link>
                                 </td>
                                 <td>{driver.points}</td>
                             </tr>
