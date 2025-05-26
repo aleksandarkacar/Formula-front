@@ -41,7 +41,7 @@ export default function Drivers({countryList}) {
                                 
                                 <td><Flag country={getAlpha2ByNationality(countryList, driver.Driver.nationality)} /><Link to={driver.Driver.driverId}>{driver.Driver.givenName} {driver.Driver.familyName}</Link></td>
                                 <td>
-                                    <Link to={'/teams/' + driver.round}>
+                                    <Link to={'/teams/' + driver.Constructors[0].constructorId}>
                                     {driver.Constructors[0].name}</Link>
                                 </td>
                                 <td>{driver.points}</td>
