@@ -56,7 +56,7 @@ export default function TeamDetails({ countryList }) {
         <div className="page-wrapper">
             <div className="card-wrapper" >
                 <div className="card">
-                    <h1  className="title"> < Building2 className="idCard, largeIcon, color-primary"/> Team Profile</h1>
+                    <h1 className="title"> < Building2 className="idCard, largeIcon, color-primary" /> Team Profile</h1>
                     <h2 className="subtitle">Team information and statistics</h2>
                     <div>
                         <img className="logo" src={`/img/teams/${params.id}.png`} />
@@ -77,7 +77,7 @@ export default function TeamDetails({ countryList }) {
                                         </div>
                                         <div className="menu-title" >
                                             <div>{teamDetails.Constructor.nationality}</div>
-                                            <Flag country={getAlpha2ByNationality(countryList, teamDetails.Constructor.nationality)} size={18}className="flag" />
+                                            <Flag country={getAlpha2ByNationality(countryList, teamDetails.Constructor.nationality)} size={18} className="flag" />
                                         </div>
                                     </div>
                                     <div className="subMenu">
@@ -105,11 +105,11 @@ export default function TeamDetails({ countryList }) {
                                         <div>{teamDetails.points}</div>
                                     </div>
                                     <Link className="menu-title" to={teamDetails.Constructor.url} target="_blank">
-                                    <div className="subMenu">
+                                        <div className="subMenu">
 
-                                                 <div>History</div> <div><ExternalLink className="icon" /></div>
+                                            <div>History</div> <div><ExternalLink className="icon" /></div>
 
-                                    </div>
+                                        </div>
                                     </Link>
                                 </div>
                             </div>
@@ -146,9 +146,11 @@ export default function TeamDetails({ countryList }) {
                                 <tr key={i}>
                                     <td>{res.round}</td>
                                     {/* {console.log("Lets see res", res)} */}
-                                    <td><Flag country={getAlpha2ByCountryName(countryList, res.Circuit.Location.country)} />{res.raceName}</td>
-
-
+                                    <td><Link to={"/races/" + res.round}>
+                                        <Flag country={getAlpha2ByCountryName(countryList, res.Circuit.Location.country)} ></Flag>
+                                        {res.raceName}
+                                    </Link>
+                                    </td>
 
                                     {res.Results.map((data, i) => {
                                         console.log("data", data)
