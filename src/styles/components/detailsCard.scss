@@ -25,7 +25,8 @@
     min-width: max-content;
     // max-width: max-content;
     border-radius: 10px;
-    box-shadow: 0 0 10px vars.$primary;
+    // box-shadow: 0 0 10px vars.$primary;
+    border-top: solid vars.$primary;
 
     .photo {
       border-radius: 50%;
