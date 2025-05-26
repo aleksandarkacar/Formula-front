@@ -14,6 +14,7 @@ import RaceDetails from "./components/pages/RaceDetails";
 import Landing from "./components/pages/Landing";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import Footer from "./components/Footer";
 import "./styles/reset.css";
 import "./styles/App.scss";
 import "./styles/components/nav.scss";
@@ -77,6 +78,26 @@ export default function App() {
         {/* <div style={{backgroundColor: '#ccc'}}> */}
         <Routes className="page">
           {/* <Route path='/' element={<Drivers countryList={countryList} />} /> */}
+          <Route path="/" element={<Navigate to="/drivers"></Navigate>} />
+          <Route path="/landing" element={<Landing to="/landing"></Landing>} />
+          <Route
+            path="/drivers"
+            element={<Drivers countryList={countryList} />}
+          />
+          <Route
+            path="/drivers/:id"
+            element={<DriverDetails countryList={countryList} />}
+          />
+          <Route path="/teams" element={<Teams countryList={countryList} />} />
+          <Route path="/races" element={<Races countryList={countryList} />} />
+          <Route
+            path="/races/:id"
+            element={<RaceDetails countryList={countryList} />}
+          />
+          <Route
+            path="/teams/:id"
+            element={<TeamDetails countryList={countryList} />}
+          />
           <Route path="/landing" element={<Landing to="/landing" />} />
           <Route path="/" element={<Drivers countryList={countryList} />} />
           <Route
@@ -95,6 +116,7 @@ export default function App() {
           />
         </Routes>
       </div>
+      <Footer />
     </Router>
   );
 }
