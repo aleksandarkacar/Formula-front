@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import Loader from "../Loader";
 import axios from "axios";
-import {Link} from "react-router";
+import { Link } from "react-router";
 import Flag from "react-flagkit";
-import { getAlpha2ByCountryName, getAlpha2ByNationality } from "../getFlagCode";
+import { getAlpha2ByNationality } from "../getFlagCode";
 
-export default function Teams({countryList}) {
+export default function Teams({ countryList }) {
 
     <h1>Teams page</h1>
     const [teams, setTeams] = useState({});
@@ -16,13 +16,13 @@ export default function Teams({countryList}) {
     }, []);
 
     const getTeams = async () => {
-        console.log()
+        // console.log()
         const url = "http://ergast.com/api/f1/2013/constructorStandings.json"
         // 'http://ergast.com/api/f1/2013/constructors/' + id + '/constructorStandings.json' 
         const response = await axios.get(url);
-        console.log(response.data);
+        // console.log(response.data);
         setTeams(response.data.MRData.StandingsTable.StandingsLists[0].ConstructorStandings);
-        console.log(response.data.MRData.StandingsTable.StandingsLists[0].ConstructorStandings)
+        // console.log(response.data.MRData.StandingsTable.StandingsLists[0].ConstructorStandings)
         setLoader(false);
     }
 
@@ -33,28 +33,28 @@ export default function Teams({countryList}) {
     return (
         <div>
 
-             <div className="table-wrapper">
-            <h1>Constructions Championship</h1>
-            <span>Constructors Championship Standings-2013</span>
-            <table className="tabelus">
-                <tbody>
-                    {teams.map((team, i) => {
+            <div className="table-wrapper">
+                <h1>Constructions Championship</h1>
+                <span>Constructors Championship Standings-2013</span>
+                <table className="tabelus">
+                    <tbody>
+                        {teams.map((team, i) => {
 
-                        return (
+                            return (
 
-                            <tr key={i}>
-                                <td>{team.positionText}</td>
-                                <td><Flag country={getAlpha2ByNationality(countryList, team.Constructor.nationality)} /><Link to={team.Constructor.constructorId}>{team.Constructor.name}</Link></td>
-                                <td><Link target="_blank" to={team.Constructor.url}>Details</Link></td>
-                                <td>{team.points}</td>
-                            </tr>
+                                <tr key={i}>
+                                    <td>{team.positionText}</td>
+                                    <td><Flag country={getAlpha2ByNationality(countryList, team.Constructor.nationality)} /><Link to={team.Constructor.constructorId}>{team.Constructor.name}</Link></td>
+                                    <td><Link target="_blank" to={team.Constructor.url}>Details</Link></td>
+                                    <td>{team.points}</td>
+                                </tr>
 
 
 
-                        )
-                    })}
-                </tbody>
-            </table>
+                            )
+                        })}
+                    </tbody>
+                </table>
             </div>
 
 
