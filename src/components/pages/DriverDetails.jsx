@@ -95,7 +95,7 @@ export default function DriverDetails({ countryList }) {
 
             <div className="table-wrapper">
                 <h4>Formula 1 2013 Results</h4>
-                <table className="tabelus">
+                <table className="table">
                     <thead>
                         <tr>
                             <th>Round</th>

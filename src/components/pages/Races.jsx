@@ -35,7 +35,7 @@ export default function Races({ countryList }) {
 
         <div className="table-wrapper">
             <h4>Race Calendar - 2013</h4>
-            <table className="tabelus">
+            <table className="table">
                 <thead>
                     <tr>
                         <th>Round</th>

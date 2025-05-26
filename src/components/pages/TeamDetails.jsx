@@ -120,7 +120,7 @@ export default function TeamDetails({ countryList }) {
             </div>
 
             <div className="table-wrapper">
-                <table className="tabelus">
+                <table className="table">
                     <thead>
                         <tr>
                             <th>Round</th>
