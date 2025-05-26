@@ -37,8 +37,8 @@ export default function TeamDetails({ countryList }) {
         const response2 = await axios.get(url2);
 
 
-        console.log("getTeamDetails", response.data);
-        console.log("getResults", response2.data.MRData.RaceTable.Races);
+        // console.log("getTeamDetails", response.data);
+        // console.log("getResults", response2.data.MRData.RaceTable.Races);
 
         setTeamDetails(response.data.MRData.StandingsTable.StandingsLists[0].ConstructorStandings[0]);
         setResult(response2.data.MRData.RaceTable.Races);
@@ -56,8 +56,8 @@ export default function TeamDetails({ countryList }) {
         <div className="page-wrapper">
             <div className="card-wrapper" >
                 <div className="card">
-                    <h1  className="title">
-                        < Building2 className="idCard, largeIcon, color-primary"/> Team Profile</h1>
+                    <h1 className="title">
+                        < Building2 className="idCard, largeIcon, color-primary" /> Team Profile</h1>
                     <h2 className="subtitle">Team information and statistics</h2>
                     <div>
                         <img className="logo" src={`/img/teams/${params.id}.png`} alt="logo" />
@@ -154,7 +154,7 @@ export default function TeamDetails({ countryList }) {
                                     </td>
 
                                     {res.Results.map((data, i) => {
-                                        console.log("data", data)
+                                        // console.log("data", data)
                                         points += Number(data.points)
                                         return (
                                             <td key={i}>{data.position}</td>

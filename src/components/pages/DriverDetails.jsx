@@ -34,8 +34,8 @@ export default function DriverDetails({ countryList }) {
         const dataRaces = response2.data.MRData.RaceTable.Races;
         const data = response.data.MRData.StandingsTable.StandingsLists[0].DriverStandings[0];
 
-        console.log("dataRaces", dataRaces)
-        console.log('driverDetails', response.data.MRData.StandingsTable.StandingsLists[0].DriverStandings[0]);
+        // console.log("dataRaces", dataRaces)
+        // console.log('driverDetails', response.data.MRData.StandingsTable.StandingsLists[0].DriverStandings[0]);
 
         setDataRaces(dataRaces);
         setDriverDetails(data);
