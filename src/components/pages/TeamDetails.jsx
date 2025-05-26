@@ -82,12 +82,12 @@ export default function TeamDetails({ countryList }) {
                     <div className="menu-title">
                       <div>{teamDetails.Constructor.nationality}</div>
                       <Flag
+                        className="flag"
                         country={getAlpha2ByNationality(
                           countryList,
                           teamDetails.Constructor.nationality
                         )}
                         size={18}
-                        className="flag"
                       />
                     </div>
                   </div>

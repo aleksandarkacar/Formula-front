@@ -42,7 +42,7 @@ export default function Drivers({ countryList }) {
                 {/* <td>{driver.Driver.nationality}</td> */}
 
                 <td>
-                  <Flag
+                  <Flag className="flagg"
                     country={getAlpha2ByNationality(
                       countryList,
                       driver.Driver.nationality

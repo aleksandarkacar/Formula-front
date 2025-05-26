@@ -45,7 +45,7 @@ export default function Teams({ countryList }) {
                 <tr key={i}>
                   <td>{team.positionText}</td>
                   <td>
-                    <Flag
+                    <Flag className="flagg"
                       country={getAlpha2ByNationality(
                         countryList,
                         team.Constructor.nationality
