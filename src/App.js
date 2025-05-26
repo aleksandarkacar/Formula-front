@@ -5,12 +5,14 @@ import Teams from './components/pages/Teams';
 import Races from './components/pages/Races';
 import TeamDetails from './components/pages/TeamDetails';
 import RaceDetails from './components/pages/RaceDetails';
+import Landing from './components/pages/Landing';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import "./styles/reset.css";
 import "./styles/App.scss";
 import "./styles/components/nav.scss";
 import "./styles/components/tables.scss";
+
 // import { FlagOutlined } from '@ant-design/icons';
 import { Flag } from 'lucide-react';
 // import { TeamOutlined } from '@ant-design/icons';
@@ -63,6 +65,7 @@ export default function App() {
         <Routes className='page'>
           {/* <Route path='/' element={<Drivers countryList={countryList} />} /> */}
           <Route path='/' element={<Navigate to="/drivers"></Navigate>} />
+          <Route path='/landing' element={<Landing to='/landing'></Landing>} />
           <Route path='/drivers' element={<Drivers countryList={countryList} />} />
           <Route path='/drivers/:id' element={<DriverDetails countryList={countryList} />} />
           <Route path='/teams' element={<Teams countryList={countryList} />} />
