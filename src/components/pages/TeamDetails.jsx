@@ -157,7 +157,7 @@ export default function TeamDetails({ countryList }) {
                   {/* {console.log("Lets see res", res)} */}
                   <td>
                     <Link to={"/races/" + res.round}>
-                      <Flag
+                      <Flag className="flagg"
                         country={getAlpha2ByCountryName(
                           countryList,
                           res.Circuit.Location.country

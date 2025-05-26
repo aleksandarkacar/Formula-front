@@ -97,9 +97,10 @@ export default function RaceDetails({ countryList }) {
         </div>
 
         <div className="table-wrapper">
-          <br/>
+          <br />
           <h1>Qualifying results</h1>
-          <br/><br/>
+          <br />
+          <br />
           <table className="table">
             <thead>
               <tr>
@@ -123,7 +124,7 @@ export default function RaceDetails({ countryList }) {
                   <tr key={i}>
                     <td>{qualif.position}</td>
                     <td>
-                      <Flag
+                      <Flag className="flagg"
                         country={getAlpha2ByNationality(
                           countryList,
                           qualif.Driver.nationality
@@ -147,9 +148,10 @@ export default function RaceDetails({ countryList }) {
         </div>
 
         <div className="table-wrapper">
-          <br/>
+          <br />
           <h1>Race results</h1>
-          <br/><br/>
+          <br />
+          <br />
           <table className="table">
             <thead>
               <tr>
@@ -168,6 +170,7 @@ export default function RaceDetails({ countryList }) {
                     <td>{raceResult.position}</td>
                     <td>
                       <Flag
+                        className="flagg"
                         country={getAlpha2ByNationality(
                           countryList,
                           raceResult.Driver.nationality
