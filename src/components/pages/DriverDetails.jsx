@@ -49,7 +49,7 @@ export default function DriverDetails({ countryList }) {
             <div className="card-wrapper">
                 <div className="card">
                     <div className="title">
-                        <h1 className="title"><IdCard className="idCard, color-primary" />Driver Profile</h1>
+                        <h1 className="title"><IdCard className="idCard color-primary" />Driver Profile</h1>
                     </div>
                     <h2 className="subtitle">Driver information and statistics</h2>
                     <div className="card-content">

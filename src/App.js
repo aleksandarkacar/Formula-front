@@ -38,25 +38,24 @@ export default function App() {
       {/* Navigacija */}
       <nav className='top-navigation'>
         <div className='F1'>
-          <NavLink to='/drivers'><Flag className='flag' /> F1Dashboard</NavLink>
+          <NavLink to='/'><Flag className='flag' /> F1Dashboard</NavLink>
         </div>
         <div className='nav-links'>
           <div className='li-el'>
-            <NavLink to='/drivers'><UsersRound className='icons, icon' /> <div className='navlink-text'>Drivers</div></NavLink>
+            <NavLink to='/'><UsersRound className='icons icon' /> <div className='navlink-text'>Drivers</div></NavLink>
           </div>
           <div className='li-el'>
-            <NavLink to='/teams'><Building2 className='icons, icon' /> <div className='navlink-text'>Teams</div></NavLink>
+            <NavLink to='/teams'><Building2 className='icons icon' /> <div className='navlink-text'>Teams</div></NavLink>
           </div>
           <div className='li-el'>
-            <NavLink to='/races'><Calendar className='icons, icon' /> <div className='navlink-text'>Races</div></NavLink>
+            <NavLink to='/races'><Calendar className='icons icon' /> <div className='navlink-text'>Races</div></NavLink>
           </div>
         </div>
       </nav>
 
       {/* Rute */}
-      <div className='page'>
         {/* <div style={{backgroundColor: '#ccc'}}> */}
-        <Routes className='page'>
+        <Routes>
           {/* <Route path='/' element={<Drivers countryList={countryList} />} /> */}
           <Route path='/' element={<Drivers countryList={countryList} />} />
           <Route path='/:id' element={<DriverDetails countryList={countryList} />} />
@@ -65,7 +64,6 @@ export default function App() {
           <Route path='/races/:id' element={<RaceDetails countryList={countryList} />} />
           <Route path='/teams/:id' element={<TeamDetails countryList={countryList} />} />
         </Routes>
-      </div>
     </Router>
   )
 }
