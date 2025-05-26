@@ -12,22 +12,11 @@ export default function RaceDetails({ countryList }) {
   const [isLoading, setIsLoading] = useState(true);
   const params = useParams();
   // console.log(params.id);
-  const [qualifs, setQualifs] = useState({});
-  const [raceResults, setRaceResults] = useState({});
-  const [isLoading, setIsLoading] = useState(true);
-  const params = useParams();
-  // console.log(params.id);
 
   useEffect(() => {
     getQualifs();
   }, []);
-  useEffect(() => {
-    getQualifs();
-  }, []);
 
-  // const getGPDetails = async () => {
-  //     const url = ""
-  // }
   // const getGPDetails = async () => {
   //     const url = ""
   // }
@@ -36,35 +25,19 @@ export default function RaceDetails({ countryList }) {
     const url =
       "http://ergast.com/api/f1/2013/" + params.id + "/qualifying.json";
     const url2 = "http://ergast.com/api/f1/2013/" + params.id + "/results.json";
-    const getQualifs = async () => {
-      const url =
-        "http://ergast.com/api/f1/2013/" + params.id + "/qualifying.json";
-      const url2 =
-        "http://ergast.com/api/f1/2013/" + params.id + "/results.json";
 
-      const response = await axios.get(url);
-      const response2 = await axios.get(url2);
-      const response = await axios.get(url);
-      const response2 = await axios.get(url2);
+    const response = await axios.get(url);
+    const response2 = await axios.get(url2);
 
-      // console.log("Qualifs", response.data.MRData.RaceTable.Races[0].QualifyingResults);
-      setQualifs(response.data.MRData.RaceTable.Races[0].QualifyingResults);
-      // console.log("Qualifs", response.data.MRData.RaceTable.Races[0].QualifyingResults);
-      setQualifs(response.data.MRData.RaceTable.Races[0].QualifyingResults);
+    // console.log("Qualifs", response.data.MRData.RaceTable.Races[0].QualifyingResults);
+    setQualifs(response.data.MRData.RaceTable.Races[0].QualifyingResults);
 
-      // console.log("getRaceResults", response2.data.MRData.RaceTable.Races[0]);
-      setRaceResults(response2.data.MRData.RaceTable.Races[0]);
-      // console.log("getRaceResults", response2.data.MRData.RaceTable.Races[0]);
-      setRaceResults(response2.data.MRData.RaceTable.Races[0]);
+    // console.log("getRaceResults", response2.data.MRData.RaceTable.Races[0]);
+    setRaceResults(response2.data.MRData.RaceTable.Races[0]);
 
-      setIsLoading(false);
-    };
     setIsLoading(false);
   };
 
-  if (isLoading) {
-    return <Loader />;
-  }
   if (isLoading) {
     return <Loader />;
   }
