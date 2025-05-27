@@ -47,7 +47,7 @@ export default function DriverDetails({ countryList }) {
     return <Loader />;
   }
 
-  return (
+  return ( 
     <div className="page-wrapper">
       <div className="card-wrapper">
         <div className="card">

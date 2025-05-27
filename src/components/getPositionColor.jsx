@@ -14,4 +14,28 @@ export default function getPositionColor(position) {
       color: "black",
     };
   }
+  if (position === 4) {
+    return {
+      backgroundColor: "#3fa7d6",
+      color: "white",
+    };
+  }
+  if (position === 5) {
+    return {
+      backgroundColor: "#34c38f",
+      color: "white",
+    };
+  }
+  if (position > 5 && position <= 10) {
+    return {
+      backgroundColor: "#e35b8f",
+      color: "white",
+    };
+  }
+  if (position > 10) {
+    return {
+      backgroundColor: "#00bfa6",
+      color: "white",
+    };
+  }
 }
