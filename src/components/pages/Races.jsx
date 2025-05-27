@@ -28,9 +28,10 @@ export default function Races({ countryList }) {
 
   return (
     <div className="table-wrapper">
-      <br/>
+      <br />
       <h1>Race Calendar - 2013.</h1>
-      <br/><br/>
+      <br />
+      <br />
       <table className="table">
         <thead>
           <tr>
@@ -47,11 +48,11 @@ export default function Races({ countryList }) {
               <tr key={i}>
                 <td>{race.round}</td>
                 <td>
-                  <Flag className="flagg"
+                  <Flag
+                    className="flagg"
                     country={getAlpha2ByCountryName(
                       countryList,
                       race.Circuit.Location.country
-                      
                     )}
                   />
                   <Link to={"/races/" + race.round}>{race.raceName}</Link>

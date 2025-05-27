@@ -4,6 +4,7 @@ import Loader from "../Loader";
 import { Link } from "react-router";
 import Flag from "react-flagkit";
 import { getAlpha2ByNationality } from "../getFlagCode";
+import { Trophy } from "lucide-react";
 
 export default function Drivers({ countryList }) {
   const [drivers, setDrivers] = useState([]);
@@ -30,7 +31,12 @@ export default function Drivers({ countryList }) {
   return (
     <div className="table-wrapper">
       <br />
-      <h1>Drivers Championship Standings 2013.</h1>
+      <div className="title">
+        <h1>
+          <Trophy className="color-primary title-icon" />
+          Drivers Championship Standings 2013.
+        </h1>
+      </div>
       <br />
       <br />
       <table className="table">
@@ -41,8 +47,9 @@ export default function Drivers({ countryList }) {
                 <td>{driver.position}</td>
                 {/* <td>{driver.Driver.nationality}</td> */}
 
-                <td>
-                  <Flag className="flagg"
+                <td className="just-left">
+                  <Flag
+                    className="flagg"
                     country={getAlpha2ByNationality(
                       countryList,
                       driver.Driver.nationality
