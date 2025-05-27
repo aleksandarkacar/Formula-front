@@ -47,7 +47,7 @@ export default function Races({ countryList }) {
             return (
               <tr key={i}>
                 <td>{race.round}</td>
-                <td>
+                <td className="just-left">
                   <Flag
                     className="flagg"
                     country={getAlpha2ByCountryName(
@@ -57,10 +57,11 @@ export default function Races({ countryList }) {
                   />
                   <Link to={"/races/" + race.round}>{race.raceName}</Link>
                 </td>
-                <td>{race.Circuit.circuitName}</td>
+                <td >{race.Circuit.circuitName}</td>
                 <td>{race.date}</td>
-                <td>
-                  <Flag
+                <td className="just-left">
+                  <Flag 
+                    className="flagg"
                     country={getAlpha2ByNationality(
                       countryList,
                       race.Results[0].Driver.nationality
