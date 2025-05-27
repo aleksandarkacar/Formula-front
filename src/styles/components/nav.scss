@@ -14,6 +14,7 @@ a {
   border-top: solid vars.$primary;
   backdrop-filter: blur(10px);
   background-color: vars.$nav-background;
+  z-index: 9999;
 
   ul {
     margin: 5px;
