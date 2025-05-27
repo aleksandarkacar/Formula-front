@@ -6,7 +6,7 @@ body {
   font-family: "Inter", "Helvetica", sans-serif;
   background-color: vars.$background;
   color: vars.$foreground;
-  // height: vh100;
+  // height: 92vh;
 }
 
 a {
@@ -58,4 +58,8 @@ td {
 }
 .footdiv1 {
   min-width: px;
+}
+
+.page {
+  min-height: 84vh;
 }
