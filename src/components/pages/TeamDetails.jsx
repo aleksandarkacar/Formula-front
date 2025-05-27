@@ -14,6 +14,7 @@ import {
   ExternalLink,
   Trophy,
 } from "lucide-react";
+import getPositionColor from "../getPositionColor.jsx";
 
 export default function TeamDetails({ countryList }) {
   const params = useParams();
@@ -163,14 +164,19 @@ export default function TeamDetails({ countryList }) {
 
               <th>Points</th>
             </tr>
-            {result.map((res) => {
+            {result.map((res, i) => {
               let points = 0;
               // console.log("res", res);
 
               return (
                 <tr key={res.round}>
                   <td>
-                    <div className="first">{res.round}</div>
+                    <div
+                      className="position-default"
+                      style={getPositionColor(i + 1)}
+                    >
+                      {res.round}
+                    </div>
                   </td>
                   {/* {console.log("Lets see res", res)} */}
                   <td className="flag-name">

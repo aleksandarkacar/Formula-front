@@ -5,6 +5,7 @@ import { Link } from "react-router";
 import Flag from "react-flagkit";
 import { getAlpha2ByNationality } from "../getFlagCode";
 import { Trophy } from "lucide-react";
+import getPositionColor from "../getPositionColor.jsx";
 
 export default function Drivers({ selectedYear, countryList }) {
   const [drivers, setDrivers] = useState([]);
@@ -47,11 +48,16 @@ export default function Drivers({ selectedYear, countryList }) {
       <br />
       <table className="table">
         <tbody className="table-head">
-          {drivers.map((driver) => {
+          {drivers.map((driver, i) => {
             return (
               <tr key={driver.Driver.driverId}>
                 <td>
-                  <div className="first">{driver.position}</div>
+                  <div
+                    className="position-default"
+                    style={getPositionColor(i + 1)}
+                  >
+                    {driver.position}
+                  </div>
                 </td>
                 {/* <td>{driver.Driver.nationality}</td> */}
 

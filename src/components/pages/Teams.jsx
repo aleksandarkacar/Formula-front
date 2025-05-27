@@ -5,6 +5,7 @@ import { Link } from "react-router";
 import Flag from "react-flagkit";
 import { getAlpha2ByNationality } from "../getFlagCode";
 import { Building2 } from "lucide-react";
+import getPositionColor from "../getPositionColor.jsx";
 
 export default function Teams({ countryList }) {
   const [teams, setTeams] = useState({});
@@ -48,11 +49,16 @@ export default function Teams({ countryList }) {
         <br />
         <table className="table">
           <tbody>
-            {teams.map((team) => {
+            {teams.map((team, i) => {
               return (
                 <tr key={team.positionText}>
                   <td>
-                    <div className="first">{team.positionText}</div>
+                    <div
+                      className="position-default"
+                      style={getPositionColor(i + 1)}
+                    >
+                      {team.positionText}
+                    </div>
                   </td>
                   <td className="just-left">
                     <Flag

@@ -13,6 +13,7 @@ import {
   MapPin,
   TableOfContents,
 } from "lucide-react";
+import getPositionColor from "../getPositionColor.jsx";
 
 export default function RaceDetails({ countryList }) {
   const [qualifs, setQualifs] = useState([]);
@@ -136,7 +137,12 @@ export default function RaceDetails({ countryList }) {
                 return (
                   <tr key={qualif.position}>
                     <td>
-                      <div className="first">{qualif.position}</div>
+                      <div
+                        className="position-default"
+                        style={getPositionColor(i + 1)}
+                      >
+                        {qualif.position}
+                      </div>
                     </td>
                     <td className="just-left">
                       <Flag
@@ -189,7 +195,12 @@ export default function RaceDetails({ countryList }) {
                 return (
                   <tr key={raceResult.position}>
                     <td>
-                      <div className="first">{raceResult.position}</div>
+                      <div
+                        className="position-default"
+                        style={getPositionColor(i + 1)}
+                      >
+                        {raceResult.position}
+                      </div>
                     </td>
                     <td className="just-left">
                       <Flag
