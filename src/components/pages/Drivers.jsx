@@ -17,10 +17,12 @@ export default function Drivers({ countryList }) {
   const getDrivers = async () => {
     const url = "http://ergast.com/api/f1/2013/driverStandings.json";
     const response = await axios.get(url);
-    const data =
-      response.data.MRData.StandingsTable.StandingsLists[0].DriverStandings;
+    // const data =
+    //   response.data.MRData.StandingsTable.StandingsLists[0].DriverStandings;
     // console.log(data)
-    setDrivers(data);
+    setDrivers(
+      response.data.MRData.StandingsTable.StandingsLists[0].DriverStandings
+    );
     setIsLoading(false);
   };
 
@@ -60,7 +62,10 @@ export default function Drivers({ countryList }) {
                   </Link>
                 </td>
                 <td>
-                  <Link to={"/teams/" + driver.Constructors[0].constructorId} className="just-left">
+                  <Link
+                    to={"/teams/" + driver.Constructors[0].constructorId}
+                    className="just-left"
+                  >
                     {driver.Constructors[0].name}
                   </Link>
                 </td>
