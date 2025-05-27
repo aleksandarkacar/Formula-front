@@ -1,10 +1,4 @@
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  NavLink,
-  Navigate,
-} from "react-router";
+import { BrowserRouter as Router, Routes, Route, NavLink } from "react-router";
 import Drivers from "./components/pages/Drivers";
 import DriverDetails from "./components/pages/DriverDetails";
 import Teams from "./components/pages/Teams";
@@ -15,10 +9,10 @@ import Landing from "./components/pages/Landing";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Footer from "./components/Footer";
-import "./styles/reset.css";
-import "./styles/App.scss";
-import "./styles/components/nav.scss";
-import "./styles/components/tables.scss";
+// import "./styles/reset.css";
+// import "./styles/App.scss";
+// import "./styles/components/nav.scss";
+// import "./styles/components/tables.scss";
 
 // import { FlagOutlined } from '@ant-design/icons';
 import { Flag } from "lucide-react";
