@@ -41,7 +41,7 @@ export default function Drivers({ countryList }) {
       <br />
       <table className="table">
         <tbody className="table-head">
-          {drivers.map((driver, i) => {
+          {drivers.map((driver) => {
             return (
               <tr key={driver.Driver.driverId}>
                 <td>{driver.position}</td>

@@ -46,9 +46,9 @@ export default function Teams({ countryList }) {
         <br />
         <table className="table">
           <tbody>
-            {teams.map((team, i) => {
+            {teams.map((team) => {
               return (
-                <tr key={i}>
+                <tr key={team.positionText}>
                   <td>{team.positionText}</td>
                   <td className="just-left">
                     <Flag
