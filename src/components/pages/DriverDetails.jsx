@@ -122,7 +122,7 @@ export default function DriverDetails({ selectedYear, countryList }) {
         <div className="title">
           <h1>
             <Medal className="color-primary title-icon " />
-            Formula 1 2013. Results
+            Formula 1 {selectedYear} Results
           </h1>
         </div>
         <br />
