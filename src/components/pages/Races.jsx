@@ -52,7 +52,9 @@ export default function Races({ countryList }) {
           {races.map((race, i) => {
             return (
               <tr key={race.round}>
-                <td>{race.round}</td>
+                <td>
+                  <div className="first">{race.round}</div>
+                </td>
                 <td className="just-left">
                   <Flag
                     className="flagg"
