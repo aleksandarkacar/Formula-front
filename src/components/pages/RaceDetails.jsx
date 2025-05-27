@@ -212,7 +212,7 @@ export default function RaceDetails({ countryList }) {
                         ? raceResult.Time.time
                         : raceResult.status}
                     </td>
-                    <td >{raceResult.points}</td>
+                    <td>{raceResult.points}</td>
                   </tr>
                 );
               })}

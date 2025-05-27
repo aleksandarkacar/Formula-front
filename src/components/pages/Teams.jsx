@@ -15,15 +15,17 @@ export default function Teams({ countryList }) {
   }, []);
 
   const getTeams = async () => {
-    // console.log()
     const url = "http://ergast.com/api/f1/2013/constructorStandings.json";
     // 'http://ergast.com/api/f1/2013/constructors/' + id + '/constructorStandings.json'
+
     const response = await axios.get(url);
     // console.log(response.data);
+
     setTeams(
       response.data.MRData.StandingsTable.StandingsLists[0].ConstructorStandings
     );
     // console.log(response.data.MRData.StandingsTable.StandingsLists[0].ConstructorStandings)
+
     setLoader(false);
   };
 

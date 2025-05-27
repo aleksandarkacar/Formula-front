@@ -5,12 +5,11 @@ import styles from "../../../../Formula-front/src/styles/components/landingPage.
 export default function Landing() {
   return (
     <div>
-        <iframe 
-        className="landing-video"   
-        autoPlay
-        muted
-        loop
-        src="https://cdn.iframe.ly/api/iframe?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DTOeVJcrcB_o&key=925108d922be940af814f71907a7df4b"></iframe>
+        <div>
+          <iframe className="landing-video" src="https://www.youtube.com/embed/TOeVJcrcB_o?si=bhWDzSLpFM6KjoQC&autoplay=1&mute=1&showinfo=0&controls=0&loop=1" ></iframe>
+        </div>
     </div>
+
+    
   );
 }
