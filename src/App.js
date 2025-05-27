@@ -49,12 +49,6 @@ export default function App() {
     <Router>
       {/* Navigacija */}
       <nav className="top-navigation">
-        <NavLink to="/landing">
-          <div className="F1">
-            <Flag className="flag" />
-            <div>F1Dashboard</div>
-          </div>
-        </NavLink>
         <div className="nav-links">
           <div className="li-el">
             <NavLink to="/">
@@ -71,6 +65,12 @@ export default function App() {
               <Calendar className="icons icon" /> Races
             </NavLink>
           </div>
+        </div>
+        <div className="F1">
+          <Flag className="flag" />
+          <NavLink to="/landing">
+            <div>F1Dashboard</div>
+          </NavLink>
         </div>
       </nav>
 
