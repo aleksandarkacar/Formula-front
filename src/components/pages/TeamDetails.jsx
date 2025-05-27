@@ -149,11 +149,12 @@ export default function TeamDetails({ countryList }) {
         </div>
 
         <table className="table">
-          <thead>
-            <tr>
-              <th>Round</th>
-              <th>Grand Prix</th>
+          <thead></thead>
 
+          <tbody>
+            <tr>
+              <th>Round </th>
+              <th>Grand Prix</th>
               {result[0].Results.map((res) => {
                 return (
                   <th key={res.Driver.familyName}>{res.Driver.familyName}</th>
@@ -162,18 +163,17 @@ export default function TeamDetails({ countryList }) {
 
               <th>Points</th>
             </tr>
-          </thead>
-
-          <tbody>
             {result.map((res) => {
               let points = 0;
               // console.log("res", res);
 
               return (
                 <tr key={res.round}>
-                  <td>{res.round}</td>
+                  <td>
+                    <div className="first">{res.round}</div>
+                  </td>
                   {/* {console.log("Lets see res", res)} */}
-                  <td className="just-left">
+                  <td className="flag-name">
                     <Link to={"/races/" + res.round}>
                       <Flag
                         className="flagg"

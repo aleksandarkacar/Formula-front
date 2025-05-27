@@ -49,7 +49,9 @@ export default function Teams({ countryList }) {
             {teams.map((team) => {
               return (
                 <tr key={team.positionText}>
-                  <td>{team.positionText}</td>
+                  <td>
+                    <div className="first">{team.positionText}</div>
+                  </td>
                   <td className="just-left">
                     <Flag
                       className="flagg"

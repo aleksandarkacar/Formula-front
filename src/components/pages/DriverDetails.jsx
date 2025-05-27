@@ -133,7 +133,7 @@ export default function DriverDetails({ countryList }) {
             {dataRaces.map((race) => {
               return (
                 <tr key={race.round}>
-                  <td>
+                  <td className="just-center">
                     <div className="first">{race.round}</div>
                   </td>
 
