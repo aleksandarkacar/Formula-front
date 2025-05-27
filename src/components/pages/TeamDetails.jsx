@@ -156,7 +156,7 @@ export default function TeamDetails({ countryList }) {
 
               {result[0].Results.map((res) => {
                 return (
-                  <th key={res.Driver.familyName}>{res.Driver.familyName}</th>
+                  <th key={res.Driver.driverId}>{res.Driver.familyName}</th>
                 );
               })}
 

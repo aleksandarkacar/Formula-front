@@ -24,7 +24,14 @@ import { Calendar } from "lucide-react";
 import { Building2 } from "lucide-react";
 
 export default function App() {
+  const currentYear = new Date().getFullYear() - 1;
+  // console.log(currentYear);
+  const [selectedYear, setSelectedYear] = useState(2024);
   const [countryList, setCountryList] = useState([]);
+
+  const allYears = Array.from({ length: 25 }, (_, i) => currentYear - i);
+
+  // console.log(allYears);
 
   useEffect(() => {
     getCountryList();
@@ -38,11 +45,24 @@ export default function App() {
     console.log("GetCountryList", response.data);
     setCountryList(response.data);
   };
+  console.log("selectedYear", selectedYear);
 
   return (
     <Router>
       {/* Navigacija */}
       <nav className="top-navigation">
+        <select
+          onChange={(e) => setSelectedYear(e.target.value)}
+          value={selectedYear}
+        >
+          {allYears.map((year) => {
+            return (
+              <option key={year} value={year}>
+                {year}
+              </option>
+            );
+          })}
+        </select>
         <div className="nav-links">
           <div className="li-el">
             <NavLink to="/">
@@ -73,8 +93,12 @@ export default function App() {
         {/* <div style={{backgroundColor: '#ccc'}}> */}
         <Routes className="page">
           {/* <Route path="/" element={<Navigate to="/drivers"></Navigate>} /> */}
-          <Route path="/landing" element={<Landing to="/landing"></Landing>} />
-          <Route path="/" element={<Drivers countryList={countryList} />} />
+          <Route
+            path="/"
+            element={
+              <Drivers selectedYear={selectedYear} countryList={countryList} />
+            }
+          />
           <Route
             path="/:id"
             element={<DriverDetails countryList={countryList} />}
@@ -90,21 +114,6 @@ export default function App() {
             element={<TeamDetails countryList={countryList} />}
           />
           <Route path="/landing" element={<Landing to="/landing" />} />
-          <Route path="/" element={<Drivers countryList={countryList} />} />
-          <Route
-            path="/:id"
-            element={<DriverDetails countryList={countryList} />}
-          />
-          <Route path="/teams" element={<Teams countryList={countryList} />} />
-          <Route path="/races" element={<Races countryList={countryList} />} />
-          <Route
-            path="/races/:id"
-            element={<RaceDetails countryList={countryList} />}
-          />
-          <Route
-            path="/teams/:id"
-            element={<TeamDetails countryList={countryList} />}
-          />
         </Routes>
       </div>
       <Footer />

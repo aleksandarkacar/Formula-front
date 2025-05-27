@@ -6,16 +6,20 @@ import Flag from "react-flagkit";
 import { getAlpha2ByNationality } from "../getFlagCode";
 import { Trophy } from "lucide-react";
 
-export default function Drivers({ countryList }) {
+export default function Drivers({ selectedYear, countryList }) {
   const [drivers, setDrivers] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    setIsLoading(true);
     getDrivers();
-  }, []);
+  }, [selectedYear]);
 
   const getDrivers = async () => {
-    const url = "http://ergast.com/api/f1/2013/driverStandings.json";
+    const url =
+      // "http://ergast.com/api/f1/" + selectedYear + "/driverStandings.json";
+      `http://ergast.com/api/f1/${selectedYear}/driverStandings.json`;
+    console.log(url);
     const response = await axios.get(url);
     // const data =
     //   response.data.MRData.StandingsTable.StandingsLists[0].DriverStandings;
@@ -36,7 +40,7 @@ export default function Drivers({ countryList }) {
       <div className="title">
         <h1>
           <Trophy className="color-primary title-icon" />
-          Drivers Championship Standings 2013.
+          Drivers Championship Standings {selectedYear}
         </h1>
       </div>
       <br />
