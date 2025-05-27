@@ -138,8 +138,10 @@ export default function TeamDetails({ countryList }) {
               <th>Round</th>
               <th>Grand Prix</th>
 
-              {result[0].Results.map((res, i) => {
-                return <th key={i}>{res.Driver.familyName}</th>;
+              {result[0].Results.map((res) => {
+                return (
+                  <th key={res.Driver.familyName}>{res.Driver.familyName}</th>
+                );
               })}
 
               <th>Points</th>
@@ -147,30 +149,31 @@ export default function TeamDetails({ countryList }) {
           </thead>
 
           <tbody>
-            {result.map((res, i) => {
+            {result.map((res) => {
               let points = 0;
               // console.log("res", res);
 
               return (
-                <tr key={i}>
+                <tr key={res.round}>
                   <td>{res.round}</td>
                   {/* {console.log("Lets see res", res)} */}
                   <td>
                     <Link to={"/races/" + res.round}>
-                      <Flag className="flagg"
+                      <Flag
+                        className="flagg"
                         country={getAlpha2ByCountryName(
                           countryList,
                           res.Circuit.Location.country
                         )}
-                      ></Flag>
+                      />
                       {res.raceName}
                     </Link>
                   </td>
 
-                  {res.Results.map((data, i) => {
+                  {res.Results.map((data) => {
                     // console.log("data", data)
                     points += Number(data.points);
-                    return <td key={i}>{data.position}</td>;
+                    return <td key={data.position}>{data.position}</td>;
                   })}
 
                   <td>{points}</td>

@@ -45,7 +45,7 @@ export default function Races({ countryList }) {
         <tbody>
           {races.map((race, i) => {
             return (
-              <tr key={i}>
+              <tr key={race.round}>
                 <td>{race.round}</td>
                 <td className="just-left">
                   <Flag
@@ -57,10 +57,10 @@ export default function Races({ countryList }) {
                   />
                   <Link to={"/races/" + race.round}>{race.raceName}</Link>
                 </td>
-                <td >{race.Circuit.circuitName}</td>
+                <td>{race.Circuit.circuitName}</td>
                 <td>{race.date}</td>
                 <td className="just-left">
-                  <Flag 
+                  <Flag
                     className="flagg"
                     country={getAlpha2ByNationality(
                       countryList,
