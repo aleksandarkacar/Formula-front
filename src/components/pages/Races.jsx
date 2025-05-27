@@ -5,6 +5,7 @@ import { Link } from "react-router";
 import Flag from "react-flagkit";
 import { getAlpha2ByCountryName, getAlpha2ByNationality } from "../getFlagCode";
 import { CalendarDays } from "lucide-react";
+import getPositionColor from "../getPositionColor.jsx";
 
 export default function Races({ countryList }) {
   const [races, setRaces] = useState([]);
@@ -53,7 +54,12 @@ export default function Races({ countryList }) {
             return (
               <tr key={race.round}>
                 <td>
-                  <div className="first">{race.round}</div>
+                  <div
+                    className="position-default"
+                    style={getPositionColor(i + 1)}
+                  >
+                    {race.round}
+                  </div>
                 </td>
                 <td className="just-left">
                   <Flag
