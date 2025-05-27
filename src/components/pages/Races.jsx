@@ -51,7 +51,7 @@ export default function Races({ countryList }) {
         <tbody>
           {races.map((race, i) => {
             return (
-              <tr key={i}>
+              <tr key={race.round}>
                 <td>{race.round}</td>
                 <td className="just-left">
                   <Flag

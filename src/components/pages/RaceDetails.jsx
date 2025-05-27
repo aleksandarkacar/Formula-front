@@ -134,7 +134,7 @@ export default function RaceDetails({ countryList }) {
                   fastestTime = qualif.Q1;
                 }
                 return (
-                  <tr key={i}>
+                  <tr key={qualif.position}>
                     <td>{qualif.position}</td>
                     <td className="just-left">
                       <Flag
@@ -185,7 +185,7 @@ export default function RaceDetails({ countryList }) {
             <tbody className="table-head">
               {raceResults.Results.map((raceResult, i) => {
                 return (
-                  <tr key={i}>
+                  <tr key={raceResult.position}>
                     <td>{raceResult.position}</td>
                     <td className="just-left">
                       <Flag
@@ -201,12 +201,13 @@ export default function RaceDetails({ countryList }) {
                     </td>
                     <td>
                       <Link
+                        className="just-left"
                         to={"/teams/" + raceResult.Constructor.constructorId}
                       >
                         {raceResult.Constructor.name}
                       </Link>
                     </td>
-                    <td>
+                    <td className="just-left">
                       {raceResult.Time
                         ? raceResult.Time.time
                         : raceResult.status}
