@@ -4,6 +4,7 @@ import axios from "axios";
 import { Link } from "react-router";
 import Flag from "react-flagkit";
 import { getAlpha2ByCountryName, getAlpha2ByNationality } from "../getFlagCode";
+import { CalendarDays } from "lucide-react";
 
 export default function Races({ countryList }) {
   const [races, setRaces] = useState([]);
@@ -29,7 +30,12 @@ export default function Races({ countryList }) {
   return (
     <div className="table-wrapper">
       <br />
-      <h1>Race Calendar - 2013.</h1>
+      <div className="title">
+        <h1>
+          <CalendarDays className="color-primary title-icon" />
+          Race Calendar - 2013.
+        </h1>
+      </div>
       <br />
       <br />
       <table className="table">
@@ -57,10 +63,10 @@ export default function Races({ countryList }) {
                   />
                   <Link to={"/races/" + race.round}>{race.raceName}</Link>
                 </td>
-                <td >{race.Circuit.circuitName}</td>
+                <td>{race.Circuit.circuitName}</td>
                 <td>{race.date}</td>
                 <td className="just-left">
-                  <Flag 
+                  <Flag
                     className="flagg"
                     country={getAlpha2ByNationality(
                       countryList,

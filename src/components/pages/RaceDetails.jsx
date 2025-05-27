@@ -5,10 +5,14 @@ import { useParams } from "react-router";
 import { Link } from "react-router";
 import Flag from "react-flagkit";
 import { getAlpha2ByCountryName, getAlpha2ByNationality } from "../getFlagCode";
-import { MapPin } from "lucide-react";
-import { CalendarDays } from "lucide-react";
-import { FileSpreadsheet } from "lucide-react";
-import { FlagTriangleRight } from "lucide-react";
+import {
+  FlagTriangleRight,
+  Timer,
+  FileSpreadsheet,
+  CalendarDays,
+  MapPin,
+  TableOfContents,
+} from "lucide-react";
 
 export default function RaceDetails({ countryList }) {
   const [qualifs, setQualifs] = useState([]);
@@ -102,7 +106,12 @@ export default function RaceDetails({ countryList }) {
 
         <div className="table-wrapper">
           <br />
-          <h1>Qualifying results</h1>
+          <div className="title">
+            <h1>
+              <Timer className="color-primary title-icon" />
+              Qualifying results
+            </h1>
+          </div>
           <br />
           <br />
           <table className="table">
@@ -154,7 +163,12 @@ export default function RaceDetails({ countryList }) {
 
         <div className="table-wrapper">
           <br />
-          <h1>Race results</h1>
+          <div className="title">
+            <h1>
+              <TableOfContents className="color-primary title-icon" />
+              Race results
+            </h1>
+          </div>
           <br />
           <br />
           <table className="table">
