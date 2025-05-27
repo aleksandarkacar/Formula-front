@@ -187,12 +187,13 @@ export default function RaceDetails({ countryList }) {
                     </td>
                     <td>
                       <Link
+                        className="just-left"
                         to={"/teams/" + raceResult.Constructor.constructorId}
                       >
                         {raceResult.Constructor.name}
                       </Link>
                     </td>
-                    <td>
+                    <td className="just-left">
                       {raceResult.Time
                         ? raceResult.Time.time
                         : raceResult.status}
