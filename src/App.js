@@ -49,11 +49,6 @@ export default function App() {
     <Router>
       {/* Navigacija */}
       <nav className="top-navigation">
-        <div className="F1">
-          <NavLink to="/landing">
-            <Flag className="flag" /> F1Dashboard
-          </NavLink>
-        </div>
         <div className="nav-links">
           <div className="li-el">
             <NavLink to="/">
@@ -71,21 +66,23 @@ export default function App() {
             </NavLink>
           </div>
         </div>
+        <div className="F1">
+          <Flag className="flag" />
+          <NavLink to="/landing">
+            <div>F1Dashboard</div>
+          </NavLink>
+        </div>
       </nav>
 
       {/* Rute */}
       <div className="page">
         {/* <div style={{backgroundColor: '#ccc'}}> */}
         <Routes className="page">
-          {/* <Route path='/' element={<Drivers countryList={countryList} />} /> */}
-          <Route path="/" element={<Navigate to="/drivers"></Navigate>} />
+          {/* <Route path="/" element={<Navigate to="/drivers"></Navigate>} /> */}
           <Route path="/landing" element={<Landing to="/landing"></Landing>} />
+          <Route path="/" element={<Drivers countryList={countryList} />} />
           <Route
-            path="/drivers"
-            element={<Drivers countryList={countryList} />}
-          />
-          <Route
-            path="/drivers/:id"
+            path="/:id"
             element={<DriverDetails countryList={countryList} />}
           />
           <Route path="/teams" element={<Teams countryList={countryList} />} />
