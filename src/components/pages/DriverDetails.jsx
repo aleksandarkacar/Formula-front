@@ -9,21 +9,28 @@ import "../../styles/components/detailsCard.scss";
 import { Medal, IdCard, BookOpenText, UsersRound } from "lucide-react";
 import getPositionColor from "../getPositionColor.jsx";
 
-export default function DriverDetails({ countryList }) {
+export default function DriverDetails({ selectedYear, countryList }) {
   const [driverDetails, setDriverDetails] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [dataRaces, setDataRaces] = useState([]);
   const driver = useParams();
 
   useEffect(() => {
+    setIsLoading(true);
     getDataRaces();
-  }, []);
+  }, [selectedYear]);
 
   const getDataRaces = async () => {
     const url =
-      "http://ergast.com/api/f1/2013/drivers/" + driver.id + "/results.json";
+      "http://ergast.com/api/f1/" +
+      selectedYear +
+      "/drivers/" +
+      driver.id +
+      "/results.json";
     const url2 =
-      "http://ergast.com/api/f1/2013/drivers/" +
+      "http://ergast.com/api/f1/" +
+      selectedYear +
+      "/drivers/" +
       driver.id +
       "/driverStandings.json";
 
@@ -47,7 +54,7 @@ export default function DriverDetails({ countryList }) {
     return <Loader />;
   }
 
-  return ( 
+  return (
     <div className="page-wrapper">
       <div className="card-wrapper">
         <div className="card">

@@ -15,7 +15,7 @@ import {
 } from "lucide-react";
 import getPositionColor from "../getPositionColor.jsx";
 
-export default function RaceDetails({ countryList }) {
+export default function RaceDetails({ selectedYear, countryList }) {
   const [qualifs, setQualifs] = useState([]);
   const [raceResults, setRaceResults] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -23,13 +23,23 @@ export default function RaceDetails({ countryList }) {
   // console.log(params.id);
 
   useEffect(() => {
+    setIsLoading(true);
     getQualifs();
-  }, []);
+  }, [selectedYear]);
 
   const getQualifs = async () => {
     const url =
-      "http://ergast.com/api/f1/2013/" + params.id + "/qualifying.json";
-    const url2 = "http://ergast.com/api/f1/2013/" + params.id + "/results.json";
+      "http://ergast.com/api/f1/" +
+      selectedYear +
+      "/" +
+      params.id +
+      "/qualifying.json";
+    const url2 =
+      "http://ergast.com/api/f1/" +
+      selectedYear +
+      "/" +
+      params.id +
+      "/results.json";
 
     const response = await axios.get(url);
     const response2 = await axios.get(url2);

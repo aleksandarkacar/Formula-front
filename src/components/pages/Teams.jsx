@@ -7,16 +7,18 @@ import { getAlpha2ByNationality } from "../getFlagCode";
 import { Building2 } from "lucide-react";
 import getPositionColor from "../getPositionColor.jsx";
 
-export default function Teams({ countryList }) {
+export default function Teams({ selectedYear, countryList }) {
   const [teams, setTeams] = useState({});
   const [loader, setLoader] = useState(true);
 
   useEffect(() => {
+    setLoader(true);
     getTeams();
-  }, []);
+  }, [selectedYear]);
 
   const getTeams = async () => {
-    const url = "http://ergast.com/api/f1/2013/constructorStandings.json";
+    const url =
+      "http://ergast.com/api/f1/" + selectedYear + "/constructorStandings.json";
     // 'http://ergast.com/api/f1/2013/constructors/' + id + '/constructorStandings.json'
 
     const response = await axios.get(url);
@@ -41,7 +43,7 @@ export default function Teams({ countryList }) {
         <div className="title">
           <h1>
             <Building2 className="title-icon color-primary" />
-            Constructors Championship Standings - 2013.
+            Constructors Championship Standings - {selectedYear}
           </h1>
         </div>
         <br />

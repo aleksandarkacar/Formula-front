@@ -16,7 +16,7 @@ import {
 } from "lucide-react";
 import getPositionColor from "../getPositionColor.jsx";
 
-export default function TeamDetails({ countryList }) {
+export default function TeamDetails({ selectedYear, countryList }) {
   const params = useParams();
 
   const [teamDetails, setTeamDetails] = useState({});
@@ -24,16 +24,21 @@ export default function TeamDetails({ countryList }) {
   const [result, setResult] = useState([]);
 
   useEffect(() => {
+    setLoader(true);
     getResult();
-  }, []);
+  }, [selectedYear]);
 
   const getResult = async () => {
     const url =
-      "http://ergast.com/api/f1/2013/constructors/" +
+      "http://ergast.com/api/f1/" +
+      selectedYear +
+      "/constructors/" +
       params.id +
       "/constructorStandings.json";
     const url2 =
-      "http://ergast.com/api/f1/2013/constructors/" +
+      "http://ergast.com/api/f1/" +
+      selectedYear +
+      "/constructors/" +
       params.id +
       " /results.json";
 

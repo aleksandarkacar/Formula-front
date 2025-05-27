@@ -101,17 +101,42 @@ export default function App() {
           />
           <Route
             path="/:id"
-            element={<DriverDetails countryList={countryList} />}
+            element={
+              <DriverDetails
+                selectedYear={selectedYear}
+                countryList={countryList}
+              />
+            }
           />
-          <Route path="/teams" element={<Teams countryList={countryList} />} />
-          <Route path="/races" element={<Races countryList={countryList} />} />
+          <Route
+            path="/teams"
+            element={
+              <Teams selectedYear={selectedYear} countryList={countryList} />
+            }
+          />
+          <Route
+            path="/races"
+            element={
+              <Races selectedYear={selectedYear} countryList={countryList} />
+            }
+          />
           <Route
             path="/races/:id"
-            element={<RaceDetails countryList={countryList} />}
+            element={
+              <RaceDetails
+                selectedYear={selectedYear}
+                countryList={countryList}
+              />
+            }
           />
           <Route
             path="/teams/:id"
-            element={<TeamDetails countryList={countryList} />}
+            element={
+              <TeamDetails
+                selectedYear={selectedYear}
+                countryList={countryList}
+              />
+            }
           />
           <Route path="/landing" element={<Landing to="/landing" />} />
         </Routes>
