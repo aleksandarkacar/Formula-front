@@ -9,6 +9,7 @@ import { UsersRound } from "lucide-react";
 import { BookOpenText } from "lucide-react";
 import { IdCard } from "lucide-react";
 import "../../styles/components/detailsCard.scss";
+import { Medal } from "lucide-react";
 
 export default function DriverDetails({ countryList }) {
   const [driverDetails, setDriverDetails] = useState({});
@@ -112,7 +113,12 @@ export default function DriverDetails({ countryList }) {
 
       <div className="table-wrapper">
         <br />
-        <h1>Formula 1 2013. Results</h1>
+        <div className="title">
+          <h1>
+            <Medal className="color-primary title-icon " />
+            Formula 1 2013. Results
+          </h1>
+        </div>
         <br />
         <br />
         <table className="table">
@@ -136,7 +142,8 @@ export default function DriverDetails({ countryList }) {
                     <Link to={"/races/" + race.round}>
                       <div className="flag-name">
                         <div>
-                          <Flag className="flagg"
+                          <Flag
+                            className="flagg"
                             country={getAlpha2ByCountryName(
                               countryList,
                               race.Circuit.Location.country

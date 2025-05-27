@@ -6,11 +6,15 @@ import { Link } from "react-router";
 import Flag from "react-flagkit";
 import { getAlpha2ByCountryName, getAlpha2ByNationality } from "../getFlagCode";
 import { TrendingUp } from "lucide-react";
-import { Trophy } from "lucide-react";
-import { ExternalLink } from "lucide-react";
-import { Earth } from "lucide-react";
+
 import "../../styles/components/detailsCard.scss";
-import { Building2 } from "lucide-react";
+import {
+  Building2,
+  Calendar1,
+  Earth,
+  ExternalLink,
+  Trophy,
+} from "lucide-react";
 
 export default function TeamDetails({ countryList }) {
   const params = useParams();
@@ -132,6 +136,19 @@ export default function TeamDetails({ countryList }) {
       </div>
 
       <div className="table-wrapper">
+        <div className="title">
+          <h1>
+            <Calendar1 className="color-primary title-icon" />
+            Race Results
+          </h1>
+        </div>
+        <div className="subtitle">
+          <h3>
+            {teamDetails.Constructor.name}'s race results for the current
+            seasson
+          </h3>
+        </div>
+
         <table className="table">
           <thead>
             <tr>
