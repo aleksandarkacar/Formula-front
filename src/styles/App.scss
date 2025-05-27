@@ -2,10 +2,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap");
 
 body {
-  padding-top: 60px;
+  padding-top: 54px;
   font-family: "Inter", "Helvetica", sans-serif;
   background-color: vars.$background;
   color: vars.$foreground;
+  // height: 92vh;
 }
 
 a {
@@ -43,6 +44,9 @@ td {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
+  bottom: 0;
+
   margin: 15px;
   padding: 5px;
   border-top: vars.$border;
@@ -70,4 +74,9 @@ td {
   justify-content: center;
   display: flex;
   align-items: center;
+}
+
+.page {
+  // display: flex;
+  min-height: 84vh;
 }

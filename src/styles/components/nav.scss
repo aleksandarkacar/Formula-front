@@ -6,14 +6,21 @@ a {
 
 .top-navigation {
   display: flex;
+  // flex-direction: row;
+  flex-wrap: wrap;
+  flex-direction: row-reverse;
+  overflow: hidden;
   align-items: center;
+  justify-content: flex-end;
   width: 100%;
+  height: 58px;
   top: 0;
   position: fixed;
   border-bottom: solid vars.$border;
   border-top: solid vars.$primary;
   backdrop-filter: blur(10px);
   background-color: vars.$nav-background;
+  z-index: 9999;
 
   ul {
     margin: 5px;
@@ -28,8 +35,10 @@ a {
 
 .nav-links {
   display: flex;
-  // flex-wrap: wrap;
+  // flex-wrap: wrap-reverse;
   // justify-content: left;
+  // margin-top: 3px;
+  height: 54px;
   flex-direction: row;
   justify-content: space-between;
   align-content: center;
@@ -46,6 +55,7 @@ a {
     // width: 100px;
     // height: 40px;
     padding: 6px 12px;
+    // margin-top: 0px;
     text-decoration: none;
     border-radius: 6px;
     border-top: solid vars.$background;

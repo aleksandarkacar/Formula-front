@@ -3,7 +3,7 @@
   $height: 6px,
   $radius: 10px,
   $start-color: vars.$primary,
-  $end-color: vars.$card
+  $end-color: rgba(vars.$primary, 0.5)
 ) {
   position: relative;
   border-radius: $radius;
