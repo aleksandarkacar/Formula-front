@@ -153,7 +153,7 @@ export default function RaceDetails({ countryList }) {
                         {qualif.Constructor.name}
                       </Link>
                     </td>
-                    <td className="just-right">{fastestTime}</td>
+                    <td className="just-center">{fastestTime}</td>
                   </tr>
                 );
               })}
@@ -212,7 +212,7 @@ export default function RaceDetails({ countryList }) {
                         ? raceResult.Time.time
                         : raceResult.status}
                     </td>
-                    <td>{raceResult.points}</td>
+                    <td >{raceResult.points}</td>
                   </tr>
                 );
               })}

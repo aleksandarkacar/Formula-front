@@ -60,7 +60,7 @@ export default function Drivers({ countryList }) {
                   </Link>
                 </td>
                 <td>
-                  <Link to={"/teams/" + driver.Constructors[0].constructorId}>
+                  <Link to={"/teams/" + driver.Constructors[0].constructorId} className="just-left">
                     {driver.Constructors[0].name}
                   </Link>
                 </td>
