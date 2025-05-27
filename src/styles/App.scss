@@ -55,3 +55,19 @@ td {
 .footdiv1 {
   min-width: px;
 }
+
+.just-left {
+  justify-content: left;
+  display: flex;
+  align-items: center;
+}
+.just-right {
+  justify-content: right;
+  display: flex;
+  align-items: center;
+}
+.just-center {
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}

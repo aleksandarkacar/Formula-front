@@ -8,6 +8,7 @@ import { getAlpha2ByCountryName, getAlpha2ByNationality } from "../getFlagCode";
 import { MapPin } from "lucide-react";
 import { CalendarDays } from "lucide-react";
 import { FileSpreadsheet } from "lucide-react";
+import { FlagTriangleRight } from "lucide-react";
 
 export default function RaceDetails({ countryList }) {
   const [qualifs, setQualifs] = useState([]);
@@ -45,7 +46,10 @@ export default function RaceDetails({ countryList }) {
     <div className="page-wrapper">
       <div className="card-wrapper">
         <div className="card">
-          <h3 className="title">Race Calendar</h3>
+          <h1 className="title">
+            <FlagTriangleRight className="idCard color-primary" />
+            Race Calendar
+          </h1>
           <div className="subtitle">{raceResults.raceName}</div>
           <div className="card-content">
             <Flag
@@ -102,7 +106,7 @@ export default function RaceDetails({ countryList }) {
           <br />
           <br />
           <table className="table">
-            <thead>
+            <thead className="table-head">
               <tr>
                 <th>Pos</th>
                 <th>Driver</th>
@@ -123,8 +127,9 @@ export default function RaceDetails({ countryList }) {
                 return (
                   <tr key={i}>
                     <td>{qualif.position}</td>
-                    <td>
-                      <Flag className="flagg"
+                    <td className="just-left">
+                      <Flag
+                        className="flagg"
                         country={getAlpha2ByNationality(
                           countryList,
                           qualif.Driver.nationality
@@ -139,7 +144,7 @@ export default function RaceDetails({ countryList }) {
                         {qualif.Constructor.name}
                       </Link>
                     </td>
-                    <td>{fastestTime}</td>
+                    <td className="just-right">{fastestTime}</td>
                   </tr>
                 );
               })}
@@ -163,12 +168,12 @@ export default function RaceDetails({ countryList }) {
               </tr>
             </thead>
 
-            <tbody>
+            <tbody className="table-head">
               {raceResults.Results.map((raceResult, i) => {
                 return (
                   <tr key={i}>
                     <td>{raceResult.position}</td>
-                    <td>
+                    <td className="just-left">
                       <Flag
                         className="flagg"
                         country={getAlpha2ByNationality(
