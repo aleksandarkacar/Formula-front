@@ -130,3 +130,20 @@
   text-align: center;
   margin: 15px;
 }
+
+.first {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 14px;
+  height: 14px;
+  background-color: vars.$first;
+  border-radius: 50%;
+  color: black;
+  margin: 7px;
+  padding: 5px;
+}
+
+.second {
+  background-color: vars.$second;
+}
