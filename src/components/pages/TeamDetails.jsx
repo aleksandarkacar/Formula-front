@@ -172,7 +172,7 @@ export default function TeamDetails({ countryList }) {
                 <tr key={i}>
                   <td>{res.round}</td>
                   {/* {console.log("Lets see res", res)} */}
-                  <td>
+                  <td className="just-left">
                     <Link to={"/races/" + res.round}>
                       <Flag
                         className="flagg"

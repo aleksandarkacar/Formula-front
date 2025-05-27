@@ -50,7 +50,7 @@ export default function Teams({ countryList }) {
               return (
                 <tr key={i}>
                   <td>{team.positionText}</td>
-                  <td>
+                  <td className="just-left">
                     <Flag
                       className="flagg"
                       country={getAlpha2ByNationality(
