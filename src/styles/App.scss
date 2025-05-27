@@ -6,6 +6,7 @@ body {
   font-family: "Inter", "Helvetica", sans-serif;
   background-color: vars.$background;
   color: vars.$foreground;
+  // height: vh100;
 }
 
 a {
@@ -43,6 +44,9 @@ td {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
+  bottom: 0;
+
   margin: 15px;
   padding: 5px;
   border-top: vars.$border;
