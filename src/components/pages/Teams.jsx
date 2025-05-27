@@ -4,6 +4,7 @@ import axios from "axios";
 import { Link } from "react-router";
 import Flag from "react-flagkit";
 import { getAlpha2ByNationality } from "../getFlagCode";
+import { Building2 } from "lucide-react";
 
 export default function Teams({ countryList }) {
   const [teams, setTeams] = useState({});
@@ -34,7 +35,12 @@ export default function Teams({ countryList }) {
     <div>
       <div className="table-wrapper">
         <br />
-        <h1>Constructors Championship Standings - 2013.</h1>
+        <div className="title">
+          <h1>
+            <Building2 className="title-icon color-primary" />
+            Constructors Championship Standings - 2013.
+          </h1>
+        </div>
         <br />
         <br />
         <br />
@@ -45,7 +51,8 @@ export default function Teams({ countryList }) {
                 <tr key={i}>
                   <td>{team.positionText}</td>
                   <td>
-                    <Flag className="flagg"
+                    <Flag
+                      className="flagg"
                       country={getAlpha2ByNationality(
                         countryList,
                         team.Constructor.nationality
