@@ -46,7 +46,9 @@ export default function Drivers({ countryList }) {
           {drivers.map((driver) => {
             return (
               <tr key={driver.Driver.driverId}>
-                <td>{driver.position}</td>
+                <td>
+                  <div className="first">{driver.position}</div>
+                </td>
                 {/* <td>{driver.Driver.nationality}</td> */}
 
                 <td className="just-left">

@@ -5,11 +5,8 @@ import { useParams } from "react-router";
 import { Link } from "react-router";
 import { getAlpha2ByCountryName, getAlpha2ByNationality } from "../getFlagCode";
 import Flag from "react-flagkit";
-import { UsersRound } from "lucide-react";
-import { BookOpenText } from "lucide-react";
-import { IdCard } from "lucide-react";
 import "../../styles/components/detailsCard.scss";
-import { Medal } from "lucide-react";
+import { Medal, IdCard, BookOpenText, UsersRound } from "lucide-react";
 
 export default function DriverDetails({ countryList }) {
   const [driverDetails, setDriverDetails] = useState({});
@@ -137,7 +134,9 @@ export default function DriverDetails({ countryList }) {
             {dataRaces.map((race) => {
               return (
                 <tr key={race.round}>
-                  <td>{race.round}</td>
+                  <td>
+                    <div className="first">{race.round}</div>
+                  </td>
 
                   <td>
                     <Link to={"/races/" + race.round}>

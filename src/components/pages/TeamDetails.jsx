@@ -6,7 +6,6 @@ import { Link } from "react-router";
 import Flag from "react-flagkit";
 import { getAlpha2ByCountryName, getAlpha2ByNationality } from "../getFlagCode";
 import { TrendingUp } from "lucide-react";
-
 import "../../styles/components/detailsCard.scss";
 import {
   Building2,
