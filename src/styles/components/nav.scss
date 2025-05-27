@@ -27,6 +27,26 @@ a {
     padding: 15px;
     list-style: none;
   }
+
+  select {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 7px;
+    margin-right: 10px;
+    top: 10px;
+    right: 10px;
+
+    border: 1px;
+    border-radius: 6px;
+    background-color: vars.$primary;
+    color: #ffff;
+    padding: 7px;
+    font-size: vars.$font-medium;
+  }
 }
 
 // li { display: inline-block;
