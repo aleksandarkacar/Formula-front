@@ -131,7 +131,20 @@
   margin: 15px;
 }
 
-.first {
+.position-default {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 14px;
+  height: 14px;
+  background-color: vars.$after;
+  border-radius: 50%;
+  color: vars.$foreground;
+  margin: auto;
+  padding: 5px;
+}
+
+.position-1 {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -140,10 +153,96 @@
   background-color: vars.$first;
   border-radius: 50%;
   color: black;
-  margin: 7px;
+  margin: auto;
   padding: 5px;
 }
 
-.second {
+.position-2 {
   background-color: vars.$second;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  color: black;
+  margin: auto;
+  padding: 5px;
+}
+
+.position-3 {
+  background-color: vars.$third;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  color: black;
+  margin: auto;
+  padding: 5px;
+}
+
+.position-3 {
+  background-color: vars.$third;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  color: black;
+  margin: auto;
+  padding: 5px;
+}
+
+.position-4 {
+  background-color: vars.$topten;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  color: black;
+  margin: auto;
+  padding: 5px;
+}
+
+.position-5 {
+  background-color: vars.$fifth;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  color: black;
+  margin: auto;
+  padding: 5px;
+}
+
+.afterfive {
+  background-color: vars.$afterfive;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  color: black;
+  margin: auto;
+  padding: 5px;
+}
+
+.third {
+  background-color: vars.$third;
+}
+
+.topten {
+  background-color: vars.$topten;
+}
+
+.after {
+  background-color: vars.$after;
 }

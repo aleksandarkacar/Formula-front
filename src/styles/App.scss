@@ -61,19 +61,13 @@ td {
 }
 
 .just-left {
-  justify-content: left;
-  display: flex;
-  align-items: center;
+  text-align: left;
 }
 .just-right {
-  justify-content: right;
-  display: flex;
-  align-items: center;
+  text-align: right;
 }
 .just-center {
-  justify-content: center;
-  display: flex;
-  align-items: center;
+  text-align: center;
 }
 
 .page {

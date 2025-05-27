@@ -55,17 +55,19 @@ export default function Drivers({ selectedYear, countryList }) {
                 </td>
                 {/* <td>{driver.Driver.nationality}</td> */}
 
-                <td className="just-left">
-                  <Flag
-                    className="flagg"
-                    country={getAlpha2ByNationality(
-                      countryList,
-                      driver.Driver.nationality
-                    )}
-                  />
-                  <Link to={driver.Driver.driverId}>
-                    {driver.Driver.givenName} {driver.Driver.familyName}
-                  </Link>
+                <td>
+                  <div className="flag-name">
+                    <Flag
+                      className="flagg"
+                      country={getAlpha2ByNationality(
+                        countryList,
+                        driver.Driver.nationality
+                      )}
+                    />
+                    <Link to={driver.Driver.driverId}>
+                      {driver.Driver.givenName} {driver.Driver.familyName}
+                    </Link>
+                  </div>
                 </td>
                 <td>
                   <Link

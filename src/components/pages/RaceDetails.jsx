@@ -135,7 +135,9 @@ export default function RaceDetails({ countryList }) {
                 }
                 return (
                   <tr key={qualif.position}>
-                    <td>{qualif.position}</td>
+                    <td>
+                      <div className="first">{qualif.position}</div>
+                    </td>
                     <td className="just-left">
                       <Flag
                         className="flagg"
@@ -186,7 +188,9 @@ export default function RaceDetails({ countryList }) {
               {raceResults.Results.map((raceResult, i) => {
                 return (
                   <tr key={raceResult.position}>
-                    <td>{raceResult.position}</td>
+                    <td>
+                      <div className="first">{raceResult.position}</div>
+                    </td>
                     <td className="just-left">
                       <Flag
                         className="flagg"
