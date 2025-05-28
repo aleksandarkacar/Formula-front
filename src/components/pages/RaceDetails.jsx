@@ -155,16 +155,18 @@ export default function RaceDetails({ selectedYear, countryList }) {
                       </div>
                     </td>
                     <td className="just-left">
-                      <Flag
-                        className="flagg"
-                        country={getAlpha2ByNationality(
-                          countryList,
-                          qualif.Driver.nationality
-                        )}
-                      />
-                      <Link to={"/" + qualif.Driver.driverId}>
-                        {qualif.Driver.familyName}
-                      </Link>
+                      <div className="flag-name">
+                        <Flag
+                          className="flagg"
+                          country={getAlpha2ByNationality(
+                            countryList,
+                            qualif.Driver.nationality
+                          )}
+                        />
+                        <Link to={"/" + qualif.Driver.driverId}>
+                          {qualif.Driver.familyName}
+                        </Link>
+                      </div>
                     </td>
                     <td>
                       <Link to={"/teams/" + qualif.Constructor.constructorId}>
@@ -213,16 +215,18 @@ export default function RaceDetails({ selectedYear, countryList }) {
                       </div>
                     </td>
                     <td className="just-left">
-                      <Flag
-                        className="flagg"
-                        country={getAlpha2ByNationality(
-                          countryList,
-                          raceResult.Driver.nationality
-                        )}
-                      />
-                      <Link to={"/" + raceResult.Driver.driverId}>
-                        {raceResult.Driver.familyName}
-                      </Link>
+                      <div className="flag-name">
+                        <Flag
+                          className="flagg"
+                          country={getAlpha2ByNationality(
+                            countryList,
+                            raceResult.Driver.nationality
+                          )}
+                        />
+                        <Link to={"/" + raceResult.Driver.driverId}>
+                          {raceResult.Driver.familyName}
+                        </Link>
+                      </div>
                     </td>
                     <td>
                       <Link

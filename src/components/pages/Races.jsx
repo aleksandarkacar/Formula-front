@@ -63,28 +63,32 @@ export default function Races({ selectedYear, countryList }) {
                   </div>
                 </td>
                 <td className="just-left">
-                  <Flag
-                    className="flagg"
-                    country={getAlpha2ByCountryName(
-                      countryList,
-                      race.Circuit.Location.country
-                    )}
-                  />
-                  <Link to={"/races/" + race.round}>{race.raceName}</Link>
+                  <div className="flag-name">
+                    <Flag
+                      className="flagg"
+                      country={getAlpha2ByCountryName(
+                        countryList,
+                        race.Circuit.Location.country
+                      )}
+                    />
+                    <Link to={"/races/" + race.round}>{race.raceName}</Link>
+                  </div>
                 </td>
                 <td>{race.Circuit.circuitName}</td>
                 <td>{race.date}</td>
                 <td className="just-left">
-                  <Flag
-                    className="flagg"
-                    country={getAlpha2ByNationality(
-                      countryList,
-                      race.Results[0].Driver.nationality
-                    )}
-                  />{" "}
-                  <Link to={"/" + race.Results[0].Driver.driverId}>
-                    {race.Results[0].Driver.familyName}
-                  </Link>
+                  <div className="flag-name">
+                    <Flag
+                      className="flagg"
+                      country={getAlpha2ByNationality(
+                        countryList,
+                        race.Results[0].Driver.nationality
+                      )}
+                    />{" "}
+                    <Link to={"/" + race.Results[0].Driver.driverId}>
+                      {race.Results[0].Driver.familyName}
+                    </Link>
+                  </div>
                 </td>
               </tr>
             );
