@@ -86,9 +86,9 @@ export default function RaceDetails({ selectedYear, countryList }) {
             <div className="menu-wrapper">
               <div className="menu-row">
                 <div className="subMenu">
-                  <div className="menu-title">
-                    <div>Location:</div>
-                    <div className="color-primary">
+                  <div className="menu-title subtitle">
+                    <div>Location</div>
+                    <div className="color-primary smallIcon">
                       <MapPin className="icon" />
                     </div>
                   </div>
@@ -97,9 +97,9 @@ export default function RaceDetails({ selectedYear, countryList }) {
                   </div>
                 </div>
                 <div className="subMenu">
-                  <div className="menu-title">
-                    <h3>Date:</h3>
-                    <div className="color-primary">
+                  <div className="menu-title subtitle">
+                    <h3>Date </h3>
+                    <div className="color-primary smallIcon">
                       <CalendarDays className="icon" />
                     </div>
                   </div>
