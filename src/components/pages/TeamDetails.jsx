@@ -73,7 +73,11 @@ export default function TeamDetails({ selectedYear, countryList }) {
             <img
               className="logo"
               src={`/img/teams/${params.id}.png`}
-              alt="logo"
+              // alt={teamDetails.Constructor.code}
+              onError={(e) => {
+                e.target.src = "/img/teams/logo2.png";
+                e.onerror = null;
+              }}
             />
             <div className="name">{teamDetails.Constructor.name}</div>
           </div>
