@@ -81,16 +81,13 @@ export default function DriverDetails({ selectedYear, countryList }) {
                 e.target.src = "/img/drivers/avatar.png";
                 e.onerror = null;
               }}
-              // fallBack="img/drivers/avatar.png"
             />
             <p>
               {driverDetails.Driver.givenName} {driverDetails.Driver.familyName}
-            </p>
-            {/* <p>Country: <Nat2Flag nat={driverDetails.Driver.nationality} /></p> */}
-            {/* Country: */}{" "}
+            </p>{" "}
             <p>
               {driverFlag ? (
-                <Flag className="flagg" country={driverFlag} />
+                <Flag country={driverFlag} />
               ) : (
                 <img
                   src="/img/flags.jpg"
@@ -101,14 +98,16 @@ export default function DriverDetails({ selectedYear, countryList }) {
             </p>
             <div className="menu-wrapper">
               <div className="subMenu">
-                <div className="menu-title">
+                <div className="menu-title subtitle">
                   <div>Team</div>
                   <div className="color-primary">
-                    <UsersRound className="icon" />
+                    <div className="smallIcon">
+                      <UsersRound className="icon" />
+                    </div>
                   </div>
                 </div>
 
-                <div>
+                <div className="menu-title">
                   <Link
                     to={"/teams/" + driverDetails.Constructors[0].constructorId}
                   >
@@ -117,15 +116,17 @@ export default function DriverDetails({ selectedYear, countryList }) {
                 </div>
               </div>
               <div className="subMenu">
-                <div className="menu-title">
+                <div className="menu-title subtitle">
                   <div>Biography</div>
-                  <div className="color-primary">
+                  <div className="color-primary smallIcon">
                     <BookOpenText className="icon" />
                   </div>
                 </div>
-                <Link target="_blank" to={driverDetails.Driver.url}>
-                  <div className="mini-text-below">About Driver</div>
-                </Link>
+                <div className="menu-title">
+                  <Link target="_blank" to={driverDetails.Driver.url}>
+                    <div className="mini-text-below">About Driver</div>
+                  </Link>
+                </div>
               </div>
             </div>
           </div>

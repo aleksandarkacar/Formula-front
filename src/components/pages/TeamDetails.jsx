@@ -45,9 +45,6 @@ export default function TeamDetails({ selectedYear, countryList }) {
     const response = await axios.get(url);
     const response2 = await axios.get(url2);
 
-    // console.log("getTeamDetails", response.data);
-    // console.log("getResults", response2.data.MRData.RaceTable.Races);
-
     setTeamDetails(
       response.data.MRData.StandingsTable.StandingsLists[0]
         .ConstructorStandings[0]
@@ -86,9 +83,9 @@ export default function TeamDetails({ selectedYear, countryList }) {
               <div>
                 <div className="menu-row">
                   <div className="subMenu">
-                    <div className="menu-title">
+                    <div className="menu-title subtitle">
                       <div>Nationality</div>
-                      <div className="color-primary">
+                      <div className="color-primary smallIcon">
                         <Earth className="icon" />
                       </div>
                     </div>
@@ -105,26 +102,26 @@ export default function TeamDetails({ selectedYear, countryList }) {
                       />
                     </div>
                   </div>
+
                   <div className="subMenu">
-                    <div className="menu-title">
+                    <div className="menu-title subtitle">
                       <div>Position</div>
-                      <div className="color-primary">
+                      <div className="color-primary smallIcon">
                         <TrendingUp className="icon" />
                       </div>
-                      {/* size={17} */}
                     </div>
-                    <div>{teamDetails.position}</div>
+                    <div className="menu-title">{teamDetails.position}</div>
                   </div>
                 </div>
                 <div className="menu-row">
                   <div className="subMenu">
-                    <div className="menu-title">
+                    <div className="menu-title subtitle">
                       <div>Points</div>
-                      <div className="color-primary">
+                      <div className="color-primary smallIcon">
                         <Trophy className="icon" />
                       </div>
                     </div>
-                    <div>{teamDetails.points}</div>
+                    <div className="menu-title">{teamDetails.points}</div>
                   </div>
                   <Link
                     className="menu-title"
@@ -132,8 +129,8 @@ export default function TeamDetails({ selectedYear, countryList }) {
                     target="_blank"
                   >
                     <div className="subMenu">
-                      <div>History</div>{" "}
-                      <div>
+                      <div className="menu-title subtitle">History</div>{" "}
+                      <div className="menu-title">
                         <ExternalLink className="icon" />
                       </div>
                     </div>
@@ -176,19 +173,13 @@ export default function TeamDetails({ selectedYear, countryList }) {
             </tr>
             {result.map((res, i) => {
               let points = 0;
-              // console.log("res", res);
 
               return (
                 <tr key={res.round}>
                   <td>
-                    <div
-                    // className="position-default"
-                    // style={getPositionColor(i + 1)}
-                    >
-                      {res.round}
-                    </div>
+                    <div>{res.round}</div>
                   </td>
-                  {/* {console.log("Lets see res", res)} */}
+
                   <td>
                     <Link to={"/races/" + res.round}>
                       <div className="flag-name">
@@ -205,7 +196,6 @@ export default function TeamDetails({ selectedYear, countryList }) {
                   </td>
 
                   {res.Results.map((data) => {
-                    // console.log("data", data)
                     points += Number(data.points);
                     return (
                       <td key={data.position}>

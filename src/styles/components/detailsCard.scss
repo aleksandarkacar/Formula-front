@@ -51,6 +51,10 @@
   }
 }
 
+.smallIcon {
+  font-size: 15px;
+}
+
 // table {
 //     align-items: center;
 // }
@@ -111,7 +115,7 @@
 }
 
 .subtitle {
-  font-size: 11px;
+  font-size: 13px;
   padding: 0 0 20px 0;
   color: vars.$muted-foreground;
   display: flex;
@@ -143,110 +147,110 @@
   margin: auto;
   padding: 5px;
 }
- 
-.position-1 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 14px;
-  height: 14px;
-  background-color: vars.$first;
-  border-radius: 50%;
-  color: black;
-  margin: auto;
-  padding: 5px;
-}
 
-.position-2 {
-  background-color: vars.$second;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  color: black;
-  margin: auto;
-  padding: 5px;
-}
+// .position-1 {
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   width: 14px;
+//   height: 14px;
+//   background-color: vars.$first;
+//   border-radius: 50%;
+//   color: black;
+//   margin: auto;
+//   padding: 5px;
+// }
 
-.position-3 {
-  background-color: vars.$third;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  color: black;
-  margin: auto;
-  padding: 5px;
-}
+// .position-2 {
+//   background-color: vars.$second;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   width: 14px;
+//   height: 14px;
+//   border-radius: 50%;
+//   color: black;
+//   margin: auto;
+//   padding: 5px;
+// }
 
-.position-3 {
-  background-color: vars.$third;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  color: black;
-  margin: auto;
-  padding: 5px;
-}
+// .position-3 {
+//   background-color: vars.$third;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   width: 14px;
+//   height: 14px;
+//   border-radius: 50%;
+//   color: black;
+//   margin: auto;
+//   padding: 5px;
+// }
 
-.position-4 {
-  background-color: vars.$topten;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  color: black;
-  margin: auto;
-  padding: 5px;
-}
+// .position-3 {
+//   background-color: vars.$third;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   width: 14px;
+//   height: 14px;
+//   border-radius: 50%;
+//   color: black;
+//   margin: auto;
+//   padding: 5px;
+// }
 
-.position-5 {
-  background-color: vars.$fifth;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  color: black;
-  margin: auto;
-  padding: 5px;
-}
+// .position-4 {
+//   background-color: vars.$topten;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   width: 14px;
+//   height: 14px;
+//   border-radius: 50%;
+//   color: black;
+//   margin: auto;
+//   padding: 5px;
+// }
 
-.afterfive {
-  background-color: vars.$afterfive;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  color: black;
-  margin: auto;
-  padding: 5px;
-}
+// .position-5 {
+//   background-color: vars.$fifth;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   width: 14px;
+//   height: 14px;
+//   border-radius: 50%;
+//   color: black;
+//   margin: auto;
+//   padding: 5px;
+// }
 
-.third {
-  background-color: vars.$third;
-}
+// .afterfive {
+//   background-color: vars.$afterfive;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   width: 14px;
+//   height: 14px;
+//   border-radius: 50%;
+//   color: black;
+//   margin: auto;
+//   padding: 5px;
+// }
 
-.topten {
-  background-color: vars.$topten;
-}
+// .third {
+//   background-color: vars.$third;
+// }
 
-.after {
-  background-color: vars.$after;
-}
+// .topten {
+//   background-color: vars.$topten;
+// }
 
-.standings {
-  color: white;
-}
+// .after {
+//   background-color: vars.$after;
+// }
+
+// .standings {
+//   color: white;
+// }

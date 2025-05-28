@@ -7,7 +7,11 @@ import { getAlpha2ByNationality } from "../getFlagCode";
 import { Trophy } from "lucide-react";
 import getPositionColor from "../getPositionColor.jsx";
 
-export default function Drivers({ selectedYear, countryList, setSelectedYear }) {
+export default function Drivers({
+  selectedYear,
+  countryList,
+  setSelectedYear,
+}) {
   const [drivers, setDrivers] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const currentYear = new Date().getFullYear() - 1;
@@ -19,14 +23,9 @@ export default function Drivers({ selectedYear, countryList, setSelectedYear }) 
   }, [selectedYear]);
 
   const getDrivers = async () => {
-    const url =
-      // "http://ergast.com/api/f1/" + selectedYear + "/driverStandings.json";
-      `http://ergast.com/api/f1/${selectedYear}/driverStandings.json`;
+    const url = `http://ergast.com/api/f1/${selectedYear}/driverStandings.json`;
     console.log(url);
     const response = await axios.get(url);
-    // const data =
-    //   response.data.MRData.StandingsTable.StandingsLists[0].DriverStandings;
-    // console.log(data)
     setDrivers(
       response.data.MRData.StandingsTable.StandingsLists[0].DriverStandings
     );
@@ -48,21 +47,21 @@ export default function Drivers({ selectedYear, countryList, setSelectedYear }) 
           </h1>
         </div>
         <div className="seasons">
-            <Trophy />
-            <select
-              onChange={(e) => setSelectedYear(e.target.value)}
-              value={selectedYear}
-            >
-              {allYears.map((year) => {
-                return (
-                  <option key={year} value={year} >
-                    Season {year}
-                  </option>
-                );
-              })}
-            </select>
-          </div>
+          <Trophy />
+          <select
+            onChange={(e) => setSelectedYear(e.target.value)}
+            value={selectedYear}
+          >
+            {allYears.map((year) => {
+              return (
+                <option key={year} value={year}>
+                  {year}
+                </option>
+              );
+            })}
+          </select>
         </div>
+      </div>
 
       <br />
       <br />
@@ -83,7 +82,6 @@ export default function Drivers({ selectedYear, countryList, setSelectedYear }) 
                     {driver.position}
                   </div>
                 </td>
-                {/* <td>{driver.Driver.nationality}</td> */}
 
                 <td>
                   <div className="flag-name">
