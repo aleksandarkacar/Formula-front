@@ -204,7 +204,14 @@ export default function TeamDetails({ selectedYear, countryList }) {
                   {res.Results.map((data) => {
                     // console.log("data", data)
                     points += Number(data.points);
-                    return <td key={data.position}>{data.position}</td>;
+                    return (
+                      <td
+                        style={getPositionColor(data.position)}
+                        key={data.position}
+                      >
+                        {data.position}
+                      </td>
+                    );
                   })}
 
                   <td>{points}</td>
