@@ -46,6 +46,7 @@ td {
   align-items: center;
   position: relative;
   bottom: 0;
+  z-index: 1;
 
   margin: 15px;
   padding: 5px;
@@ -77,4 +78,5 @@ td {
 
 .landing-video {
   height: 100vh;
+  z-index: 2;
 }
