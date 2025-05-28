@@ -44,10 +44,8 @@ export default function RaceDetails({ selectedYear, countryList }) {
     const response = await axios.get(url);
     const response2 = await axios.get(url2);
 
-    // console.log("Qualifs", response.data.MRData.RaceTable.Races[0].QualifyingResults);
     setQualifs(response.data.MRData.RaceTable.Races[0].QualifyingResults);
 
-    // console.log("getRaceResults", response2.data.MRData.RaceTable.Races[0]);
     setRaceResults(response2.data.MRData.RaceTable.Races[0]);
 
     setIsLoading(false);

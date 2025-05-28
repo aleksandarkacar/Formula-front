@@ -20,7 +20,6 @@ export default function Races({ selectedYear, countryList }) {
     const url = "http://ergast.com/api/f1/" + selectedYear + "/results/1.json";
     const response = await axios.get(url);
 
-    // console.log(getRaces, response.data.MRData.RaceTable.Races);
     setRaces(response.data.MRData.RaceTable.Races);
     setIsLoading(false);
   };
@@ -55,9 +54,7 @@ export default function Races({ selectedYear, countryList }) {
             return (
               <tr key={race.round}>
                 <td>
-                  <div>
-                    {race.round}
-                  </div>
+                  <div>{race.round}</div>
                 </td>
                 <td className="just-left">
                   <div className="flag-name">
