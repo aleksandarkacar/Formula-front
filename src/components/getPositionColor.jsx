@@ -35,7 +35,7 @@ export default function getPositionColor(position) {
   }
   if (position > 10) {
     return {
-      backgroundColor: `rgba(245, 240, 230, 0.5)`,
+      backgroundColor: `#080c16`,
       color: "white",
     };
   }

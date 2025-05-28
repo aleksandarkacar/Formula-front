@@ -114,140 +114,137 @@ export default function RaceDetails({ selectedYear, countryList }) {
             </div>
           </div>
         </div>
-
-        <div className="table-wrapper">
-          <br />
-          <div className="title">
-            <h1>
-              <Timer className="color-primary title-icon" />
-              Qualifying results
-            </h1>
-          </div>
-          <br />
-          <br />
-          <table className="table">
-            <thead className="table-head">
-              <tr>
-                <th>Pos</th>
-                <th>Driver</th>
-                <th>Team</th>
-                <th>Best time</th>
-              </tr>
-            </thead>
-            <tbody>
-              {qualifs.map((qualif, i) => {
-                let fastestTime = "";
-                if (qualif.Q3) {
-                  fastestTime = qualif.Q3;
-                } else if (qualif.Q2) {
-                  fastestTime = qualif.Q2;
-                } else {
-                  fastestTime = qualif.Q1;
-                }
-                return (
-                  <tr key={qualif.position}>
-                    <td>
-                      <div
-                        className="position-default"
-                        style={getPositionColor(i + 1)}
-                      >
-                        {qualif.position}
-                      </div>
-                    </td>
-                    <td className="just-left">
-                      <div className="flag-name">
-                        <Flag
-                          className="flagg"
-                          country={getAlpha2ByNationality(
-                            countryList,
-                            qualif.Driver.nationality
-                          )}
-                        />
-                        <Link to={"/" + qualif.Driver.driverId}>
-                          {qualif.Driver.familyName}
-                        </Link>
-                      </div>
-                    </td>
-                    <td>
-                      <Link to={"/teams/" + qualif.Constructor.constructorId}>
-                        {qualif.Constructor.name}
-                      </Link>
-                    </td>
-                    <td className="just-center">{fastestTime}</td>
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
+      </div>
+      <div className="table-wrapper">
+        <br />
+        <div className="title">
+          <h1>
+            <Timer className="color-primary title-icon" />
+            Qualifying results
+          </h1>
         </div>
-
-        <div className="table-wrapper">
-          <br />
-          <div className="title">
-            <h1>
-              <TableOfContents className="color-primary title-icon" />
-              Race results
-            </h1>
-          </div>
-          <br />
-          <br />
-          <table className="table">
-            <thead>
-              <tr>
-                <th>Pos</th>
-                <th>Driver</th>
-                <th>Team</th>
-                <th>Result</th>
-                <th>Points</th>
-              </tr>
-            </thead>
-
-            <tbody className="table-head">
-              {raceResults.Results.map((raceResult, i) => {
-                return (
-                  <tr key={raceResult.position}>
-                    <td>
-                      <div
-                        className="position-default"
-                        style={getPositionColor(i + 1)}
-                      >
-                        {raceResult.position}
-                      </div>
-                    </td>
-                    <td className="just-left">
-                      <div className="flag-name">
-                        <Flag
-                          className="flagg"
-                          country={getAlpha2ByNationality(
-                            countryList,
-                            raceResult.Driver.nationality
-                          )}
-                        />
-                        <Link to={"/" + raceResult.Driver.driverId}>
-                          {raceResult.Driver.familyName}
-                        </Link>
-                      </div>
-                    </td>
-                    <td>
-                      <Link
-                        className="just-left"
-                        to={"/teams/" + raceResult.Constructor.constructorId}
-                      >
-                        {raceResult.Constructor.name}
+        <br />
+        <br />
+        <table className="table">
+          <thead className="table-head">
+            <tr>
+              <th>Pos</th>
+              <th>Driver</th>
+              <th>Team</th>
+              <th>Best time</th>
+            </tr>
+          </thead>
+          <tbody>
+            {qualifs.map((qualif, i) => {
+              let fastestTime = "";
+              if (qualif.Q3) {
+                fastestTime = qualif.Q3;
+              } else if (qualif.Q2) {
+                fastestTime = qualif.Q2;
+              } else {
+                fastestTime = qualif.Q1;
+              }
+              return (
+                <tr key={qualif.position}>
+                  <td>
+                    <div
+                      className="position-default"
+                      style={getPositionColor(i + 1)}
+                    >
+                      {qualif.position}
+                    </div>
+                  </td>
+                  <td className="just-left">
+                    <div className="flag-name">
+                      <Flag
+                        className="flagg"
+                        country={getAlpha2ByNationality(
+                          countryList,
+                          qualif.Driver.nationality
+                        )}
+                      />
+                      <Link to={"/" + qualif.Driver.driverId}>
+                        {qualif.Driver.familyName}
                       </Link>
-                    </td>
-                    <td className="just-left">
-                      {raceResult.Time
-                        ? raceResult.Time.time
-                        : raceResult.status}
-                    </td>
-                    <td>{raceResult.points}</td>
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
+                    </div>
+                  </td>
+                  <td>
+                    <Link to={"/teams/" + qualif.Constructor.constructorId}>
+                      {qualif.Constructor.name}
+                    </Link>
+                  </td>
+                  <td className="just-center">{fastestTime}</td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
+
+      <div className="table-wrapper">
+        <br />
+        <div className="title">
+          <h1>
+            <TableOfContents className="color-primary title-icon" />
+            Race results
+          </h1>
         </div>
+        <br />
+        <br />
+        <table className="table">
+          <thead>
+            <tr>
+              <th>Pos</th>
+              <th>Driver</th>
+              <th>Team</th>
+              <th>Result</th>
+              <th>Points</th>
+            </tr>
+          </thead>
+
+          <tbody className="table-head">
+            {raceResults.Results.map((raceResult, i) => {
+              return (
+                <tr key={raceResult.position}>
+                  <td>
+                    <div
+                      className="position-default"
+                      style={getPositionColor(i + 1)}
+                    >
+                      {raceResult.position}
+                    </div>
+                  </td>
+                  <td className="just-left">
+                    <div className="flag-name">
+                      <Flag
+                        className="flagg"
+                        country={getAlpha2ByNationality(
+                          countryList,
+                          raceResult.Driver.nationality
+                        )}
+                      />
+                      <Link to={"/" + raceResult.Driver.driverId}>
+                        {raceResult.Driver.familyName}
+                      </Link>
+                    </div>
+                  </td>
+                  <td>
+                    <Link
+                      className="just-left"
+                      to={"/teams/" + raceResult.Constructor.constructorId}
+                    >
+                      {raceResult.Constructor.name}
+                    </Link>
+                  </td>
+                  <td className="just-left">
+                    {raceResult.Time ? raceResult.Time.time : raceResult.status}
+                  </td>
+                  <td>{raceResult.points}</td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
       </div>
     </div>
   );
