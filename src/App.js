@@ -52,22 +52,22 @@ export default function App() {
     <Router>
       {/* Navigacija */}
       <nav className="top-navigation icons icon">
-        <div className="seasons">
-          <Trophy />
-          <select
-            onChange={(e) => setSelectedYear(e.target.value)}
-            value={selectedYear}
-          >
-            {allYears.map((year) => {
-              return (
-                <option key={year} value={year}>
-                  {year}
-                </option>
-              );
-            })}
-          </select>
-        </div>
         <div className="nav-links">
+          <div className="seasons">
+            <Trophy />
+            <select
+              onChange={(e) => setSelectedYear(e.target.value)}
+              value={selectedYear}
+            >
+              {allYears.map((year) => {
+                return (
+                  <option key={year} value={year}>
+                    {year}
+                  </option>
+                );
+              })}
+            </select>
+          </div>
           <div className="li-el">
             <NavLink to="/">
               <UsersRound className="icons icon" /> Drivers
