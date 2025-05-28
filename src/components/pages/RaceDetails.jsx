@@ -19,6 +19,7 @@ export default function RaceDetails({ selectedYear, countryList }) {
   const [qualifs, setQualifs] = useState([]);
   const [raceResults, setRaceResults] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [raceFlag, setRaceFlag] = useState("");
   const params = useParams();
   // console.log(params.id);
 
@@ -48,6 +49,13 @@ export default function RaceDetails({ selectedYear, countryList }) {
 
     setRaceResults(response2.data.MRData.RaceTable.Races[0]);
 
+    setRaceFlag(
+      getAlpha2ByCountryName(
+        countryList,
+        response2.data.MRData.RaceTable.Races[0].Circuit.Location.country
+      )
+    );
+
     setIsLoading(false);
   };
 
@@ -65,21 +73,22 @@ export default function RaceDetails({ selectedYear, countryList }) {
           </h1>
           <div className="subtitle">{raceResults.raceName}</div>
           <div className="card-content">
-            <Flag
-              size={"100px"}
-              country={getAlpha2ByCountryName(
-                countryList,
-                raceResults.Circuit.Location.country
-              )}
-              className="logo"
-              alt="country-flag"
-            />
+            {raceFlag ? (
+              <Flag className="flagg" country={(countryList, raceFlag)} />
+            ) : (
+              <img
+                src="/img/flags.jpg"
+                style={{ width: "100px", marginBottom: "15px" }}
+                alt="Flag placeholder"
+              />
+            )}
+
             <div className="menu-wrapper">
               <div className="menu-row">
                 <div className="subMenu">
-                  <div className="menu-title subtitle">
-                    <div>Location </div>
-                    <div className="color-primary smallIcon">
+                  <div className="menu-title">
+                    <div>Location:</div>
+                    <div className="color-primary">
                       <MapPin className="icon" />
                     </div>
                   </div>
@@ -88,9 +97,9 @@ export default function RaceDetails({ selectedYear, countryList }) {
                   </div>
                 </div>
                 <div className="subMenu">
-                  <div className="menu-title subtitle">
-                    <h3>Date </h3>
-                    <div className="color-primary smallIcon">
+                  <div className="menu-title">
+                    <h3>Date:</h3>
+                    <div className="color-primary">
                       <CalendarDays className="icon" />
                     </div>
                   </div>
@@ -136,6 +145,10 @@ export default function RaceDetails({ selectedYear, countryList }) {
             </thead>
             <tbody>
               {qualifs.map((qualif, i) => {
+                let qflag = getAlpha2ByNationality(
+                  countryList,
+                  qualif.Driver.nationality
+                );
                 let fastestTime = "";
                 if (qualif.Q3) {
                   fastestTime = qualif.Q3;
@@ -155,18 +168,18 @@ export default function RaceDetails({ selectedYear, countryList }) {
                       </div>
                     </td>
                     <td className="just-left">
-                      <div className="flag-name">
-                        <Flag
-                          className="flagg"
-                          country={getAlpha2ByNationality(
-                            countryList,
-                            qualif.Driver.nationality
-                          )}
+                      {qflag ? (
+                        <Flag className="flagg" country={qflag} />
+                      ) : (
+                        <img
+                          src="/img/flags.jpg"
+                          style={{ width: "24px", marginRight: "10px" }}
+                          alt="Flag placeholder"
                         />
-                        <Link to={"/" + qualif.Driver.driverId}>
-                          {qualif.Driver.familyName}
-                        </Link>
-                      </div>
+                      )}
+                      <Link to={"/" + qualif.Driver.driverId}>
+                        {qualif.Driver.familyName}
+                      </Link>
                     </td>
                     <td>
                       <Link to={"/teams/" + qualif.Constructor.constructorId}>
@@ -204,6 +217,10 @@ export default function RaceDetails({ selectedYear, countryList }) {
 
             <tbody className="table-head">
               {raceResults.Results.map((raceResult, i) => {
+                let flag = getAlpha2ByNationality(
+                  countryList,
+                  raceResult.Driver.nationality
+                );
                 return (
                   <tr key={raceResult.position}>
                     <td>
@@ -216,13 +233,16 @@ export default function RaceDetails({ selectedYear, countryList }) {
                     </td>
                     <td className="just-left">
                       <div className="flag-name">
-                        <Flag
-                          className="flagg"
-                          country={getAlpha2ByNationality(
-                            countryList,
-                            raceResult.Driver.nationality
-                          )}
-                        />
+                        {flag ? (
+                          <Flag className="flagg" country={flag} />
+                        ) : (
+                          <img
+                            src="/img/flags.jpg"
+                            style={{ width: "24px", marginRight: "10px" }}
+                            alt="Flag placeholder"
+                          />
+                        )}
+                        {/* <Flag className="flagg" country={flag} /> */}
                         <Link to={"/" + raceResult.Driver.driverId}>
                           {raceResult.Driver.familyName}
                         </Link>
