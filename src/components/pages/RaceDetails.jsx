@@ -78,7 +78,7 @@ export default function RaceDetails({ selectedYear, countryList }) {
               <div className="menu-row">
                 <div className="subMenu">
                   <div className="menu-title subtitle">
-                    <div>Location </div>
+                    <div>Location</div>
                     <div className="color-primary smallIcon">
                       <MapPin className="icon" />
                     </div>
