@@ -47,6 +47,10 @@ a {
     padding: 7px;
     font-size: vars.$font-medium;
   }
+  .seasons {
+    display: flex;
+    flex-direction: row;
+  }
 }
 
 // li { display: inline-block;
@@ -101,7 +105,7 @@ a {
   align-items: center;
   justify-content: space-between;
   margin: 5px;
-}
+} 
 
 .F1 {
   display: flex;

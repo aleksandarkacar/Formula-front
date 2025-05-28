@@ -22,6 +22,7 @@ import { UsersRound } from "lucide-react";
 import { Calendar } from "lucide-react";
 // import { FontSizeOutlined } from '@ant-design/icons';
 import { Building2 } from "lucide-react";
+import { Trophy } from "lucide-react";
 
 export default function App() {
   const currentYear = new Date().getFullYear() - 1;
@@ -50,19 +51,22 @@ export default function App() {
   return (
     <Router>
       {/* Navigacija */}
-      <nav className="top-navigation">
-        <select
-          onChange={(e) => setSelectedYear(e.target.value)}
-          value={selectedYear}
-        >
-          {allYears.map((year) => {
-            return (
-              <option key={year} value={year}>
-                {year}
-              </option>
-            );
-          })}
-        </select>
+      <nav className="top-navigation icons icon">
+        <div className="seasons">
+          <Trophy />
+          <select
+            onChange={(e) => setSelectedYear(e.target.value)}
+            value={selectedYear}
+          >
+            {allYears.map((year) => {
+              return (
+                <option key={year} value={year}>
+                  {year}
+                </option>
+              );
+            })}
+          </select>
+        </div>
         <div className="nav-links">
           <div className="li-el">
             <NavLink to="/">
