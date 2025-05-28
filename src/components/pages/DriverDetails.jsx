@@ -169,7 +169,14 @@ export default function DriverDetails({ selectedYear, countryList }) {
                   </td>
                   <td>{race.Results[0].Constructor.name}</td>
                   <td>{race.Results[0].grid}</td>
-                  <td>{race.Results[0].position}</td>
+                  <td>
+                    <div
+                      className="position-default"
+                      style={getPositionColor(race.Results[0].position)}
+                    >
+                      {race.Results[0].position}
+                    </div>
+                  </td>
                 </tr>
               );
             })}

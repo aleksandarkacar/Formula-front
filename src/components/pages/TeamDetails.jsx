@@ -182,8 +182,8 @@ export default function TeamDetails({ selectedYear, countryList }) {
                 <tr key={res.round}>
                   <td>
                     <div
-                      className="position-default"
-                      style={getPositionColor(i + 1)}
+                    // className="position-default"
+                    // style={getPositionColor(i + 1)}
                     >
                       {res.round}
                     </div>
@@ -208,11 +208,13 @@ export default function TeamDetails({ selectedYear, countryList }) {
                     // console.log("data", data)
                     points += Number(data.points);
                     return (
-                      <td
-                        style={getPositionColor(data.position)}
-                        key={data.position}
-                      >
-                        {data.position}
+                      <td key={data.position}>
+                        <div
+                          className="position-default"
+                          style={getPositionColor(data.position)}
+                        >
+                          {data.position}
+                        </div>
                       </td>
                     );
                   })}
