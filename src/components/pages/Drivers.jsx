@@ -55,8 +55,8 @@ export default function Drivers({ selectedYear, countryList, setSelectedYear }) 
             >
               {allYears.map((year) => {
                 return (
-                  <option key={year} value={year}>
-                    {year}
+                  <option key={year} value={year} >
+                    Season {year}
                   </option>
                 );
               })}
