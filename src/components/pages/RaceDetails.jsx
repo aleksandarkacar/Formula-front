@@ -44,10 +44,8 @@ export default function RaceDetails({ selectedYear, countryList }) {
     const response = await axios.get(url);
     const response2 = await axios.get(url2);
 
-    // console.log("Qualifs", response.data.MRData.RaceTable.Races[0].QualifyingResults);
     setQualifs(response.data.MRData.RaceTable.Races[0].QualifyingResults);
 
-    // console.log("getRaceResults", response2.data.MRData.RaceTable.Races[0]);
     setRaceResults(response2.data.MRData.RaceTable.Races[0]);
 
     setIsLoading(false);
@@ -79,24 +77,26 @@ export default function RaceDetails({ selectedYear, countryList }) {
             <div className="menu-wrapper">
               <div className="menu-row">
                 <div className="subMenu">
-                  <div className="menu-title">
-                    <h3>Location:</h3>
-                    <div className="color-primary">
+                  <div className="menu-title subtitle">
+                    <div>Location</div>
+                    <div className="color-primary smallIcon">
                       <MapPin className="icon" />
                     </div>
                   </div>
-                  <div className="mini-text-below">
+                  <div className="mini-text-below menu-title">
                     {raceResults.Circuit.Location.country}
                   </div>
                 </div>
                 <div className="subMenu">
-                  <div className="menu-title">
-                    <h3>Date:</h3>
-                    <div className="color-primary">
+                  <div className="menu-title subtitle">
+                    <h3>Date </h3>
+                    <div className="color-primary smallIcon">
                       <CalendarDays className="icon" />
                     </div>
                   </div>
-                  <div className="mini-text-below">{raceResults.date}</div>
+                  <div className="mini-text-below menu-title">
+                    {raceResults.date}
+                  </div>
                 </div>
               </div>
             </div>

@@ -1,6 +1,6 @@
 @use "./variables.scss" as vars;
 @mixin gradient-top-border(
-  $height: 6px,
+  $height: 3px,
   $radius: 10px,
   $start-color: vars.$primary,
   $end-color: rgba(vars.$primary, 0.5)
