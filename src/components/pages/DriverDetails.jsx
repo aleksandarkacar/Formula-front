@@ -7,6 +7,7 @@ import { getAlpha2ByCountryName, getAlpha2ByNationality } from "../getFlagCode";
 import Flag from "react-flagkit";
 import "../../styles/components/detailsCard.scss";
 import { Medal, IdCard, BookOpenText, UsersRound } from "lucide-react";
+import getPositionColor from "../getPositionColor";
 
 export default function DriverDetails({ selectedYear, countryList }) {
   const [driverDetails, setDriverDetails] = useState({});
@@ -157,9 +158,7 @@ export default function DriverDetails({ selectedYear, countryList }) {
               return (
                 <tr key={race.round}>
                   <td className="just-center">
-                    <div>
-                      {race.round}
-                    </div>
+                    <div>{race.round}</div>
                   </td>
 
                   <td>
