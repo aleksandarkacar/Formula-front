@@ -69,7 +69,11 @@ export default function DriverDetails({ selectedYear, countryList }) {
             <img
               className="photo"
               src={`/img/drivers/${driver.id}.jpg`}
-              alt="driver-photo"
+              onError={(e) => {
+                e.target.src = "/img/drivers/avatar.png";
+                e.onerror = null;
+              }}
+              // fallBack="img/drivers/avatar.png"
             />
             <p>
               {driverDetails.Driver.givenName} {driverDetails.Driver.familyName}
