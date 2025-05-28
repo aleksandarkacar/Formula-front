@@ -7,12 +7,12 @@ import { getAlpha2ByCountryName, getAlpha2ByNationality } from "../getFlagCode";
 import Flag from "react-flagkit";
 import "../../styles/components/detailsCard.scss";
 import { Medal, IdCard, BookOpenText, UsersRound } from "lucide-react";
-import getPositionColor from "../getPositionColor.jsx";
 
 export default function DriverDetails({ selectedYear, countryList }) {
   const [driverDetails, setDriverDetails] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [dataRaces, setDataRaces] = useState([]);
+  const [driverFlag, setDriverFlag] = useState("");
   const driver = useParams();
 
   useEffect(() => {
@@ -48,6 +48,13 @@ export default function DriverDetails({ selectedYear, countryList }) {
       response.data.MRData.StandingsTable.StandingsLists[0].DriverStandings[0]
     );
     setIsLoading(false);
+    setDriverFlag(
+      getAlpha2ByNationality(
+        countryList,
+        response.data.MRData.StandingsTable.StandingsLists[0].DriverStandings[0]
+          .Driver.nationality
+      )
+    );
   };
 
   if (isLoading) {
@@ -81,12 +88,15 @@ export default function DriverDetails({ selectedYear, countryList }) {
             {/* <p>Country: <Nat2Flag nat={driverDetails.Driver.nationality} /></p> */}
             {/* Country: */}{" "}
             <p>
-              <Flag
-                country={getAlpha2ByNationality(
-                  countryList,
-                  driverDetails.Driver.nationality
-                )}
-              />
+              {driverFlag ? (
+                <Flag className="flagg" country={driverFlag} />
+              ) : (
+                <img
+                  src="/img/flags.jpg"
+                  style={{ width: "24px", marginRight: "10px" }}
+                  alt="Flag placeholder"
+                />
+              )}
             </p>
             <div className="menu-wrapper">
               <div className="subMenu">
@@ -147,7 +157,9 @@ export default function DriverDetails({ selectedYear, countryList }) {
               return (
                 <tr key={race.round}>
                   <td className="just-center">
-                    <div>{race.round}</div>
+                    <div>
+                      {race.round}
+                    </div>
                   </td>
 
                   <td>

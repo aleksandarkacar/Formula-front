@@ -2,7 +2,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap");
 
 body {
-  padding-top: 54px;
+  padding-top: 6vh;
   font-family: "Inter", "Helvetica", sans-serif;
   background-color: vars.$background;
   color: vars.$foreground;
@@ -36,7 +36,7 @@ td {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  height: 80vh;
+  min-height: 86vh;
   color: vars.$primary;
 }
 
@@ -48,17 +48,13 @@ td {
   bottom: 0;
   z-index: 1;
   background-color: vars.$background;
-  margin: 15px;
+  // margin: 15px;
   // padding: 5px;
   // border-top: vars.$border;
   font-size: vars.$font-small;
   color: vars.$muted-foreground;
-}
-.footdiv {
-  min-width: px;
-}
-.footdiv1 {
-  min-width: px;
+  height: 6vh;
+  margin: 0 20px;
 }
 
 .just-left {
@@ -73,7 +69,7 @@ td {
 
 .page {
   // display: flex;
-  min-height: 84vh;
+  min-height: 86vh;
 }
 
 .landing-video {
