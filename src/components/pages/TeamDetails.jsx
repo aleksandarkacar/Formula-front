@@ -105,6 +105,7 @@ export default function TeamDetails({ selectedYear, countryList }) {
                       />
                     </div>
                   </div>
+
                   <div className="subMenu">
                     <div className="menu-title">
                       <div>Position</div>
@@ -113,7 +114,7 @@ export default function TeamDetails({ selectedYear, countryList }) {
                       </div>
                       {/* size={17} */}
                     </div>
-                    <div>{teamDetails.position}</div>
+                    <div className="menu-title">{teamDetails.position}</div>
                   </div>
                 </div>
                 <div className="menu-row">
@@ -124,7 +125,7 @@ export default function TeamDetails({ selectedYear, countryList }) {
                         <Trophy className="icon" />
                       </div>
                     </div>
-                    <div>{teamDetails.points}</div>
+                    <div className="menu-title">{teamDetails.points}</div>
                   </div>
                   <Link
                     className="menu-title"
@@ -132,8 +133,8 @@ export default function TeamDetails({ selectedYear, countryList }) {
                     target="_blank"
                   >
                     <div className="subMenu">
-                      <div>History</div>{" "}
-                      <div>
+                      <div className="menu-title">History</div>{" "}
+                      <div className="menu-title">
                         <ExternalLink className="icon" />
                       </div>
                     </div>
