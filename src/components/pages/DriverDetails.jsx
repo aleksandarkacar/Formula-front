@@ -104,11 +104,13 @@ export default function DriverDetails({ selectedYear, countryList }) {
                 <div className="menu-title">
                   <div>Team</div>
                   <div className="color-primary">
-                    <UsersRound className="icon" />
+                    <div>
+                      <UsersRound className="icon" />
+                    </div>
                   </div>
                 </div>
 
-                <div>
+                <div className="menu-title">
                   <Link
                     to={"/teams/" + driverDetails.Constructors[0].constructorId}
                   >
@@ -123,9 +125,11 @@ export default function DriverDetails({ selectedYear, countryList }) {
                     <BookOpenText className="icon" />
                   </div>
                 </div>
-                <Link target="_blank" to={driverDetails.Driver.url}>
-                  <div className="mini-text-below">About Driver</div>
-                </Link>
+                <div className="menu-title">
+                  <Link target="_blank" to={driverDetails.Driver.url}>
+                    <div className="mini-text-below">About Driver</div>
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
