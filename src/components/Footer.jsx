@@ -1,5 +1,3 @@
-import App from "../App";
-
 export default function Footer() {
   return (
     <div className="footer">

@@ -48,6 +48,7 @@ export function getAlpha2ByCountryName(flags, name) {
   if (name === "Russia") {
     return "RU";
   }
+
   const country = flags.find((flag) => flag.en_short_name === name);
   // console.log("if coun", name, country );
 

@@ -81,13 +81,10 @@ export default function DriverDetails({ selectedYear, countryList }) {
                 e.target.src = "/img/drivers/avatar.png";
                 e.onerror = null;
               }}
-              // fallBack="img/drivers/avatar.png"
             />
             <p>
               {driverDetails.Driver.givenName} {driverDetails.Driver.familyName}
-            </p>
-            {/* <p>Country: <Nat2Flag nat={driverDetails.Driver.nationality} /></p> */}
-            {/* Country: */}{" "}
+            </p>{" "}
             <p>
               {driverFlag ? (
                 <Flag className="flagg" country={driverFlag} />

@@ -45,9 +45,6 @@ export default function TeamDetails({ selectedYear, countryList }) {
     const response = await axios.get(url);
     const response2 = await axios.get(url2);
 
-    // console.log("getTeamDetails", response.data);
-    // console.log("getResults", response2.data.MRData.RaceTable.Races);
-
     setTeamDetails(
       response.data.MRData.StandingsTable.StandingsLists[0]
         .ConstructorStandings[0]
@@ -112,7 +109,6 @@ export default function TeamDetails({ selectedYear, countryList }) {
                       <div className="color-primary">
                         <TrendingUp className="icon" />
                       </div>
-                      {/* size={17} */}
                     </div>
                     <div className="menu-title">{teamDetails.position}</div>
                   </div>
@@ -177,19 +173,13 @@ export default function TeamDetails({ selectedYear, countryList }) {
             </tr>
             {result.map((res, i) => {
               let points = 0;
-              // console.log("res", res);
 
               return (
                 <tr key={res.round}>
                   <td>
-                    <div
-                    // className="position-default"
-                    // style={getPositionColor(i + 1)}
-                    >
-                      {res.round}
-                    </div>
+                    <div>{res.round}</div>
                   </td>
-                  {/* {console.log("Lets see res", res)} */}
+
                   <td>
                     <Link to={"/races/" + res.round}>
                       <div className="flag-name">
@@ -206,7 +196,6 @@ export default function TeamDetails({ selectedYear, countryList }) {
                   </td>
 
                   {res.Results.map((data) => {
-                    // console.log("data", data)
                     points += Number(data.points);
                     return (
                       <td key={data.position}>
