@@ -78,12 +78,12 @@ export default function RaceDetails({ selectedYear, countryList }) {
               <div className="menu-row">
                 <div className="subMenu">
                   <div className="menu-title">
-                    <h3>Location:</h3>
+                    <div>Location:</div>
                     <div className="color-primary">
                       <MapPin className="icon" />
                     </div>
                   </div>
-                  <div className="mini-text-below">
+                  <div className="mini-text-below menu-title">
                     {raceResults.Circuit.Location.country}
                   </div>
                 </div>
@@ -94,7 +94,9 @@ export default function RaceDetails({ selectedYear, countryList }) {
                       <CalendarDays className="icon" />
                     </div>
                   </div>
-                  <div className="mini-text-below">{raceResults.date}</div>
+                  <div className="mini-text-below menu-title">
+                    {raceResults.date}
+                  </div>
                 </div>
               </div>
             </div>

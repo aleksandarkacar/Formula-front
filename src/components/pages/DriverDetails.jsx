@@ -87,7 +87,7 @@ export default function DriverDetails({ selectedYear, countryList }) {
             </p>{" "}
             <p>
               {driverFlag ? (
-                <Flag className="flagg" country={driverFlag} />
+                <Flag country={driverFlag} />
               ) : (
                 <img
                   src="/img/flags.jpg"
