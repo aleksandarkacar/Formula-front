@@ -147,7 +147,9 @@ export default function DriverDetails({ selectedYear, countryList }) {
               return (
                 <tr key={race.round}>
                   <td className="just-center">
-                    <div>{race.round}</div>
+                    <div>
+                      {race.round}
+                    </div>
                   </td>
 
                   <td>
