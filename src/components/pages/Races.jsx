@@ -55,10 +55,7 @@ export default function Races({ selectedYear, countryList }) {
             return (
               <tr key={race.round}>
                 <td>
-                  <div
-                    className="position-default"
-                    style={getPositionColor(i + 1)}
-                  >
+                  <div>
                     {race.round}
                   </div>
                 </td>
