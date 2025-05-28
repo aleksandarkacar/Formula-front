@@ -98,10 +98,10 @@ export default function DriverDetails({ selectedYear, countryList }) {
             </p>
             <div className="menu-wrapper">
               <div className="subMenu">
-                <div className="menu-title">
+                <div className="menu-title subtitle">
                   <div>Team</div>
                   <div className="color-primary">
-                    <div>
+                    <div className="smallIcon">
                       <UsersRound className="icon" />
                     </div>
                   </div>
@@ -116,9 +116,9 @@ export default function DriverDetails({ selectedYear, countryList }) {
                 </div>
               </div>
               <div className="subMenu">
-                <div className="menu-title">
+                <div className="menu-title subtitle">
                   <div>Biography</div>
-                  <div className="color-primary">
+                  <div className="color-primary smallIcon">
                     <BookOpenText className="icon" />
                   </div>
                 </div>

@@ -83,9 +83,9 @@ export default function TeamDetails({ selectedYear, countryList }) {
               <div>
                 <div className="menu-row">
                   <div className="subMenu">
-                    <div className="menu-title">
+                    <div className="menu-title subtitle">
                       <div>Nationality</div>
-                      <div className="color-primary">
+                      <div className="color-primary smallIcon">
                         <Earth className="icon" />
                       </div>
                     </div>
@@ -104,9 +104,9 @@ export default function TeamDetails({ selectedYear, countryList }) {
                   </div>
 
                   <div className="subMenu">
-                    <div className="menu-title">
+                    <div className="menu-title subtitle">
                       <div>Position</div>
-                      <div className="color-primary">
+                      <div className="color-primary smallIcon">
                         <TrendingUp className="icon" />
                       </div>
                     </div>
@@ -115,9 +115,9 @@ export default function TeamDetails({ selectedYear, countryList }) {
                 </div>
                 <div className="menu-row">
                   <div className="subMenu">
-                    <div className="menu-title">
+                    <div className="menu-title subtitle">
                       <div>Points</div>
-                      <div className="color-primary">
+                      <div className="color-primary smallIcon">
                         <Trophy className="icon" />
                       </div>
                     </div>
@@ -129,7 +129,7 @@ export default function TeamDetails({ selectedYear, countryList }) {
                     target="_blank"
                   >
                     <div className="subMenu">
-                      <div className="menu-title">History</div>{" "}
+                      <div className="menu-title subtitle">History</div>{" "}
                       <div className="menu-title">
                         <ExternalLink className="icon" />
                       </div>
