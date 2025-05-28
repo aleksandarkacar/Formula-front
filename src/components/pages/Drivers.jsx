@@ -49,6 +49,10 @@ export default function Drivers({ selectedYear, countryList }) {
       <table className="table">
         <tbody className="table-head">
           {drivers.map((driver, i) => {
+            let flag = getAlpha2ByNationality(
+              countryList,
+              driver.Driver.nationality
+            );
             return (
               <tr key={driver.Driver.driverId}>
                 <td>
@@ -63,13 +67,16 @@ export default function Drivers({ selectedYear, countryList }) {
 
                 <td>
                   <div className="flag-name">
-                    <Flag
-                      className="flagg"
-                      country={getAlpha2ByNationality(
-                        countryList,
-                        driver.Driver.nationality
-                      )}
-                    />
+                    {flag ? (
+                      <Flag className="flagg" country={flag} />
+                    ) : (
+                      <img
+                        src="/img/flags.jpg"
+                        style={{ width: "24px", marginRight: "10px" }}
+                        alt="Flag placeholder"
+                      />
+                    )}
+
                     <Link to={driver.Driver.driverId}>
                       {driver.Driver.givenName} {driver.Driver.familyName}
                     </Link>

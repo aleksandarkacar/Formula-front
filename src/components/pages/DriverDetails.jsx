@@ -147,12 +147,7 @@ export default function DriverDetails({ selectedYear, countryList }) {
               return (
                 <tr key={race.round}>
                   <td className="just-center">
-                    <div
-                      className="position-default"
-                      style={getPositionColor(i + 1)}
-                    >
-                      {race.round}
-                    </div>
+                    <div>{race.round}</div>
                   </td>
 
                   <td>

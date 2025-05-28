@@ -63,16 +63,18 @@ export default function Teams({ selectedYear, countryList }) {
                     </div>
                   </td>
                   <td className="just-left">
-                    <Flag
-                      className="flagg"
-                      country={getAlpha2ByNationality(
-                        countryList,
-                        team.Constructor.nationality
-                      )}
-                    />
-                    <Link to={team.Constructor.constructorId}>
-                      {team.Constructor.name}
-                    </Link>
+                    <div className="flag-name">
+                      <Flag
+                        className="flagg"
+                        country={getAlpha2ByNationality(
+                          countryList,
+                          team.Constructor.nationality
+                        )}
+                      />
+                      <Link to={team.Constructor.constructorId}>
+                        {team.Constructor.name}
+                      </Link>
+                    </div>
                   </td>
                   <td>
                     <Link target="_blank" to={team.Constructor.url}>

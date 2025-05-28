@@ -46,10 +46,11 @@ td {
   align-items: center;
   position: relative;
   bottom: 0;
-
+  z-index: 1;
+  background-color: vars.$background;
   margin: 15px;
-  padding: 5px;
-  border-top: vars.$border;
+  // padding: 5px;
+  // border-top: vars.$border;
   font-size: vars.$font-small;
   color: vars.$muted-foreground;
 }
@@ -77,4 +78,5 @@ td {
 
 .landing-video {
   height: 100vh;
+  z-index: 2;
 }

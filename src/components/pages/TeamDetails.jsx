@@ -94,6 +94,7 @@ export default function TeamDetails({ selectedYear, countryList }) {
                     </div>
                     <div className="menu-title">
                       <div>{teamDetails.Constructor.nationality}</div>
+
                       <Flag
                         className="flag"
                         country={getAlpha2ByNationality(
@@ -188,16 +189,18 @@ export default function TeamDetails({ selectedYear, countryList }) {
                     </div>
                   </td>
                   {/* {console.log("Lets see res", res)} */}
-                  <td className="flag-name">
+                  <td>
                     <Link to={"/races/" + res.round}>
-                      <Flag
-                        className="flagg"
-                        country={getAlpha2ByCountryName(
-                          countryList,
-                          res.Circuit.Location.country
-                        )}
-                      />
-                      {res.raceName}
+                      <div className="flag-name">
+                        <Flag
+                          className="flagg"
+                          country={getAlpha2ByCountryName(
+                            countryList,
+                            res.Circuit.Location.country
+                          )}
+                        />
+                        {res.raceName}
+                      </div>
                     </Link>
                   </td>
 

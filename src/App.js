@@ -143,8 +143,10 @@ export default function App() {
             }
           />
           <Route path="/landing" element={<Landing to="/landing" />} />
+          {/* {window.location.pathname !== "/landing" ? <Footer /> : null} */}
         </Routes>
       </div>
+
       <Footer />
     </Router>
   );

@@ -4,11 +4,12 @@ import React from "react";
 export default function Landing() {
   return (
     <div>
-        <div>
-          <iframe className="landing-video" src="https://www.youtube.com/embed/TOeVJcrcB_o?si=bhWDzSLpFM6KjoQC&autoplay=1&mute=1&showinfo=0&controls=0&loop=1" ></iframe>
-        </div>
+      <div>
+        <iframe
+          className="landing-video"
+          src="https://www.youtube.com/embed/TOeVJcrcB_o?si=bhWDzSLpFM6KjoQC&autoplay=1&mute=1&showinfo=0&controls=0&loop=1"
+        ></iframe>
+      </div>
     </div>
-
-    
   );
 }
