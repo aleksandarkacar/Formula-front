@@ -25,12 +25,12 @@ import { Building2 } from "lucide-react";
 import { Trophy } from "lucide-react";
 
 export default function App() {
-  const currentYear = new Date().getFullYear() - 1;
+
   // console.log(currentYear);
   const [selectedYear, setSelectedYear] = useState(2024);
   const [countryList, setCountryList] = useState([]);
 
-  const allYears = Array.from({ length: 25 }, (_, i) => currentYear - i);
+
 
   // console.log(allYears);
 
@@ -53,7 +53,7 @@ export default function App() {
       {/* Navigacija */}
       <nav className="top-navigation icons icon">
         <div className="nav-links">
-          <div className="seasons">
+          {/* <div className="seasons">
             <Trophy />
             <select
               onChange={(e) => setSelectedYear(e.target.value)}
@@ -67,7 +67,7 @@ export default function App() {
                 );
               })}
             </select>
-          </div>
+          </div> */}
           <div className="li-el">
             <NavLink to="/">
               <UsersRound className="icons icon" /> Drivers
@@ -100,7 +100,7 @@ export default function App() {
           <Route
             path="/"
             element={
-              <Drivers selectedYear={selectedYear} countryList={countryList} />
+              <Drivers  selectedYear={selectedYear} setSelectedYear={setSelectedYear} countryList={countryList} />
             }
           />
           <Route
