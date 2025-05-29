@@ -115,6 +115,11 @@ td {
   padding: 6px 12px;
   box-shadow: none;
   outline: none;
+
+  option {
+    background-color: vars.$primary;
+    // border-radius: 50%;
+  }
 }
 
 .nav-links {
