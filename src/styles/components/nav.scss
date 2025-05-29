@@ -56,7 +56,7 @@ a {
   font-size: vars.$font-medium;
   color: vars.$muted-foreground;
 
-  a {
+  .directories a {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -108,4 +108,46 @@ a {
   &.active {
     color: vars.$foreground;
   }
+}
+
+.search-button {
+  position: fixed;
+  right: 0;
+  top: 0;
+  // display: flex;
+  // align-items: center;
+  // justify-content: space-between;
+  color: vars.$muted-foreground;
+  padding: 12px 12px;
+  // margin-top: 0px;
+  text-decoration: none;
+  border-radius: 6px;
+  border-top: solid vars.$background;
+  border: 1px solid vars.$muted-foreground;
+  &:hover {
+    // background-color: vars.$primary;
+    // box-shadow: 0 0 10px vars.$primary;
+    // border-top: solid vars.$primary;
+    background-color: vars.$secondary;
+    color: vars.$foreground;
+    border: 1px solid vars.$foreground;
+  }
+  &:active {
+    background-color: vars.$primary;
+  }
+}
+
+.search-input {
+  position: fixed;
+  right: 6vh;
+  top: 0;
+  color: vars.$foreground;
+  background-color: vars.$card;
+  padding: 12px 12px;
+  // margin-top: 0px;
+  text-decoration: none;
+  border-radius: 6px;
+  border-top: solid vars.$background;
+  border: 1px solid vars.$muted-foreground;
+  z-index: 9999;
 }
