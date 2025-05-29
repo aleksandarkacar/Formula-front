@@ -40,11 +40,18 @@ export default function Drivers({
     <div className="table-wrapper">
       <br />
       <div className="wrapped-title-seasons">
-        <div className="title">
-          <h1>
-            <Trophy className="color-primary title-icon" />
-            Drivers Championship Standings {selectedYear}
-          </h1>
+        <div className="menu-wrapper">
+          <div className="title">
+            <h1>
+              <Trophy className="color-primary title-icon" />
+              Drivers Championship Standings {selectedYear}
+            </h1>
+          </div>
+          <div className="">
+            <div className="subtitle">
+              <h3>Full breakdown of drivers, points and current positions</h3>
+            </div>
+          </div>
         </div>
         <div className="seasons">
           <Trophy />
@@ -55,7 +62,7 @@ export default function Drivers({
             {allYears.map((year) => {
               return (
                 <option key={year} value={year}>
-                  Seasons {year} 
+                  Seasons {year}
                 </option>
               );
             })}
