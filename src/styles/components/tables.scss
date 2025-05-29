@@ -45,6 +45,7 @@ h1 {
 
   tr:hover {
     background-color: vars.$secondary;
+    transition: all 0.8s ease;
   }
 
   .table-row {
@@ -59,7 +60,7 @@ h1 {
     width: 100%;
   }
   .td {
-    margin:auto;
+    margin: auto;
   }
 }
 
@@ -83,4 +84,8 @@ h1 {
   width: 24px;
   height: 24px;
   margin-right: 7px;
+}
+
+.no-hover {
+  pointer-events: none;
 }

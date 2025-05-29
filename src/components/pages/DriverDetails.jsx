@@ -145,7 +145,7 @@ export default function DriverDetails({ selectedYear, countryList }) {
         <br />
         <table className="table">
           <thead>
-            <tr className="top-row">
+            <tr className="top-row no-hover">
               <th>Round</th>
               <th>Grand Prix</th>
               <th>Team</th>
