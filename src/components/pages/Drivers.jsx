@@ -63,7 +63,7 @@ export default function Drivers({
               Drivers Championship Standings {selectedYear}
             </h1>
           </div>
-          <div className="">
+          <div>
             <div className="subtitle">
               <h3>Full breakdown of drivers, points and current positions</h3>
             </div>

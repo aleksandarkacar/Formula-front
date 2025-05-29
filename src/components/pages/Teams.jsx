@@ -38,10 +38,16 @@ export default function Teams({ selectedYear, countryList }) {
       <div className="table-wrapper">
         <br />
         <div className="title">
-          <h1>
-            <Building2 className="title-icon color-primary" />
-            Constructors Championship Standings - {selectedYear}
-          </h1>
+          <div>
+            <h1>
+              <Building2 className="title-icon color-primary" />
+              Constructors Championship Standings - {selectedYear}
+            </h1>
+
+            <div className="subtitle">
+              <h3>Champion standing for the year</h3>
+            </div>
+          </div>
         </div>
         <br />
         <br />
