@@ -151,6 +151,12 @@ export default function RaceDetails({ selectedYear, countryList }) {
           </thead>
           <tbody>
             {qualifs.map((qualif, i) => {
+              console.log(
+                "driver nationality",
+                qualif.Driver.nationality,
+                getAlpha2ByNationality(countryList, qualif.Driver.nationality)
+              );
+
               let fastestTime = "";
               if (qualif.Q3) {
                 fastestTime = qualif.Q3;

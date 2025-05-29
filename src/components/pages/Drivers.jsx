@@ -21,7 +21,7 @@ export default function Drivers({
   const [err, setErr] = useState(false);
   const filteredData = drivers.filter((item) => {
     if (searchInput == "") {
-      console.log("item", item);
+      // console.log("item", item);
       return item;
     } else {
       return (
