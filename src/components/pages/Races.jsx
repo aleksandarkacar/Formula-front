@@ -11,7 +11,7 @@ export default function Races({ setSelectedYear, selectedYear, countryList }) {
   const [races, setRaces] = useState([]);
   const currentYear = new Date().getFullYear() - 1;
   const allYears = Array.from({ length: 25 }, (_, i) => currentYear - i);
-  
+
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -35,13 +35,18 @@ export default function Races({ setSelectedYear, selectedYear, countryList }) {
     <div className="table-wrapper">
       <br />
       <div className="wrapped-title-seasons">
-      <div className="title">
-        <h1>
-          <CalendarDays className="color-primary title-icon" />
-          Race Calendar - {selectedYear}
-        </h1>
-      </div>
-      <div className="seasons">
+        <div className="title">
+          <div>
+            <h1>
+              <CalendarDays className="color-primary title-icon" />
+              Race Calendar - {selectedYear}
+            </h1>
+            <div className="subtitle">
+              <h3>All information for the curent year</h3>
+            </div>
+          </div>
+        </div>
+        <div className="seasons">
           <Trophy />
           <select
             onChange={(e) => setSelectedYear(e.target.value)}
@@ -50,13 +55,13 @@ export default function Races({ setSelectedYear, selectedYear, countryList }) {
             {allYears.map((year) => {
               return (
                 <option key={year} value={year}>
-                  Seasons {year}  
+                  Seasons {year}
                 </option>
               );
             })}
           </select>
-          </div>
         </div>
+      </div>
       <br />
       <br />
       <table className="table">

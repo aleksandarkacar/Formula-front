@@ -117,10 +117,15 @@ export default function RaceDetails({ selectedYear, countryList }) {
       <div className="table-wrapper">
         <br />
         <div className="title">
-          <h1>
-            <Timer className="color-primary title-icon" />
-            Qualifying results
-          </h1>
+          <div>
+            <h1>
+              <Timer className="color-primary title-icon" />
+              Qualifying results
+            </h1>
+            <div className="subtitle">
+              <h3>Qualifying results for {selectedYear} year</h3>
+            </div>
+          </div>
         </div>
         <br />
         <br />
@@ -183,10 +188,15 @@ export default function RaceDetails({ selectedYear, countryList }) {
       <div className="table-wrapper">
         <br />
         <div className="title">
-          <h1>
-            <TableOfContents className="color-primary title-icon" />
-            Race results
-          </h1>
+          <div>
+            <h1>
+              <TableOfContents className="color-primary title-icon" />
+              Race results
+            </h1>
+            <div className="subtitle">
+              <h3>{selectedYear} race results</h3>
+            </div>
+          </div>
         </div>
         <br />
         <br />
