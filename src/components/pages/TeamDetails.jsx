@@ -15,6 +15,7 @@ import {
   Trophy,
 } from "lucide-react";
 import getPositionColor from "../getPositionColor.jsx";
+import ShowError from "../ShowError.jsx";
 
 export default function TeamDetails({ selectedYear, countryList }) {
   const params = useParams();
@@ -22,6 +23,7 @@ export default function TeamDetails({ selectedYear, countryList }) {
   const [teamDetails, setTeamDetails] = useState({});
   const [loader, setLoader] = useState(true);
   const [result, setResult] = useState([]);
+  const [err, setErr] = useState(false);
 
   useEffect(() => {
     setLoader(true);
@@ -29,32 +31,41 @@ export default function TeamDetails({ selectedYear, countryList }) {
   }, [selectedYear]);
 
   const getResult = async () => {
-    const url =
-      "http://ergast.com/api/f1/" +
-      selectedYear +
-      "/constructors/" +
-      params.id +
-      "/constructorStandings.json";
-    const url2 =
-      "http://ergast.com/api/f1/" +
-      selectedYear +
-      "/constructors/" +
-      params.id +
-      " /results.json";
+    try {
+      const url =
+        "http://ergast.com/api/f1/" +
+        selectedYear +
+        "/constructors/" +
+        params.id +
+        "/constructorStandings.json";
+      const url2 =
+        "http://ergast.com/api/f1/" +
+        selectedYear +
+        "/constructors/" +
+        params.id +
+        " /results.json";
 
-    const response = await axios.get(url);
-    const response2 = await axios.get(url2);
+      const response = await axios.get(url);
+      const response2 = await axios.get(url2);
 
-    setTeamDetails(
-      response.data.MRData.StandingsTable.StandingsLists[0]
-        .ConstructorStandings[0]
-    );
-    setResult(response2.data.MRData.RaceTable.Races);
-    setLoader(false);
+      setTeamDetails(
+        response.data.MRData.StandingsTable.StandingsLists[0]
+          .ConstructorStandings[0]
+      );
+      setResult(response2.data.MRData.RaceTable.Races);
+    } catch (error) {
+      setErr(error);
+    } finally {
+      setLoader(false);
+    }
   };
 
   if (loader) {
     return <Loader />;
+  }
+
+  if (err) {
+    return <ShowError err={err} />;
   }
 
   return (
