@@ -10,6 +10,7 @@ body {
 
 a {
   color: vars.$foreground;
+  transition: all 0.3s ease;
   &:hover {
     color: vars.$primary;
   }

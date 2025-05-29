@@ -40,7 +40,7 @@ export default function Races({ selectedYear, countryList }) {
       <br />
       <table className="table">
         <thead>
-          <tr>
+          <tr className="no-hover">
             <th>Round</th>
             <th>Grand Prix</th>
             <th>Circuit</th>

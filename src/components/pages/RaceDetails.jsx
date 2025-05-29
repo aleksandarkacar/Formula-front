@@ -126,7 +126,7 @@ export default function RaceDetails({ selectedYear, countryList }) {
         <br />
         <table className="table">
           <thead className="table-head">
-            <tr>
+            <tr className="no-hover">
               <th>Pos</th>
               <th>Driver</th>
               <th>Team</th>

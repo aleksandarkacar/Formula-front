@@ -159,7 +159,7 @@ export default function TeamDetails({ selectedYear, countryList }) {
           <thead></thead>
 
           <tbody>
-            <tr>
+            <tr className="no-hover">
               <th>Round </th>
               <th>Grand Prix</th>
               {result[0].Results.map((res) => {
