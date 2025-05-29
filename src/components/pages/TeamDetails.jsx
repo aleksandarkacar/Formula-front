@@ -157,7 +157,9 @@ export default function TeamDetails({
                     target="_blank"
                   >
                     <div className="subMenu">
-                      <div className="menu-title subtitle">History</div>{" "}
+                      <div className="menu-title subtitle history-line">
+                        History
+                      </div>{" "}
                       <div className="menu-title slide-element">
                         <ExternalLink className="icon" />
                       </div>
