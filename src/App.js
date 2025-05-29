@@ -144,6 +144,7 @@ export default function App() {
               <Teams
                 selectedYear={selectedYear}
                 countryList={countryList}
+                setSelectedYear={setSelectedYear}
                 searchInput={searchInput}
               />
             }
@@ -154,6 +155,7 @@ export default function App() {
               <Races
                 selectedYear={selectedYear}
                 countryList={countryList}
+                setSelectedYear={setSelectedYear}
                 searchInput={searchInput}
               />
             }
