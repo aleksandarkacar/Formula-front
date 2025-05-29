@@ -3,6 +3,7 @@ export function getAlpha2ByNationality(flags, nat) {
   if (!flags) {
     return null;
   }
+
   if (nat === "Dutch") {
     return "NL";
   }
@@ -14,6 +15,14 @@ export function getAlpha2ByNationality(flags, nat) {
   }
   if (nat === "Monegasque") {
     return "MC";
+  }
+  console.log("alpha2", flags, nat);
+
+  if (nat === "Argentinian ") {
+    return "AR";
+  }
+  if (nat === "New Zealander") {
+    return "NZ";
   }
   const flag = flags.find((flag) => flag.nationality === nat);
   if (!flag) {
