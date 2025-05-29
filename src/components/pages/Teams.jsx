@@ -40,7 +40,7 @@ export default function Teams({ setSelectedYear, selectedYear, countryList }) {
     <div>
       <div className="table-wrapper">
         <br />
-        <div>
+        <div className="wrapped-title-seasons">
           <div className="title">
             <div>
               <h1>

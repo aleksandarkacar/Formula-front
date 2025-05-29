@@ -34,6 +34,7 @@ export default function Races({ setSelectedYear, selectedYear, countryList }) {
   return (
     <div className="table-wrapper">
       <br />
+      <div className="wrapped-title-seasons">
       <div className="title">
         <h1>
           <CalendarDays className="color-primary title-icon" />
@@ -54,6 +55,7 @@ export default function Races({ setSelectedYear, selectedYear, countryList }) {
               );
             })}
           </select>
+          </div>
         </div>
       <br />
       <br />
