@@ -140,7 +140,7 @@ export default function TeamDetails({ selectedYear, countryList }) {
                   >
                     <div className="subMenu">
                       <div className="menu-title subtitle">History</div>{" "}
-                      <div className="menu-title">
+                      <div className="menu-title slide-element">
                         <ExternalLink className="icon" />
                       </div>
                     </div>
