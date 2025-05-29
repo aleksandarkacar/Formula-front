@@ -1,5 +1,5 @@
 export function getAlpha2ByNationality(flags, nat) {
-  console.log("Get country code", nat);
+  // console.log("Get country code", nat);
   if (!flags) {
     return null;
   }
@@ -23,7 +23,7 @@ export function getAlpha2ByNationality(flags, nat) {
 }
 
 export function getAlpha2ByCountryName(flags, name) {
-  console.log("Get country code", name);
+  // console.log("Get country code", name);
   if (!flags) {
     return null;
   }

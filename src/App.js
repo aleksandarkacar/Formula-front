@@ -23,20 +23,28 @@ import { Calendar } from "lucide-react";
 // import { FontSizeOutlined } from '@ant-design/icons';
 import { Building2 } from "lucide-react";
 import { Trophy } from "lucide-react";
+import { Search } from "lucide-react";
 
 export default function App() {
-
   // console.log(currentYear);
   const [selectedYear, setSelectedYear] = useState(2024);
   const [countryList, setCountryList] = useState([]);
+  const [searchInput, setSearchInput] = useState("");
+  const [showInput, setShowInput] = useState(false);
 
-
-
-  // console.log(allYears);
+  console.log("searchInput", searchInput);
 
   useEffect(() => {
     getCountryList();
   }, []);
+
+  const handleShowInput = () => {
+    setShowInput(!showInput);
+  };
+
+  const handleInputChange = (e) => {
+    setSearchInput(e.target.value);
+  };
 
   const getCountryList = async () => {
     const url =
@@ -83,6 +91,18 @@ export default function App() {
               <Calendar className="icons icon" /> Races
             </NavLink>
           </div>
+          <div className="li-el search-button" onClick={handleShowInput}>
+            <Search className="icons icon" />
+          </div>
+          {showInput && (
+            <input
+              className="search-input li-el"
+              type="text"
+              placeholder="Enter text"
+              value={searchInput}
+              onChange={handleInputChange}
+            />
+          )}
         </div>
         <div className="F1">
           <Flag className="flag" />
@@ -100,7 +120,12 @@ export default function App() {
           <Route
             path="/"
             element={
-              <Drivers  selectedYear={selectedYear} setSelectedYear={setSelectedYear} countryList={countryList} />
+              <Drivers
+                selectedYear={selectedYear}
+                setSelectedYear={setSelectedYear}
+                countryList={countryList}
+                searchInput={searchInput}
+              />
             }
           />
           <Route
@@ -109,19 +134,28 @@ export default function App() {
               <DriverDetails
                 selectedYear={selectedYear}
                 countryList={countryList}
+                searchInput={searchInput}
               />
             }
           />
           <Route
             path="/teams"
             element={
-              <Teams selectedYear={selectedYear} countryList={countryList} />
+              <Teams
+                selectedYear={selectedYear}
+                countryList={countryList}
+                searchInput={searchInput}
+              />
             }
           />
           <Route
             path="/races"
             element={
-              <Races selectedYear={selectedYear} countryList={countryList} />
+              <Races
+                selectedYear={selectedYear}
+                countryList={countryList}
+                searchInput={searchInput}
+              />
             }
           />
           <Route
@@ -130,6 +164,7 @@ export default function App() {
               <RaceDetails
                 selectedYear={selectedYear}
                 countryList={countryList}
+                searchInput={searchInput}
               />
             }
           />
@@ -139,6 +174,7 @@ export default function App() {
               <TeamDetails
                 selectedYear={selectedYear}
                 countryList={countryList}
+                searchInput={searchInput}
               />
             }
           />

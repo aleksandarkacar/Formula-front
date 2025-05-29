@@ -11,16 +11,32 @@ export default function Drivers({
   selectedYear,
   countryList,
   setSelectedYear,
+  searchInput,
 }) {
   const [drivers, setDrivers] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const currentYear = new Date().getFullYear() - 1;
   const allYears = Array.from({ length: 25 }, (_, i) => currentYear - i);
+  const filteredData = drivers.filter((item) => {
+    if (searchInput === "") {
+      console.log("item", item);
+      return item;
+    } else {
+      return (
+        item.Driver.familyName
+          .toLowerCase()
+          .includes(searchInput.toLowerCase()) ||
+        item.Driver.givenName.toLowerCase().includes(searchInput.toLowerCase())
+      );
+    }
+  });
 
   useEffect(() => {
     setIsLoading(true);
     getDrivers();
   }, [selectedYear]);
+
+  useEffect(() => {}, [filteredData]);
 
   const getDrivers = async () => {
     const url = `http://ergast.com/api/f1/${selectedYear}/driverStandings.json`;
@@ -55,7 +71,7 @@ export default function Drivers({
             {allYears.map((year) => {
               return (
                 <option key={year} value={year}>
-                  Seasons {year} 
+                  Seasons {year}
                 </option>
               );
             })}
@@ -67,7 +83,7 @@ export default function Drivers({
       <br />
       <table className="table">
         <tbody className="table-head">
-          {drivers.map((driver, i) => {
+          {filteredData.map((driver, i) => {
             let flag = getAlpha2ByNationality(
               countryList,
               driver.Driver.nationality
@@ -77,7 +93,7 @@ export default function Drivers({
                 <td>
                   <div
                     className="position-default"
-                    style={getPositionColor(i + 1)}
+                    style={getPositionColor(driver.position)}
                   >
                     {driver.position}
                   </div>
