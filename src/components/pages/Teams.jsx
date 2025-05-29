@@ -9,12 +9,28 @@ import getPositionColor from "../getPositionColor.jsx";
 import { Trophy } from "lucide-react";
 import ShowError from "../ShowError.jsx";
 
-export default function Teams({ setSelectedYear, selectedYear, countryList }) {
-  const [teams, setTeams] = useState({});
+export default function Teams({
+  searchInput,
+  setSelectedYear,
+  selectedYear,
+  countryList,
+}) {
+  const [teams, setTeams] = useState([]);
   const [loader, setLoader] = useState(true);
   const currentYear = new Date().getFullYear() - 1;
   const allYears = Array.from({ length: 25 }, (_, i) => currentYear - i);
   const [err, setErr] = useState(false);
+
+  const filteredData = teams.filter((item) => {
+    if (searchInput == "") {
+      console.log("item", item);
+      return item;
+    } else {
+      return item.Constructor.name
+        .toLowerCase()
+        .includes(searchInput.toLowerCase());
+    }
+  });
 
   useEffect(() => {
     setLoader(true);
@@ -88,7 +104,7 @@ export default function Teams({ setSelectedYear, selectedYear, countryList }) {
         <br />
         <table className="table">
           <tbody>
-            {teams.map((team, i) => {
+            {filteredData.map((team, i) => {
               return (
                 <tr key={team.positionText}>
                   <td>

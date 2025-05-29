@@ -10,13 +10,29 @@ import { Medal, IdCard, BookOpenText, UsersRound } from "lucide-react";
 import getPositionColor from "../getPositionColor";
 import ShowError from "../ShowError.jsx";
 
-export default function DriverDetails({ selectedYear, countryList }) {
+export default function DriverDetails({
+  searchInput,
+  selectedYear,
+  countryList,
+}) {
   const [driverDetails, setDriverDetails] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [dataRaces, setDataRaces] = useState([]);
   const [driverFlag, setDriverFlag] = useState("");
   const [err, setErr] = useState(false);
   const driver = useParams();
+
+  // Logic on this page for the filter
+  const filteredData = dataRaces.filter((item) => {
+    if (searchInput == "") {
+      console.log("item", item);
+      return item;
+    } else {
+      return item.Circuit.Location.country
+        .toLowerCase()
+        .includes(searchInput.toLowerCase());
+    }
+  });
 
   useEffect(() => {
     setIsLoading(true);
@@ -169,7 +185,7 @@ export default function DriverDetails({ selectedYear, countryList }) {
             </thead>
 
             <tbody>
-              {dataRaces.map((race, i) => {
+              {filteredData.map((race, i) => {
                 return (
                   <tr key={race.round}>
                     <td className="just-center">

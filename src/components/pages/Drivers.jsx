@@ -19,6 +19,8 @@ export default function Drivers({
   const currentYear = new Date().getFullYear() - 1;
   const allYears = Array.from({ length: 25 }, (_, i) => currentYear - i);
   const [err, setErr] = useState(false);
+
+  // Logic on this page for the filter
   const filteredData = drivers.filter((item) => {
     if (searchInput == "") {
       console.log("item", item);
@@ -28,7 +30,12 @@ export default function Drivers({
         item.Driver.familyName
           .toLowerCase()
           .includes(searchInput.toLowerCase()) ||
-        item.Driver.givenName.toLowerCase().includes(searchInput.toLowerCase())
+        item.Driver.givenName
+          .toLowerCase()
+          .includes(searchInput.toLowerCase()) ||
+        item.Constructors[0].name
+          .toLowerCase()
+          .includes(searchInput.toLowerCase())
       );
     }
   });

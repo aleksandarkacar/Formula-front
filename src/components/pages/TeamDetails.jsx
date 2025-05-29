@@ -17,13 +17,31 @@ import {
 import getPositionColor from "../getPositionColor.jsx";
 import ShowError from "../ShowError.jsx";
 
-export default function TeamDetails({ selectedYear, countryList }) {
+export default function TeamDetails({
+  searchInput,
+  selectedYear,
+  countryList,
+}) {
   const params = useParams();
 
   const [teamDetails, setTeamDetails] = useState({});
   const [loader, setLoader] = useState(true);
   const [result, setResult] = useState([]);
   const [err, setErr] = useState(false);
+
+  const filteredData = result.filter((item) => {
+    if (searchInput == "") {
+      console.log("item", item);
+      return item;
+    } else {
+      return (
+        item.raceName.toLowerCase().includes(searchInput.toLowerCase()) ||
+        item.Circuit.circuitName
+          .toLowerCase()
+          .includes(searchInput.toLowerCase())
+      );
+    }
+  });
 
   useEffect(() => {
     setLoader(true);
@@ -180,7 +198,7 @@ export default function TeamDetails({ selectedYear, countryList }) {
 
               <th>Points</th>
             </tr>
-            {result.map((res, i) => {
+            {filteredData.map((res, i) => {
               let points = 0;
 
               return (

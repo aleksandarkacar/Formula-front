@@ -16,12 +16,52 @@ import {
 import getPositionColor from "../getPositionColor.jsx";
 import ShowError from "../ShowError.jsx";
 
-export default function RaceDetails({ selectedYear, countryList }) {
+export default function RaceDetails({
+  searchInput,
+  selectedYear,
+  countryList,
+}) {
   const [qualifs, setQualifs] = useState([]);
-  const [raceResults, setRaceResults] = useState([]);
+  const [raceResults, setRaceResults] = useState({ Results: [] });
   const [isLoading, setIsLoading] = useState(true);
   const [err, setErr] = useState(false);
   const params = useParams();
+
+  // Logic on this page for the filter
+  const filteredDataQualifs = qualifs.filter((item) => {
+    if (searchInput == "") {
+      console.log("item", item);
+      return item;
+    } else {
+      return (
+        item.Driver.familyName
+          .toLowerCase()
+          .includes(searchInput.toLowerCase()) ||
+        item.Driver.givenName
+          .toLowerCase()
+          .includes(searchInput.toLowerCase()) ||
+        item.Constructor.name.toLowerCase().includes(searchInput.toLowerCase())
+      );
+    }
+  });
+
+  // Logic on this page for the second filter
+  const filteredDataRaces = raceResults.Results.filter((item) => {
+    if (searchInput == "") {
+      console.log("item", item);
+      return item;
+    } else {
+      return (
+        item.Driver.familyName
+          .toLowerCase()
+          .includes(searchInput.toLowerCase()) ||
+        item.Driver.givenName
+          .toLowerCase()
+          .includes(searchInput.toLowerCase()) ||
+        item.Constructor.name.toLowerCase().includes(searchInput.toLowerCase())
+      );
+    }
+  });
 
   useEffect(() => {
     setIsLoading(true);
@@ -150,7 +190,7 @@ export default function RaceDetails({ selectedYear, countryList }) {
             </tr>
           </thead>
           <tbody>
-            {qualifs.map((qualif, i) => {
+            {filteredDataQualifs.map((qualif) => {
               let fastestTime = "";
               if (qualif.Q3) {
                 fastestTime = qualif.Q3;
@@ -164,7 +204,7 @@ export default function RaceDetails({ selectedYear, countryList }) {
                   <td>
                     <div
                       className="position-default"
-                      style={getPositionColor(i + 1)}
+                      style={getPositionColor(qualif.position)}
                     >
                       {qualif.position}
                     </div>
@@ -223,13 +263,13 @@ export default function RaceDetails({ selectedYear, countryList }) {
           </thead>
 
           <tbody className="table-head">
-            {raceResults.Results.map((raceResult, i) => {
+            {filteredDataRaces.map((raceResult) => {
               return (
                 <tr key={raceResult.position}>
                   <td>
                     <div
                       className="position-default"
-                      style={getPositionColor(i + 1)}
+                      style={getPositionColor(raceResult.position)}
                     >
                       {raceResult.position}
                     </div>

@@ -8,13 +8,36 @@ import { CalendarDays } from "lucide-react";
 import ShowError from "../ShowError";
 import { Trophy } from "lucide-react";
 
-export default function Races({ setSelectedYear, selectedYear, countryList }) {
+export default function Races({
+  searchInput,
+  setSelectedYear,
+  selectedYear,
+  countryList,
+}) {
   const [races, setRaces] = useState([]);
   const currentYear = new Date().getFullYear() - 1;
   const allYears = Array.from({ length: 25 }, (_, i) => currentYear - i);
 
   const [isLoading, setIsLoading] = useState(true);
   const [err, setErr] = useState(false);
+
+  // Logic on this page for the filter
+  const filteredData = races.filter((item) => {
+    if (searchInput == "") {
+      console.log("item", item);
+      return item;
+    } else {
+      return (
+        item.raceName.toLowerCase().includes(searchInput.toLowerCase()) ||
+        item.Circuit.circuitName
+          .toLowerCase()
+          .includes(searchInput.toLowerCase()) ||
+        item.Results[0].Driver.familyName
+          .toLowerCase()
+          .includes(searchInput.toLowerCase())
+      );
+    }
+  });
 
   useEffect(() => {
     setIsLoading(true);
@@ -87,7 +110,7 @@ export default function Races({ setSelectedYear, selectedYear, countryList }) {
           </tr>
         </thead>
         <tbody>
-          {races.map((race, i) => {
+          {filteredData.map((race, i) => {
             return (
               <tr key={race.round}>
                 <td>
