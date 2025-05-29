@@ -23,7 +23,7 @@ export default function Drivers({
   // Logic on this page for the filter
   const filteredData = drivers.filter((item) => {
     if (searchInput == "") {
-      console.log("item", item);
+      // console.log("item", item);
       return item;
     } else {
       return (

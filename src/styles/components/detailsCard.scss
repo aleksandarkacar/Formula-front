@@ -73,6 +73,16 @@
     justify-content: space-between;
     flex-grow: 1;
   }
+
+  .slide-element {
+    transform: translateX(0px);
+    transition: transform 0.9s ease-in-out;
+    :hover {
+      // transition: transform 0.9s ease-in-out;
+      transform: translateX(30px);
+      // transition: transform 0.9s ease-in-out;
+    }
+  }
 }
 
 .menu-wrapper {
@@ -103,6 +113,7 @@
   color: vars.$muted-foreground;
   display: flex;
   justify-content: left;
+  margin-top: 2px;
 }
 
 .logo {
@@ -128,8 +139,4 @@
   color: vars.$foreground;
   margin: auto;
   padding: 5px;
-}
-
-.icon {
-  transition: all 0.3s ease;
 }

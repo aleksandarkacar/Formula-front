@@ -190,7 +190,13 @@ export default function RaceDetails({
             </tr>
           </thead>
           <tbody>
-            {filteredDataQualifs.map((qualif) => {
+            {qualifs.map((qualif, i) => {
+              console.log(
+                "driver nationality",
+                qualif.Driver.nationality,
+                getAlpha2ByNationality(countryList, qualif.Driver.nationality)
+              );
+
               let fastestTime = "";
               if (qualif.Q3) {
                 fastestTime = qualif.Q3;
