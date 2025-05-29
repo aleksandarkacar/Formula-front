@@ -6,6 +6,7 @@ a {
 
 .top-navigation {
   display: flex;
+  // flex-direction: row;
   flex-wrap: wrap;
   flex-direction: row-reverse;
   overflow: hidden;
@@ -29,6 +30,7 @@ a {
 
   select {
     display: flex;
+    // position: absolute;
     justify-content: space-between;
     align-items: center;
 
@@ -46,9 +48,15 @@ a {
   }
 }
 
+// li { display: inline-block;
+//   padding: 0 15px;
+// }
+
 .nav-links {
   display: flex;
-
+  // flex-wrap: wrap-reverse;
+  // justify-content: left;
+  // margin-top: 3px;
   height: 54px;
   flex-direction: row;
   justify-content: space-between;
@@ -62,14 +70,18 @@ a {
     justify-content: space-between;
     color: vars.$muted-foreground;
     gap: 7px;
-
+    // display: block;
+    // width: 100px;
+    // height: 40px;
     padding: 6px 12px;
-
+    // margin-top: 0px;
     text-decoration: none;
     border-radius: 6px;
     border-top: solid vars.$background;
 
     &:hover {
+      // background-color: vars.$primary;
+      // box-shadow: 0 0 10px vars.$primary;
       border-top: solid vars.$primary;
       background-color: vars.$secondary;
       color: vars.$foreground;

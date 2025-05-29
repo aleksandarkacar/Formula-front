@@ -20,6 +20,7 @@ export default function RaceDetails({ selectedYear, countryList }) {
   const [raceResults, setRaceResults] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const params = useParams();
+  // console.log(params.id);
 
   useEffect(() => {
     setIsLoading(true);
