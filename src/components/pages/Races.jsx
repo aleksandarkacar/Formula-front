@@ -13,7 +13,6 @@ export default function Races({ setSelectedYear, selectedYear, countryList }) {
   const currentYear = new Date().getFullYear() - 1;
   const allYears = Array.from({ length: 25 }, (_, i) => currentYear - i);
 
-
   const [isLoading, setIsLoading] = useState(true);
   const [err, setErr] = useState(false);
 
@@ -69,13 +68,10 @@ export default function Races({ setSelectedYear, selectedYear, countryList }) {
               return (
                 <option key={year} value={year}>
                   Seasons {year}
-                  Seasons {year}
                 </option>
               );
             })}
           </select>
-        </div>
-      </div>
         </div>
       </div>
       <br />
