@@ -16,8 +16,6 @@ export function getAlpha2ByNationality(flags, nat) {
   if (nat === "Monegasque") {
     return "MC";
   }
-  console.log("alpha2", flags, nat);
-
   if (nat === "Argentinian ") {
     return "AR";
   }
@@ -32,7 +30,6 @@ export function getAlpha2ByNationality(flags, nat) {
 }
 
 export function getAlpha2ByCountryName(flags, name) {
-  // console.log("Get country code", name);
   if (!flags) {
     return null;
   }
