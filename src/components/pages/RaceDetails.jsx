@@ -20,7 +20,6 @@ export default function RaceDetails({ selectedYear, countryList }) {
   const [raceResults, setRaceResults] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const params = useParams();
-  // console.log(params.id);
 
   useEffect(() => {
     setIsLoading(true);
@@ -127,7 +126,7 @@ export default function RaceDetails({ selectedYear, countryList }) {
         <br />
         <table className="table">
           <thead className="table-head">
-            <tr>
+            <tr className="no-hover">
               <th>Pos</th>
               <th>Driver</th>
               <th>Team</th>

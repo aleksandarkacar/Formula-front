@@ -70,7 +70,6 @@ export default function TeamDetails({ selectedYear, countryList }) {
             <img
               className="logo"
               src={`/img/teams/${params.id}.png`}
-              // alt={teamDetails.Constructor.code}
               onError={(e) => {
                 e.target.src = "/img/teams/logo2.png";
                 e.onerror = null;
@@ -160,7 +159,7 @@ export default function TeamDetails({ selectedYear, countryList }) {
           <thead></thead>
 
           <tbody>
-            <tr>
+            <tr className="no-hover">
               <th>Round </th>
               <th>Grand Prix</th>
               {result[0].Results.map((res) => {
