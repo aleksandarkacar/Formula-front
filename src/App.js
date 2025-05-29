@@ -7,7 +7,7 @@ import TeamDetails from "./components/pages/TeamDetails";
 import RaceDetails from "./components/pages/RaceDetails";
 import Landing from "./components/pages/Landing";
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Footer from "./components/Footer";
 // import "./styles/reset.css";
 // import "./styles/App.scss";
@@ -31,12 +31,16 @@ export default function App() {
   const [countryList, setCountryList] = useState([]);
   const [searchInput, setSearchInput] = useState("");
   const [showInput, setShowInput] = useState(false);
+  const inputRef = useRef(null);
 
   console.log("searchInput", searchInput);
 
   useEffect(() => {
+    if (showInput && inputRef.current) {
+      inputRef.current.focus();
+    }
     getCountryList();
-  }, []);
+  }, [showInput]);
 
   const handleShowInput = () => {
     setShowInput(!showInput);
@@ -92,7 +96,7 @@ export default function App() {
             </NavLink>
           </div>
           <div className="li-el search-button" onClick={handleShowInput}>
-            <Search className="icons icon" />
+            <Search className="icons largeIcon" />
           </div>
           {showInput && (
             <input
@@ -100,6 +104,7 @@ export default function App() {
               type="text"
               placeholder="Enter text"
               value={searchInput}
+              ref={inputRef}
               onChange={handleInputChange}
             />
           )}
