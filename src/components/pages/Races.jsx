@@ -6,9 +6,13 @@ import Flag from "react-flagkit";
 import { getAlpha2ByCountryName, getAlpha2ByNationality } from "../getFlagCode";
 import { CalendarDays } from "lucide-react";
 import ShowError from "../ShowError";
+import { Trophy } from "lucide-react";
 
-export default function Races({ selectedYear, countryList }) {
+export default function Races({ setSelectedYear, selectedYear, countryList }) {
   const [races, setRaces] = useState([]);
+  const currentYear = new Date().getFullYear() - 1;
+  const allYears = Array.from({ length: 25 }, (_, i) => currentYear - i);
+
   const [isLoading, setIsLoading] = useState(true);
   const [err, setErr] = useState(false);
 
@@ -42,11 +46,28 @@ export default function Races({ selectedYear, countryList }) {
   return (
     <div className="table-wrapper">
       <br />
-      <div className="title">
-        <h1>
-          <CalendarDays className="color-primary title-icon" />
-          Race Calendar - {selectedYear}
-        </h1>
+      <div className="wrapped-title-seasons">
+        <div className="title">
+          <h1>
+            <CalendarDays className="color-primary title-icon" />
+            Race Calendar - {selectedYear}
+          </h1>
+        </div>
+        <div className="seasons">
+          <Trophy />
+          <select
+            onChange={(e) => setSelectedYear(e.target.value)}
+            value={selectedYear}
+          >
+            {allYears.map((year) => {
+              return (
+                <option key={year} value={year}>
+                  Seasons {year}
+                </option>
+              );
+            })}
+          </select>
+        </div>
       </div>
       <br />
       <br />
