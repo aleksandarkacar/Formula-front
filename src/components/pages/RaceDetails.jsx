@@ -14,11 +14,13 @@ import {
   TableOfContents,
 } from "lucide-react";
 import getPositionColor from "../getPositionColor.jsx";
+import ShowError from "../ShowError.jsx";
 
 export default function RaceDetails({ selectedYear, countryList }) {
   const [qualifs, setQualifs] = useState([]);
   const [raceResults, setRaceResults] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [err, setErr] = useState(false);
   const params = useParams();
 
   useEffect(() => {
@@ -27,31 +29,40 @@ export default function RaceDetails({ selectedYear, countryList }) {
   }, [selectedYear]);
 
   const getQualifs = async () => {
-    const url =
-      "http://ergast.com/api/f1/" +
-      selectedYear +
-      "/" +
-      params.id +
-      "/qualifying.json";
-    const url2 =
-      "http://ergast.com/api/f1/" +
-      selectedYear +
-      "/" +
-      params.id +
-      "/results.json";
+    try {
+      const url =
+        "http://ergast.com/api/f1/" +
+        selectedYear +
+        "/" +
+        params.id +
+        "/qualifying.json";
+      const url2 =
+        "http://ergast.com/api/f1/" +
+        selectedYear +
+        "/" +
+        params.id +
+        "/results.json";
 
-    const response = await axios.get(url);
-    const response2 = await axios.get(url2);
+      const response = await axios.get(url);
+      const response2 = await axios.get(url2);
 
-    setQualifs(response.data.MRData.RaceTable.Races[0].QualifyingResults);
+      setQualifs(response.data.MRData.RaceTable.Races[0].QualifyingResults);
 
-    setRaceResults(response2.data.MRData.RaceTable.Races[0]);
-
-    setIsLoading(false);
+      setRaceResults(response2.data.MRData.RaceTable.Races[0]);
+    } catch (error) {
+      console.log("error", error);
+      setErr(error);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   if (isLoading) {
     return <Loader />;
+  }
+
+  if (err) {
+    return <ShowError err={err} />;
   }
 
   return (

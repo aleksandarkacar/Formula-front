@@ -5,6 +5,7 @@ import { Link } from "react-router";
 import Flag from "react-flagkit";
 import { getAlpha2ByCountryName, getAlpha2ByNationality } from "../getFlagCode";
 import { CalendarDays } from "lucide-react";
+import ShowError from "../ShowError";
 import { Trophy } from "lucide-react";
 
 export default function Races({ setSelectedYear, selectedYear, countryList }) {
@@ -12,7 +13,9 @@ export default function Races({ setSelectedYear, selectedYear, countryList }) {
   const currentYear = new Date().getFullYear() - 1;
   const allYears = Array.from({ length: 25 }, (_, i) => currentYear - i);
 
+
   const [isLoading, setIsLoading] = useState(true);
+  const [err, setErr] = useState(false);
 
   useEffect(() => {
     setIsLoading(true);
@@ -20,15 +23,25 @@ export default function Races({ setSelectedYear, selectedYear, countryList }) {
   }, [selectedYear]);
 
   const getRaces = async () => {
-    const url = "http://ergast.com/api/f1/" + selectedYear + "/results/1.json";
-    const response = await axios.get(url);
+    try {
+      const url =
+        "http://ergast.com/api/f1/" + selectedYear + "/results/1.json";
+      const response = await axios.get(url);
 
-    setRaces(response.data.MRData.RaceTable.Races);
-    setIsLoading(false);
+      setRaces(response.data.MRData.RaceTable.Races);
+    } catch (error) {
+      setErr(error);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   if (isLoading) {
     return <Loader />;
+  }
+
+  if (err) {
+    return <ShowError err={err} />;
   }
 
   return (
@@ -56,10 +69,13 @@ export default function Races({ setSelectedYear, selectedYear, countryList }) {
               return (
                 <option key={year} value={year}>
                   Seasons {year}
+                  Seasons {year}
                 </option>
               );
             })}
           </select>
+        </div>
+      </div>
         </div>
       </div>
       <br />

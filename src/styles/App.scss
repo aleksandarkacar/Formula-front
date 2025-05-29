@@ -155,3 +155,16 @@ td {
     }
   }
 }
+
+.show-error {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 86vh;
+  color: vars.$primary;
+
+  .err {
+    color: vars.$destructive;
+  }
+}

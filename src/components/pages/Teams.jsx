@@ -7,12 +7,14 @@ import { getAlpha2ByNationality } from "../getFlagCode";
 import { Building2 } from "lucide-react";
 import getPositionColor from "../getPositionColor.jsx";
 import { Trophy } from "lucide-react";
+import ShowError from "../ShowError.jsx";
 
 export default function Teams({ setSelectedYear, selectedYear, countryList }) {
   const [teams, setTeams] = useState({});
   const [loader, setLoader] = useState(true);
   const currentYear = new Date().getFullYear() - 1;
   const allYears = Array.from({ length: 25 }, (_, i) => currentYear - i);
+  const [err, setErr] = useState(false);
 
   useEffect(() => {
     setLoader(true);
@@ -20,20 +22,32 @@ export default function Teams({ setSelectedYear, selectedYear, countryList }) {
   }, [selectedYear]);
 
   const getTeams = async () => {
-    const url =
-      "http://ergast.com/api/f1/" + selectedYear + "/constructorStandings.json";
+    try {
+      const url =
+        "http://ergast.com/api/f1/" +
+        selectedYear +
+        "/constructorStandings.json";
 
-    const response = await axios.get(url);
+      const response = await axios.get(url);
 
-    setTeams(
-      response.data.MRData.StandingsTable.StandingsLists[0].ConstructorStandings
-    );
+      setTeams(
+        response.data.MRData.StandingsTable.StandingsLists[0]
+          .ConstructorStandings
+      );
+    } catch (error) {
+      setErr(error);
+    } finally {
+    }
 
     setLoader(false);
   };
 
   if (loader) {
     return <Loader />;
+  }
+
+  if (err) {
+    return <ShowError err={err} />;
   }
 
   return (
@@ -54,20 +68,20 @@ export default function Teams({ setSelectedYear, selectedYear, countryList }) {
             </div>
           </div>
           <div className="seasons">
-          <Trophy />
-          <select
-            onChange={(e) => setSelectedYear(e.target.value)}
-            value={selectedYear}
-          >
-            {allYears.map((year) => {
-              return (
-                <option key={year} value={year}>
-                  Seasons {year}  
-                </option>
-              );
-            })}
-          </select>
-        </div>
+            <Trophy />
+            <select
+              onChange={(e) => setSelectedYear(e.target.value)}
+              value={selectedYear}
+            >
+              {allYears.map((year) => {
+                return (
+                  <option key={year} value={year}>
+                    Seasons {year}
+                  </option>
+                );
+              })}
+            </select>
+          </div>
         </div>
         <br />
         <br />
