@@ -56,7 +56,7 @@ export default function Drivers({
     <div className="table-wrapper">
       <br />
       <div className="wrapped-title-seasons">
-        <div className="menu-wrapper">
+        <div >
           <div className="title">
             <h1>
               <Trophy className="color-primary title-icon" />
