@@ -6,6 +6,7 @@ import Flag from "react-flagkit";
 import { getAlpha2ByNationality } from "../getFlagCode";
 import { Trophy } from "lucide-react";
 import getPositionColor from "../getPositionColor.jsx";
+import ShowError from "../ShowError.jsx";
 
 export default function Drivers({
   selectedYear,
@@ -17,8 +18,9 @@ export default function Drivers({
   const [isLoading, setIsLoading] = useState(true);
   const currentYear = new Date().getFullYear() - 1;
   const allYears = Array.from({ length: 25 }, (_, i) => currentYear - i);
+  const [err, setErr] = useState(false);
   const filteredData = drivers.filter((item) => {
-    if (searchInput === "") {
+    if (searchInput == "") {
       console.log("item", item);
       return item;
     } else {
@@ -39,24 +41,34 @@ export default function Drivers({
   useEffect(() => {}, [filteredData]);
 
   const getDrivers = async () => {
-    const url = `http://ergast.com/api/f1/${selectedYear}/driverStandings.json`;
-    console.log(url);
-    const response = await axios.get(url);
-    setDrivers(
-      response.data.MRData.StandingsTable.StandingsLists[0].DriverStandings
-    );
-    setIsLoading(false);
+    try {
+      const url = `http://ergast.com/api/f1/${selectedYear}/driverStandings.json`;
+      console.log(url);
+      const response = await axios.get(url);
+      setDrivers(
+        response.data.MRData.StandingsTable.StandingsLists[0].DriverStandings
+      );
+    } catch (error) {
+      console.log("error", error);
+      setErr(error);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   if (isLoading) {
     return <Loader />;
   }
 
+  if (err) {
+    return <ShowError err={err} />;
+  }
+
   return (
     <div className="table-wrapper">
       <br />
       <div className="wrapped-title-seasons">
-        <div >
+        <div>
           <div className="title">
             <h1>
               <Trophy className="color-primary title-icon" />
@@ -78,7 +90,7 @@ export default function Drivers({
             {allYears.map((year) => {
               return (
                 <option key={year} value={year}>
-                  Seasons {year}  
+                  Seasons {year}
                 </option>
               );
             })}

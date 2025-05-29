@@ -6,10 +6,12 @@ import Flag from "react-flagkit";
 import { getAlpha2ByNationality } from "../getFlagCode";
 import { Building2 } from "lucide-react";
 import getPositionColor from "../getPositionColor.jsx";
+import ShowError from "../ShowError.jsx";
 
 export default function Teams({ selectedYear, countryList }) {
   const [teams, setTeams] = useState({});
   const [loader, setLoader] = useState(true);
+  const [err, setErr] = useState(false);
 
   useEffect(() => {
     setLoader(true);
@@ -17,20 +19,32 @@ export default function Teams({ selectedYear, countryList }) {
   }, [selectedYear]);
 
   const getTeams = async () => {
-    const url =
-      "http://ergast.com/api/f1/" + selectedYear + "/constructorStandings.json";
+    try {
+      const url =
+        "http://ergast.com/api/f1/" +
+        selectedYear +
+        "/constructorStandings.json";
 
-    const response = await axios.get(url);
+      const response = await axios.get(url);
 
-    setTeams(
-      response.data.MRData.StandingsTable.StandingsLists[0].ConstructorStandings
-    );
+      setTeams(
+        response.data.MRData.StandingsTable.StandingsLists[0]
+          .ConstructorStandings
+      );
+    } catch (error) {
+      setErr(error);
+    } finally {
+    }
 
     setLoader(false);
   };
 
   if (loader) {
     return <Loader />;
+  }
+
+  if (err) {
+    return <ShowError err={err} />;
   }
 
   return (

@@ -8,12 +8,14 @@ import Flag from "react-flagkit";
 import "../../styles/components/detailsCard.scss";
 import { Medal, IdCard, BookOpenText, UsersRound } from "lucide-react";
 import getPositionColor from "../getPositionColor";
+import ShowError from "../ShowError.jsx";
 
 export default function DriverDetails({ selectedYear, countryList }) {
   const [driverDetails, setDriverDetails] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [dataRaces, setDataRaces] = useState([]);
   const [driverFlag, setDriverFlag] = useState("");
+  const [err, setErr] = useState(false);
   const driver = useParams();
 
   useEffect(() => {
@@ -22,38 +24,48 @@ export default function DriverDetails({ selectedYear, countryList }) {
   }, [selectedYear]);
 
   const getDataRaces = async () => {
-    const url =
-      "http://ergast.com/api/f1/" +
-      selectedYear +
-      "/drivers/" +
-      driver.id +
-      "/results.json";
-    const url2 =
-      "http://ergast.com/api/f1/" +
-      selectedYear +
-      "/drivers/" +
-      driver.id +
-      "/driverStandings.json";
+    try {
+      const url =
+        "http://ergast.com/api/f1/" +
+        selectedYear +
+        "/drivers/" +
+        driver.id +
+        "/results.json";
+      const url2 =
+        "http://ergast.com/api/f1/" +
+        selectedYear +
+        "/drivers/" +
+        driver.id +
+        "/driverStandings.json";
 
-    const response2 = await axios.get(url);
-    const response = await axios.get(url2);
+      const response2 = await axios.get(url);
+      const response = await axios.get(url2);
 
-    setDataRaces(response2.data.MRData.RaceTable.Races);
-    setDriverDetails(
-      response.data.MRData.StandingsTable.StandingsLists[0].DriverStandings[0]
-    );
-    setIsLoading(false);
-    setDriverFlag(
-      getAlpha2ByNationality(
-        countryList,
+      setDataRaces(response2.data.MRData.RaceTable.Races);
+      setDriverDetails(
         response.data.MRData.StandingsTable.StandingsLists[0].DriverStandings[0]
-          .Driver.nationality
-      )
-    );
+      );
+      setDriverFlag(
+        getAlpha2ByNationality(
+          countryList,
+          response.data.MRData.StandingsTable.StandingsLists[0]
+            .DriverStandings[0].Driver.nationality
+        )
+      );
+    } catch (error) {
+      console.log("error", error);
+      setErr(error);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   if (isLoading) {
     return <Loader />;
+  }
+
+  if (err) {
+    return <ShowError err={err} />;
   }
 
   return (
