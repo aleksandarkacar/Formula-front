@@ -6,10 +6,13 @@ import Flag from "react-flagkit";
 import { getAlpha2ByNationality } from "../getFlagCode";
 import { Building2 } from "lucide-react";
 import getPositionColor from "../getPositionColor.jsx";
+import { Trophy } from "lucide-react";
 
-export default function Teams({ selectedYear, countryList }) {
+export default function Teams({ setSelectedYear, selectedYear, countryList }) {
   const [teams, setTeams] = useState({});
   const [loader, setLoader] = useState(true);
+  const currentYear = new Date().getFullYear() - 1;
+  const allYears = Array.from({ length: 25 }, (_, i) => currentYear - i);
 
   useEffect(() => {
     setLoader(true);
@@ -37,17 +40,34 @@ export default function Teams({ selectedYear, countryList }) {
     <div>
       <div className="table-wrapper">
         <br />
-        <div className="title">
-          <div>
-            <h1>
-              <Building2 className="title-icon color-primary" />
-              Constructors Championship Standings - {selectedYear}
-            </h1>
+        <div>
+          <div className="title">
+            <div>
+              <h1>
+                <Building2 className="title-icon color-primary" />
+                Constructors Championship Standings - {selectedYear}
+              </h1>
 
-            <div className="subtitle">
-              <h3>Champion standing for the year</h3>
+              <div className="subtitle">
+                <h3>Champion standing for the year</h3>
+              </div>
             </div>
           </div>
+          <div className="seasons">
+          <Trophy />
+          <select
+            onChange={(e) => setSelectedYear(e.target.value)}
+            value={selectedYear}
+          >
+            {allYears.map((year) => {
+              return (
+                <option key={year} value={year}>
+                  Seasons {year}  
+                </option>
+              );
+            })}
+          </select>
+        </div>
         </div>
         <br />
         <br />
