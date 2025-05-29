@@ -38,12 +38,6 @@ export default function DriverDetails({ selectedYear, countryList }) {
     const response2 = await axios.get(url);
     const response = await axios.get(url2);
 
-    // const dataRaces = response2.data.MRData.RaceTable.Races ;
-    // const data = response.data.MRData.StandingsTable.StandingsLists[0].DriverStandings[0] ;
-
-    // console.log("dataRaces", dataRaces)
-    // console.log('driverDetails', response.data.MRData.StandingsTable.StandingsLists[0].DriverStandings[0]);
-
     setDataRaces(response2.data.MRData.RaceTable.Races);
     setDriverDetails(
       response.data.MRData.StandingsTable.StandingsLists[0].DriverStandings[0]
