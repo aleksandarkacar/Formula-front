@@ -190,7 +190,7 @@ export default function RaceDetails({
             </tr>
           </thead>
           <tbody>
-            {qualifs.map((qualif, i) => {
+            {filteredDataQualifs.map((qualif) => {
               console.log(
                 "driver nationality",
                 qualif.Driver.nationality,
