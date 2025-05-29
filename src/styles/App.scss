@@ -81,6 +81,7 @@ td {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .seasons {
@@ -96,7 +97,6 @@ td {
   font-size: 16px;
   color: white;
   border-radius: 5px;
-
 }
 
 .seasons select {
@@ -107,6 +107,8 @@ td {
   color: white;
   border-radius: 6px;
   padding: 6px 12px;
+  box-shadow: none;
+  outline: none;
 }
 
 // .wrapped-title-seasons{
@@ -120,7 +122,7 @@ td {
 //     align-content: center;
 //     font-size: vars.$font-medium;
 //     color: vars.$muted-foreground;
-  
+
 //     a {
 //       display: flex;
 //       align-items: center;
@@ -135,7 +137,7 @@ td {
 //       text-decoration: none;
 //       border-radius: 6px;
 //       border-top: solid vars.$background;
-  
+
 //       &:hover {
 //         // background-color: vars.$primary;
 //         // box-shadow: 0 0 10px vars.$primary;
@@ -143,7 +145,7 @@ td {
 //         background-color: vars.$secondary;
 //         color: vars.$foreground;
 //       }
-  
+
 //       &.active {
 //         background-color: vars.$primary;
 //         color: vars.$foreground;
