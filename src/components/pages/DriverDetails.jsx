@@ -130,65 +130,75 @@ export default function DriverDetails({ selectedYear, countryList }) {
       <div className="table-wrapper">
         <br />
         <div className="title">
-          <h1>
-            <Medal className="color-primary title-icon " />
-            Formula 1 {selectedYear} Results
-          </h1>
+          <div>
+            <h1>
+              <Medal className="color-primary title-icon " />
+              Formula 1 {selectedYear} Results
+            </h1>
+            <div className="subtitle">
+              <h3>
+                {" "}
+                {driverDetails.Driver.familyName}'s race results and team
+              </h3>
+            </div>
+          </div>
         </div>
-        <br />
-        <br />
-        <table className="table">
-          <thead>
-            <tr className="top-row no-hover">
-              <th>Round</th>
-              <th>Grand Prix</th>
-              <th>Team</th>
-              <th>Grid</th>
-              <th>Race</th>
-            </tr>
-          </thead>
+        <div>
+          <br />
+          <table className="table">
+            <thead>
+              <tr className="top-row no-hover">
+                <th>Round</th>
+                <th>Grand Prix</th>
+                <th>Team</th>
+                <th>Grid</th>
+                <th>Race</th>
+              </tr>
+            </thead>
 
-          <tbody>
-            {dataRaces.map((race, i) => {
-              return (
-                <tr key={race.round}>
-                  <td className="just-center">
-                    <div>{race.round}</div>
-                  </td>
+            <tbody>
+              {dataRaces.map((race, i) => {
+                return (
+                  <tr key={race.round}>
+                    <td className="just-center">
+                      <div>{race.round}</div>
+                    </td>
 
-                  <td>
-                    <Link to={"/races/" + race.round}>
-                      <div className="flag-name">
-                        <div>
-                          <Flag
-                            className="flagg"
-                            country={getAlpha2ByCountryName(
-                              countryList,
-                              race.Circuit.Location.country
-                            )}
-                          />
+                    <td>
+                      <Link to={"/races/" + race.round}>
+                        <div className="flag-name">
+                          <div>
+                            <Flag
+                              className="flagg"
+                              country={getAlpha2ByCountryName(
+                                countryList,
+                                race.Circuit.Location.country
+                              )}
+                            />
+                          </div>
+
+                          <div>{race.raceName}</div>
                         </div>
-
-                        <div>{race.raceName}</div>
+                      </Link>
+                    </td>
+                    <td>{race.Results[0].Constructor.name}</td>
+                    <td>{race.Results[0].grid}</td>
+                    <td>
+                      <div
+                        className="position-default"
+                        style={getPositionColor(race.Results[0].position)}
+                      >
+                        {race.Results[0].position}
                       </div>
-                    </Link>
-                  </td>
-                  <td>{race.Results[0].Constructor.name}</td>
-                  <td>{race.Results[0].grid}</td>
-                  <td>
-                    <div
-                      className="position-default"
-                      style={getPositionColor(race.Results[0].position)}
-                    >
-                      {race.Results[0].position}
-                    </div>
-                  </td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
       </div>
+      <br />
     </div>
   );
 }

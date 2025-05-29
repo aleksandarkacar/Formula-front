@@ -150,8 +150,7 @@ export default function TeamDetails({ selectedYear, countryList }) {
         </div>
         <div className="subtitle">
           <h3>
-            {teamDetails.Constructor.name}'s race results for the current
-            seasson
+            {teamDetails.Constructor.name}'s race results for the current season
           </h3>
         </div>
 
