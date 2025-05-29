@@ -5,7 +5,6 @@ import { Link } from "react-router";
 import Flag from "react-flagkit";
 import { getAlpha2ByCountryName, getAlpha2ByNationality } from "../getFlagCode";
 import { CalendarDays } from "lucide-react";
-import getPositionColor from "../getPositionColor.jsx";
 
 export default function Races({ selectedYear, countryList }) {
   const [races, setRaces] = useState([]);

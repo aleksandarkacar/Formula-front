@@ -6,7 +6,6 @@ body {
   font-family: "Inter", "Helvetica", sans-serif;
   background-color: vars.$background;
   color: vars.$foreground;
-  // height: 92vh;
 }
 
 a {
@@ -48,9 +47,6 @@ td {
   bottom: 0;
   z-index: 1;
   background-color: vars.$background;
-  // margin: 15px;
-  // padding: 5px;
-  // border-top: vars.$border;
   font-size: vars.$font-small;
   color: vars.$muted-foreground;
   height: 6vh;
@@ -68,7 +64,6 @@ td {
 }
 
 .page {
-  // display: flex;
   min-height: 86vh;
 }
 
@@ -81,6 +76,7 @@ td {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .seasons {
@@ -89,7 +85,7 @@ td {
   align-items: center;
   padding: 10px;
   height: 20;
-  // border: 6px solid white;
+
   background-color: vars.$primary;
   border: none;
   padding: 8px 10px;
@@ -106,6 +102,8 @@ td {
   color: white;
   border-radius: 6px;
   padding: 6px 12px;
+  box-shadow: none;
+  outline: none;
 }
 
 // .wrapped-title-seasons{

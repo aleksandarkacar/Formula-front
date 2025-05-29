@@ -8,11 +8,11 @@
   min-width: min-content;
   flex-grow: 2;
   margin: 15px 7px 0px 7px;
-  // border: 1px solid;
+
   border-radius: 10px;
   color: vars.$primary;
   padding: 10px;
-  // border-top: solid vars.$primary;
+
   background-color: vars.$table;
 }
 
@@ -26,9 +26,9 @@ h1 {
 
 .table {
   color: vars.$primary;
-  // background-color: vars.$background;
+
   text-align: center;
-  // border-collapse: separate;
+
   width: 100%;
 
   th,
