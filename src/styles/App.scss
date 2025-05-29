@@ -86,12 +86,21 @@ td {
   padding: 10px;
   height: 20;
 
+  color: vars.$primary;
+  background-color: vars.$secondary;
+  color: vars.$foreground;
+  border-radius: 5px;
+  border-top: solid vars.$primary;
+}
+
+.seasons:hover {
   background-color: vars.$primary;
-  border: none;
+  border-top: solid vars.$primary;
   padding: 8px 10px;
   font-size: 16px;
   color: white;
   border-radius: 5px;
+  height: 36px;
 }
 
 .seasons select {
@@ -106,45 +115,36 @@ td {
   outline: none;
 }
 
-// .wrapped-title-seasons{
-//   display: flex;
-//     // flex-wrap: wrap-reverse;
-//     // justify-content: left;
-//     // margin-top: 3px;
-//     height: 54px;
-//     flex-direction: row;
-//     justify-content: space-between;
-//     align-content: center;
-//     font-size: vars.$font-medium;
-//     color: vars.$muted-foreground;
+.nav-links {
+  display: flex;
+  height: 54px;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: center;
+  font-size: vars.$font-medium;
+  color: vars.$muted-foreground;
 
-//     a {
-//       display: flex;
-//       align-items: center;
-//       justify-content: space-between;
-//       color: vars.$muted-foreground;
-//       gap: 7px;
-//       // display: block;
-//       // width: 100px;
-//       // height: 40px;
-//       padding: 6px 12px;
-//       // margin-top: 0px;
-//       text-decoration: none;
-//       border-radius: 6px;
-//       border-top: solid vars.$background;
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: vars.$muted-foreground;
+    gap: 7px;
+    padding: 6px 12px;
+    text-decoration: none;
+    border-radius: 6px;
+    border-top: solid vars.$background;
 
-//       &:hover {
-//         // background-color: vars.$primary;
-//         // box-shadow: 0 0 10px vars.$primary;
-//         border-top: solid vars.$primary;
-//         background-color: vars.$secondary;
-//         color: vars.$foreground;
-//       }
+    &:hover {
+      border-top: solid vars.$primary;
+      background-color: vars.$secondary;
+      color: vars.$foreground;
+    }
 
-//       &.active {
-//         background-color: vars.$primary;
-//         color: vars.$foreground;
-//         border-top: solid vars.$primary;
-//       }
-//     }
-//  }
+    &.active {
+      background-color: vars.$primary;
+      color: vars.$foreground;
+      border-top: solid vars.$primary;
+    }
+  }
+}
