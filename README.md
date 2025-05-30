@@ -1,3 +1,5 @@
+# App has been deployed at [https://aleksandarkacar.github.io/Formula-front/](https://aleksandarkacar.github.io/Formula-front/)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
