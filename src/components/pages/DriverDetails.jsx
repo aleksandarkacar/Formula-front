@@ -95,9 +95,9 @@ export default function DriverDetails({
           <div className="card-content">
             <img
               className="photo"
-              src={`/img/drivers/${driver.id}.jpg`}
+              src={`../img/drivers/${driver.id}.jpg`}
               onError={(e) => {
-                e.target.src = "/img/drivers/avatar.png";
+                e.target.src = "../img/drivers/avatar.png";
                 e.onerror = null;
               }}
             />
