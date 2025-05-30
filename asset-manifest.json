@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Formula-front/static/css/main.5e1786ba.css",
+    "main.js": "/Formula-front/static/js/main.b291952b.js",
+    "index.html": "/Formula-front/index.html",
+    "main.5e1786ba.css.map": "/Formula-front/static/css/main.5e1786ba.css.map",
+    "main.b291952b.js.map": "/Formula-front/static/js/main.b291952b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5e1786ba.css",
+    "static/js/main.b291952b.js"
+  ]
+}
