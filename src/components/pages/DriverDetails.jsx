@@ -95,9 +95,9 @@ export default function DriverDetails({
           <div className="card-content">
             <img
               className="photo"
-              src={`../img/drivers/${driver.id}.jpg`}
+              src={`process.env.PUBLIC_URL/img/drivers/${driver.id}.jpg`}
               onError={(e) => {
-                e.target.src = "../img/drivers/avatar.png";
+                e.target.src = "process.env.PUBLIC_URL/img/drivers/avatar.png";
                 e.onerror = null;
               }}
             />
@@ -109,7 +109,7 @@ export default function DriverDetails({
                 <Flag country={driverFlag} />
               ) : (
                 <img
-                  src="../img/flags.jpg"
+                  src="process.env.PUBLIC_URL/img/flags.jpg"
                   style={{ width: "24px", marginRight: "10px" }}
                   alt="Flag placeholder"
                 />
