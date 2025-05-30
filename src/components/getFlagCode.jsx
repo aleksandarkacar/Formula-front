@@ -49,7 +49,7 @@ export function getAlpha2ByCountryName(flags, name) {
     return "AE";
   }
   if (name === "Azerbaijan") {
-    return null;
+    return "LY";
   }
   if (name === "Russia") {
     return "RU";

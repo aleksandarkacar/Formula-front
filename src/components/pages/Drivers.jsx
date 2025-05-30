@@ -116,7 +116,7 @@ export default function Drivers({
             );
             return (
               <tr key={driver.Driver.driverId}>
-                <td>
+                <td style={{ width: "10%" }}>
                   <div
                     className="position-default"
                     style={getPositionColor(driver.position)}
@@ -137,7 +137,7 @@ export default function Drivers({
                       />
                     )}
 
-                    <Link to={driver.Driver.driverId}>
+                    <Link to={"/drivers/" + driver.Driver.driverId}>
                       {driver.Driver.givenName} {driver.Driver.familyName}
                     </Link>
                   </div>

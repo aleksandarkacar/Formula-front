@@ -224,7 +224,7 @@ export default function RaceDetails({
                           qualif.Driver.nationality
                         )}
                       />
-                      <Link to={"/" + qualif.Driver.driverId}>
+                      <Link to={"/drivers/" + qualif.Driver.driverId}>
                         {qualif.Driver.familyName}
                       </Link>
                     </div>
@@ -289,7 +289,7 @@ export default function RaceDetails({
                           raceResult.Driver.nationality
                         )}
                       />
-                      <Link to={"/" + raceResult.Driver.driverId}>
+                      <Link to={"/drivers/" + raceResult.Driver.driverId}>
                         {raceResult.Driver.familyName}
                       </Link>
                     </div>

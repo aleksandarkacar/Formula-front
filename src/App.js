@@ -81,7 +81,7 @@ export default function App() {
             </select>
           </div> */}
           <div className="li-el">
-            <NavLink to="/">
+            <NavLink to="/drivers">
               <UsersRound className="icons icon" /> Drivers
             </NavLink>
           </div>
@@ -111,7 +111,7 @@ export default function App() {
         </div>
         <div className="F1">
           <Flag className="flag" />
-          <NavLink to="/landing">
+          <NavLink to="/">
             <div>F1Dashboard</div>
           </NavLink>
         </div>
@@ -123,7 +123,7 @@ export default function App() {
         <Routes className="page">
           {/* <Route path="/" element={<Navigate to="/drivers"></Navigate>} /> */}
           <Route
-            path="/"
+            path="/drivers"
             element={
               <Drivers
                 selectedYear={selectedYear}
@@ -134,7 +134,7 @@ export default function App() {
             }
           />
           <Route
-            path="/:id"
+            path="/drivers/:id"
             element={
               <DriverDetails
                 selectedYear={selectedYear}
@@ -185,7 +185,7 @@ export default function App() {
               />
             }
           />
-          <Route path="/landing" element={<Landing to="/landing" />} />
+          <Route path="/" element={<Landing to="/" />} />
           {/* {window.location.pathname !== "/landing" ? <Footer /> : null} */}
         </Routes>
       </div>

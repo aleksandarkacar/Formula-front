@@ -102,11 +102,11 @@ export default function Races({
       <table className="table">
         <thead>
           <tr className="no-hover">
-            <th>Round</th>
-            <th>Grand Prix</th>
-            <th>Circuit</th>
-            <th>Date</th>
-            <th>Winner</th>
+            <th style={{ width: "10%" }}>Round</th>
+            <th style={{ width: "30%" }}>Grand Prix</th>
+            <th style={{ width: "30%" }}>Circuit</th>
+            <th style={{ width: "10%" }}>Date</th>
+            <th style={{ width: "20%" }}>Winner</th>
           </tr>
         </thead>
         <tbody>
@@ -139,7 +139,7 @@ export default function Races({
                         race.Results[0].Driver.nationality
                       )}
                     />{" "}
-                    <Link to={"/" + race.Results[0].Driver.driverId}>
+                    <Link to={"/drivers/" + race.Results[0].Driver.driverId}>
                       {race.Results[0].Driver.familyName}
                     </Link>
                   </div>
