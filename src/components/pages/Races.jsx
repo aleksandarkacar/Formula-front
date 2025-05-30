@@ -21,10 +21,8 @@ export default function Races({
   const [isLoading, setIsLoading] = useState(true);
   const [err, setErr] = useState(false);
 
-  // Logic on this page for the filter
   const filteredData = races.filter((item) => {
     if (searchInput == "") {
-      console.log("item", item);
       return item;
     } else {
       return (

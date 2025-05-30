@@ -47,10 +47,8 @@ export default function App() {
       "https://raw.githubusercontent.com/Imagin-io/country-nationality-list/refs/heads/master/countries.json";
     const response = await axios.get(url);
 
-    console.log("GetCountryList", response.data);
     setCountryList(response.data);
   };
-  console.log("selectedYear", selectedYear);
 
   return (
     <>

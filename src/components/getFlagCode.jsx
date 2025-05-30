@@ -1,5 +1,4 @@
 export function getAlpha2ByNationality(flags, nat) {
-  // console.log("Get country code", nat);
   if (!flags) {
     return null;
   }
