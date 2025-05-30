@@ -67,13 +67,13 @@ export default function RaceDetails({
   const getQualifs = async () => {
     try {
       const url =
-        "http://ergast.com/api/f1/" +
+        "https://ergast.com/api/f1/" +
         selectedYear +
         "/" +
         params.id +
         "/qualifying.json";
       const url2 =
-        "http://ergast.com/api/f1/" +
+        "https://ergast.com/api/f1/" +
         selectedYear +
         "/" +
         params.id +

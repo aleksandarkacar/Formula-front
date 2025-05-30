@@ -50,13 +50,13 @@ export default function TeamDetails({
   const getResult = async () => {
     try {
       const url =
-        "http://ergast.com/api/f1/" +
+        "https://ergast.com/api/f1/" +
         selectedYear +
         "/constructors/" +
         params.id +
         "/constructorStandings.json";
       const url2 =
-        "http://ergast.com/api/f1/" +
+        "https://ergast.com/api/f1/" +
         selectedYear +
         "/constructors/" +
         params.id +

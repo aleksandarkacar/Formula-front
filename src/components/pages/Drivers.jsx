@@ -47,7 +47,7 @@ export default function Drivers({
 
   const getDrivers = async () => {
     try {
-      const url = `http://ergast.com/api/f1/${selectedYear}/driverStandings.json`;
+      const url = `https://ergast.com/api/f1/${selectedYear}/driverStandings.json`;
 
       const response = await axios.get(url);
       setDrivers(

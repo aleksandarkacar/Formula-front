@@ -40,13 +40,13 @@ export default function DriverDetails({
   const getDataRaces = async () => {
     try {
       const url =
-        "http://ergast.com/api/f1/" +
+        "https://ergast.com/api/f1/" +
         selectedYear +
         "/drivers/" +
         driver.id +
         "/results.json";
       const url2 =
-        "http://ergast.com/api/f1/" +
+        "https://ergast.com/api/f1/" +
         selectedYear +
         "/drivers/" +
         driver.id +

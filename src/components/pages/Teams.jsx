@@ -39,7 +39,7 @@ export default function Teams({
   const getTeams = async () => {
     try {
       const url =
-        "http://ergast.com/api/f1/" +
+        "https://ergast.com/api/f1/" +
         selectedYear +
         "/constructorStandings.json";
 
