@@ -9,31 +9,23 @@ import Landing from "./components/pages/Landing";
 import axios from "axios";
 import { useEffect, useRef, useState } from "react";
 import Footer from "./components/Footer";
-// import "./styles/reset.css";
-// import "./styles/App.scss";
-// import "./styles/components/nav.scss";
-// import "./styles/components/tables.scss";
 
-// import { FlagOutlined } from '@ant-design/icons';
 import { Flag } from "lucide-react";
-// import { TeamOutlined } from '@ant-design/icons';
+
 import { UsersRound } from "lucide-react";
-// import { CalendarOutlined } from '@ant-design/icons';
+
 import { Calendar } from "lucide-react";
-// import { FontSizeOutlined } from '@ant-design/icons';
+
 import { Building2 } from "lucide-react";
 import { Trophy } from "lucide-react";
 import { Search } from "lucide-react";
 
 export default function App() {
-  // console.log(currentYear);
   const [selectedYear, setSelectedYear] = useState(2024);
   const [countryList, setCountryList] = useState([]);
   const [searchInput, setSearchInput] = useState("");
   const [showInput, setShowInput] = useState(false);
   const inputRef = useRef(null);
-
-  console.log("searchInput", searchInput);
 
   useEffect(() => {
     if (showInput && inputRef.current) {
@@ -55,10 +47,8 @@ export default function App() {
       "https://raw.githubusercontent.com/Imagin-io/country-nationality-list/refs/heads/master/countries.json";
     const response = await axios.get(url);
 
-    console.log("GetCountryList", response.data);
     setCountryList(response.data);
   };
-  console.log("selectedYear", selectedYear);
 
   return (
     <Router>

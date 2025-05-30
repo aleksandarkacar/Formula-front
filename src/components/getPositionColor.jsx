@@ -1,5 +1,4 @@
 export default function getPositionColor(position) {
-  // console.log(position);
   if (position == 1) {
     return {
       backgroundColor: "#ffd700",

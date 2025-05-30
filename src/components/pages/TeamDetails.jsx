@@ -31,7 +31,6 @@ export default function TeamDetails({
 
   const filteredData = result.filter((item) => {
     if (searchInput == "") {
-      console.log("item", item);
       return item;
     } else {
       return (

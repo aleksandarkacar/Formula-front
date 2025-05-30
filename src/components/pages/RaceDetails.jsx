@@ -27,10 +27,8 @@ export default function RaceDetails({
   const [err, setErr] = useState(false);
   const params = useParams();
 
-  // Logic on this page for the filter
   const filteredDataQualifs = qualifs.filter((item) => {
     if (searchInput == "") {
-      console.log("item", item);
       return item;
     } else {
       return (
@@ -45,10 +43,8 @@ export default function RaceDetails({
     }
   });
 
-  // Logic on this page for the second filter
   const filteredDataRaces = raceResults.Results.filter((item) => {
     if (searchInput == "") {
-      console.log("item", item);
       return item;
     } else {
       return (
@@ -86,11 +82,12 @@ export default function RaceDetails({
       const response = await axios.get(url);
       const response2 = await axios.get(url2);
 
-      setQualifs(response.data.MRData.RaceTable.Races[0].QualifyingResults);
+      if (response.data.MRData.RaceTable.Races[0].QualifyingResults) {
+        setQualifs(response.data.MRData.RaceTable.Races[0].QualifyingResults);
+      }
 
       setRaceResults(response2.data.MRData.RaceTable.Races[0]);
     } catch (error) {
-      console.log("error", error);
       setErr(error);
     } finally {
       setIsLoading(false);
@@ -191,12 +188,6 @@ export default function RaceDetails({
           </thead>
           <tbody>
             {filteredDataQualifs.map((qualif) => {
-              console.log(
-                "driver nationality",
-                qualif.Driver.nationality,
-                getAlpha2ByNationality(countryList, qualif.Driver.nationality)
-              );
-
               let fastestTime = "";
               if (qualif.Q3) {
                 fastestTime = qualif.Q3;

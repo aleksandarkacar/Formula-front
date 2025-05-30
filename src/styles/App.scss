@@ -92,8 +92,8 @@ td {
   background-color: vars.$secondary;
   color: vars.$foreground;
   border-radius: 5px;
-  // border-top: solid vars.$primary;
-  border: solid vars.$primary; //crveni border
+
+  border: solid vars.$primary;
 }
 
 .seasons:hover {
@@ -119,7 +119,6 @@ td {
 
   option {
     background-color: vars.$primary;
-    // border-radius: 50%;
   }
 }
 

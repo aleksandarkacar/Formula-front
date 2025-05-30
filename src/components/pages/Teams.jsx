@@ -23,7 +23,6 @@ export default function Teams({
 
   const filteredData = teams.filter((item) => {
     if (searchInput == "") {
-      console.log("item", item);
       return item;
     } else {
       return item.Constructor.name

@@ -20,10 +20,8 @@ export default function Drivers({
   const allYears = Array.from({ length: 25 }, (_, i) => currentYear - i);
   const [err, setErr] = useState(false);
 
-  // Logic on this page for the filter
   const filteredData = drivers.filter((item) => {
     if (searchInput == "") {
-      // console.log("item", item);
       return item;
     } else {
       return (
@@ -50,13 +48,12 @@ export default function Drivers({
   const getDrivers = async () => {
     try {
       const url = `http://ergast.com/api/f1/${selectedYear}/driverStandings.json`;
-      console.log(url);
+
       const response = await axios.get(url);
       setDrivers(
         response.data.MRData.StandingsTable.StandingsLists[0].DriverStandings
       );
     } catch (error) {
-      console.log("error", error);
       setErr(error);
     } finally {
       setIsLoading(false);

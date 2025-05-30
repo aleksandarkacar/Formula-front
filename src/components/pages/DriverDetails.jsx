@@ -22,10 +22,8 @@ export default function DriverDetails({
   const [err, setErr] = useState(false);
   const driver = useParams();
 
-  // Logic on this page for the filter
   const filteredData = dataRaces.filter((item) => {
     if (searchInput == "") {
-      console.log("item", item);
       return item;
     } else {
       return item.Circuit.Location.country
@@ -69,7 +67,6 @@ export default function DriverDetails({
         )
       );
     } catch (error) {
-      console.log("error", error);
       setErr(error);
     } finally {
       setIsLoading(false);
