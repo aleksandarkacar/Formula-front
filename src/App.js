@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, NavLink } from "react-router";
+import { Routes, Route, NavLink, useLocation } from "react-router";
 import Drivers from "./components/pages/Drivers";
 import DriverDetails from "./components/pages/DriverDetails";
 import Teams from "./components/pages/Teams";
@@ -17,7 +17,6 @@ import { UsersRound } from "lucide-react";
 import { Calendar } from "lucide-react";
 
 import { Building2 } from "lucide-react";
-import { Trophy } from "lucide-react";
 import { Search } from "lucide-react";
 
 export default function App() {
@@ -26,6 +25,7 @@ export default function App() {
   const [searchInput, setSearchInput] = useState("");
   const [showInput, setShowInput] = useState(false);
   const inputRef = useRef(null);
+  const location = useLocation();
 
   useEffect(() => {
     if (showInput && inputRef.current) {
@@ -51,25 +51,9 @@ export default function App() {
   };
 
   return (
-    <Router>
-      {/* Navigacija */}
+    <>
       <nav className="top-navigation icons icon">
         <div className="nav-links">
-          {/* <div className="seasons">
-            <Trophy />
-            <select
-              onChange={(e) => setSelectedYear(e.target.value)}
-              value={selectedYear}
-            >
-              {allYears.map((year) => {
-                return (
-                  <option key={year} value={year}>
-                    {year}
-                  </option>
-                );
-              })}
-            </select>
-          </div> */}
           <div className="li-el">
             <NavLink to="/drivers">
               <UsersRound className="icons icon" /> Drivers
@@ -85,8 +69,12 @@ export default function App() {
               <Calendar className="icons icon" /> Races
             </NavLink>
           </div>
-          <div className="li-el search-button" onClick={handleShowInput}>
-            <Search className="icons largeIcon" />
+          <div>
+            {location.pathname !== "/" && (
+              <div className="li-el search-button" onClick={handleShowInput}>
+                <Search className="icons largeIcon" />
+              </div>
+            )}
           </div>
           {showInput && (
             <input
@@ -106,12 +94,8 @@ export default function App() {
           </NavLink>
         </div>
       </nav>
-
-      {/* Rute */}
       <div className="page">
-        {/* <div style={{backgroundColor: '#ccc'}}> */}
         <Routes className="page">
-          {/* <Route path="/" element={<Navigate to="/drivers"></Navigate>} /> */}
           <Route
             path="/drivers"
             element={
@@ -176,11 +160,9 @@ export default function App() {
             }
           />
           <Route path="/" element={<Landing to="/" />} />
-          {/* {window.location.pathname !== "/landing" ? <Footer /> : null} */}
         </Routes>
       </div>
-
       <Footer />
-    </Router>
+    </>
   );
 }
