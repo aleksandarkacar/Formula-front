@@ -128,7 +128,7 @@ export default function Drivers({
                       <Flag className="flagg" country={flag} />
                     ) : (
                       <img
-                        src="../img/flags.jpg"
+                        src="process.env.PUBLIC_URL/img/flags.jpg"
                         style={{ width: "24px", marginRight: "10px" }}
                         alt="Flag placeholder"
                       />

@@ -97,9 +97,9 @@ export default function TeamDetails({
           <div>
             <img
               className="logo"
-              src={`../img/teams/${params.id}.png`}
+              src={`process.env.PUBLIC_URL/img/teams/${params.id}.png`}
               onError={(e) => {
-                e.target.src = "../img/teams/logo2.png";
+                e.target.src = "process.env.PUBLIC_URL/img/teams/logo2.png";
                 e.onerror = null;
               }}
             />
