@@ -71,22 +71,22 @@ export default function App() {
               <Calendar className="icons icon" /> Races
             </NavLink>
           </div>
-          <div>
-            {location.pathname !== "/" && (
+          {location.pathname !== "/" && (
+            <div>
               <div className="li-el search-button" onClick={handleShowInput}>
                 <Search className="icons largeIcon" />
               </div>
-            )}
-          </div>
-          {showInput && (
-            <input
-              className="search-input li-el"
-              type="text"
-              placeholder="Enter text"
-              value={searchInput}
-              ref={inputRef}
-              onChange={handleInputChange}
-            />
+              {showInput && (
+                <input
+                  className="search-input li-el"
+                  type="text"
+                  placeholder="Enter text"
+                  value={searchInput}
+                  ref={inputRef}
+                  onChange={handleInputChange}
+                />
+              )}
+            </div>
           )}
         </div>
         <div className="F1">
